@@ -7,6 +7,7 @@ target 'Challenge2' do
 
     pod 'RxSwift', '6.2.0'
     pod 'RxCocoa', '6.2.0'
+    pod 'RxDataSources', '~> 5.0'
     pod 'SDWebImage'
 
   # Pods for Challenge2

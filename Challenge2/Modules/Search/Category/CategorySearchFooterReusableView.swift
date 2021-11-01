@@ -7,7 +7,9 @@
 
 import UIKit
 
-class CategorySearchFooterCell: UICollectionReusableView {
+class CategorySearchFooterReusableView: UICollectionReusableView {
+    
+    static let footerReusableViewId = "CategorySearchfooterReusableViewId"
     
     let favoriteButton: UIButton = {
        let button = UIButton()

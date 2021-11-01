@@ -21,7 +21,7 @@ class HomeTabBarController: UITabBarController {
                 let vc = BaseSearchViewController()
                 return UINavigationController(rootViewController: vc)
             case .myData:
-                let vc = OfficialAppSearchViewController()
+                let vc = TeamListTableViewController()
                 return UINavigationController(rootViewController: vc)
             }
         }
@@ -67,7 +67,5 @@ class HomeTabBarController: UITabBarController {
         let controllers = tabBarItems.map { $0.getController() }
         viewControllers = controllers
     }
-    
-    
     
 }

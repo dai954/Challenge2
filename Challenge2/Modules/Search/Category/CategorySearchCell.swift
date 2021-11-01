@@ -9,6 +9,8 @@ import UIKit
 
 class SearchCategoryCell: UICollectionViewCell {
     
+    static let cellId = "CategoryCell"
+    
     let categoryLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)

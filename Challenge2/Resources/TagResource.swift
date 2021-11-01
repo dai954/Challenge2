@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum TagResource: Int {
+enum TagResource: Int, CaseIterable {
     
     case recommend, study, diet, work, hobby
     
@@ -29,27 +29,27 @@ enum TagResource: Int {
     var tags: Array<String> {
         switch self {
         case .recommend:
-            return TagResource.Recommend.allCases.map { recommend in
-                recommend.tagTitle
+            return TagResource.Recommend.allCases.map { tag in
+                tag.tagTitle
             }
         case .study:
-               return TagResource.Study.allCases.map { recommend in
-                    recommend.tagTitle
-               }
+            return TagResource.Study.allCases.map { tag in
+                tag.tagTitle
+            }
         case .diet:
-                return  TagResource.Diet.allCases.map { recommend in
-                    recommend.tagTitle
-                }
+            return  TagResource.Diet.allCases.map { tag in
+                tag.tagTitle
+            }
         case .work:
-                return TagResource.Work.allCases.map { recommend in
-                    recommend.tagTitle
-                }
+            return TagResource.Work.allCases.map { tag in
+                tag.tagTitle
+            }
         case .hobby:
-            return TagResource.Hobby.allCases.map { recommend in
-                recommend.tagTitle
+            return TagResource.Hobby.allCases.map { tag in
+                tag.tagTitle
             }
         }
-    
+        
     }
     
     
