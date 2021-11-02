@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct AppResult: Decodable {
+struct FeedResult: Decodable {
     let feed: Feed
 }
 
 struct Feed: Decodable {
-    let results: [Result]
+    let results: [FeedContent]
 }
 
-struct Result: Decodable {
+struct FeedContent: Decodable {
     let name: String
     let artworkUrl100: String
 }

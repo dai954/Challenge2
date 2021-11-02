@@ -9,12 +9,12 @@ import Foundation
 import XCTest
 @testable import Challenge2
 
-class AppResultTests: XCTestCase {
+class FeedResultTests: XCTestCase {
 
     func testDecode() throws {
 
-        let data = AppResult.exampleJSON.data(using: .utf8)!
-        let result = try JSONDecoder().decode(AppResult.self, from: data)
+        let data = FeedResult.exampleJSON.data(using: .utf8)!
+        let result = try JSONDecoder().decode(FeedResult.self, from: data)
 
         let firstResult = result.feed.results.first
 

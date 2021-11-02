@@ -15,13 +15,13 @@ class HomeTabBarController: UITabBarController {
         private func controller() -> UIViewController {
             switch self {
             case .search:
-                let vc = TagSearchViewController()
+                let vc = TeamListTableViewController()
                 return UINavigationController(rootViewController: vc)
             case .team:
                 let vc = BaseSearchViewController()
                 return UINavigationController(rootViewController: vc)
             case .myData:
-                let vc = TeamListTableViewController()
+                let vc = TagSearchViewController()
                 return UINavigationController(rootViewController: vc)
             }
         }
