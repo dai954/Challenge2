@@ -5,97 +5,28 @@
 //  Created by 石川大輔 on 2021/10/27.
 //
 
-//import UIKit
-//
-//class TagSearchViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
-//
-//    fileprivate let tagCellId = "tagCellId"
-//    fileprivate let tagHeaderId = "tagHeaderId"
-//
-//    fileprivate let tagResource = TagResource.allCases
-//
-//    fileprivate let searchBar: UISearchBar = {
-//        let sb = UISearchBar()
-//        sb.textField?.backgroundColor = .white
-//        sb.placeholder = "キーワード検索はここをタップ"
-//        return sb
-//    }()
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        collectionView.backgroundColor = UIColor.primaryGray()
-//
-//        navigationItem.titleView = searchBar
-//
-//        collectionView.register(TagHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: tagHeaderId)
-//        collectionView.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: tagCellId)
-//        collectionView.contentInset = .init(top: 0, left: 10, bottom: 10, right: 10)
-//
-//    }
-//
-//    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return tagResource.count
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return tagResource[section].tags.count
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: tagHeaderId, for: indexPath) as! TagHeaderReusableView
-//        header.headerLabel.text = tagResource[indexPath.section].title
-//
-//        return header
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellId, for: indexPath) as! TagCollectionViewCell
-//        let tags = tagResource[indexPath.section].tags
-//        cell.tagLabel.text = tags[indexPath.item]
-//
-//        cell.layer.cornerRadius = 12
-//        cell.backgroundColor = .white
-//
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return .init(top: 0, left: 0, bottom: 16, right: 0)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return .init(width: view.frame.width, height: 30)
-//    }
-//
-//
-//
-//}
-
 
 import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
 
-class TagSearchViewController: UIViewController, UICollectionViewDelegate {
+class TagSearchViewController: ViewController, UICollectionViewDelegate {
 
     var collectionView: UICollectionView!
-
-    let diaposeBag = DisposeBag()
-
     var layout: LeftAlignedCollectionViewFlowLayout!
-    
-    fileprivate let searchBar: UISearchBar = {
-        let sb = UISearchBar()
-        sb.textField?.backgroundColor = .white
-        sb.placeholder = "キーワード検索はここをタップ"
-        return sb
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeUI()
+        bindViewModel()
         
+    }
+    
+    func makeUI() {
         navigationItem.titleView = searchBar
+        searchBar.becomeFirstResponder()
+        addDissmissKeyboardTapGenture()
         
         layout = LeftAlignedCollectionViewFlowLayout()
         layout.headerReferenceSize = .init(width: view.frame.width, height: 30)
@@ -107,17 +38,31 @@ class TagSearchViewController: UIViewController, UICollectionViewDelegate {
         collectionView.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: TagCollectionViewCell.cellId)
         collectionView.register(TagSearchHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TagSearchHeaderReusableView.headerReusableViewId)
         
-        bindViewModel()
-        
         view.addSubview(collectionView)
         collectionView.fillSuperview()
-        
     }
+    
+    private func addDissmissKeyboardTapGenture() {
+        let tapGesture = UITapGestureRecognizer(
+                    target: self,
+                    action: #selector(dismissKeyboard))
+                tapGesture.cancelsTouchesInView = false
+                view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard() {
+            searchBar.endEditing(true)
+        }
     
     private func bindViewModel() {
         let viewModel = TagSearchViewModel(resourceAPI: ResourceAPI.resourceAPIShared)
         
-        let input = TagSearchViewModel.Input(viewLayoutEvent: rx.viewWillAppear.mapToVoid())
+        let input = TagSearchViewModel.Input(
+            viewLayoutEvent: rx.viewWillAppear.mapToVoid(),
+            selection: collectionView.rx.modelSelected(String.self).asObservable(),
+            searchWord: searchBar.rx.text.orEmpty.asObservable(),
+            searchButtonClick: searchBar.rx.searchButtonClicked.asObservable()
+        )
         let output = viewModel.transform(input: input)
         let dataSource = RxCollectionViewSectionedReloadDataSource<TagSearchSection> { dataSource, collectionView, indexPath, item in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionViewCell.cellId, for: indexPath) as! TagCollectionViewCell
@@ -131,8 +76,14 @@ class TagSearchViewController: UIViewController, UICollectionViewDelegate {
         
         output.tags
             .bind(to: collectionView.rx.items(dataSource: dataSource))
-            .disposed(by: diaposeBag)
+            .disposed(by: disposeBag)
         
+        output.searchInvoked
+            .subscribe(onNext: { viewModel in
+                let vc = TeamListTableViewController(viewModel: viewModel)
+                vc.navigationItem.title = viewModel.keyword.value
+                self.navigationController?.pushViewController(vc, animated: true)
+            }).disposed(by: disposeBag)
     }
 
 }

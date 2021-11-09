@@ -15,13 +15,13 @@ class HomeTabBarController: UITabBarController {
         private func controller() -> UIViewController {
             switch self {
             case .search:
-                let vc = TeamListTableViewController()
+                let vc = TeamListTableViewController(viewModel: TeamListViewModel(challengeAPI: MockChallengeAPI.mockChallegeAPIShared, keyword: "mock"))
                 return UINavigationController(rootViewController: vc)
             case .team:
                 let vc = BaseSearchViewController()
                 return UINavigationController(rootViewController: vc)
             case .myData:
-                let vc = TagSearchViewController()
+                let vc = TeamDetailTableViewController()
                 return UINavigationController(rootViewController: vc)
             }
         }

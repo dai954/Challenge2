@@ -8,7 +8,7 @@
 import Foundation
 
 struct App: Decodable {
-    let trackId: String
+    var trackId: Int?
     var screenshotUrls: [String]?
     let artworkUrl100: String // app icon
     let averageUserRating: Float?

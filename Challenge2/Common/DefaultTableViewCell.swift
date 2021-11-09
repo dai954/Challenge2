@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DefaultTableViewCell: UITableViewCell {
+class DefaultTableViewCell: TableViewCell {
 
     let teamImage: UIImageView = {
         let imageView = UIImageView()
@@ -23,6 +23,7 @@ class DefaultTableViewCell: UITableViewCell {
         }()
         imageView.addSubview(blackBlindView)
         blackBlindView.fillSuperview()
+        
         return imageView
     }()
 
@@ -44,7 +45,7 @@ class DefaultTableViewCell: UITableViewCell {
     let memberImageSize: CGFloat = 48
     func createMemberImage() -> UIImageView {
         let imageView = UIImageView()
-        imageView.backgroundColor = .yellow
+        imageView.backgroundColor = .white
         let imageSize: CGFloat = memberImageSize
         imageView.widthAnchor.constraint(equalToConstant: imageSize).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: imageSize).isActive = true
@@ -53,44 +54,35 @@ class DefaultTableViewCell: UITableViewCell {
         return imageView
     }
     
-    let containerView: UIView = {
+    let defaultContainerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 8
+        view.backgroundColor = .white
         return view
     }()
-
 
     var lowerView = UIView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        clipsToBounds = true
-        layer.cornerRadius = 8
-
+        backgroundColor = UIColor.primaryGray()
         let memberImageStackView = UIStackView(arrangedSubviews: [
             memberImage1, memberImage2, memberImage3, memberImage4, memberImage5
         ])
         memberImageStackView.distribution = .equalSpacing
 
         let overallStackView = UIStackView(arrangedSubviews: [
-            teamImage, lowerView
+            teamImage, lowerView, UIView()
         ])
         overallStackView.axis = .vertical
 
         overallStackView.addSubview(memberImageStackView)
         overallStackView.addSubview(teamLabel)
-        containerView.addSubview(overallStackView)
-        addSubview(containerView)
+        defaultContainerView.addSubview(overallStackView)
+        addSubview(defaultContainerView)
 
         memberImageStackView.anchor(top: teamImage.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: -memberImageSize/2, left: 20, bottom: 0, right: 20))
-        teamLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 25, left: 64, bottom: 0, right: 64))
-        
-        
+        teamLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 30, left: 85, bottom: 0, right: 85))
         overallStackView.fillSuperview()
-        containerView.fillSuperview(padding: .init(top: 5, left: 10, bottom: 5, right: 10))
-        
     }
 
     required init?(coder: NSCoder) {

@@ -7,18 +7,14 @@
 
 import UIKit
 
-final class BaseSearchViewController: UIViewController {
+final class BaseSearchViewController: ViewController {
+    
+    let categorySearchVC = CategorySearchViewController()
+    let officialAppSearchVC = OfficialAppSearchViewController()
 
     fileprivate let scrollView = UIScrollView()
     fileprivate let stackView = UIStackView()
     fileprivate let contentView = UIView()
-    fileprivate let searchBarView: UISearchBar = {
-        let sb = UISearchBar()
-        sb.textField?.backgroundColor = .white
-        sb.placeholder = "キーワード検索はここをタップ"
-        sb.textField?.isEnabled = false
-        return sb
-    }()
     
     let headerLabel: UILabel = {
         let label = UILabel()
@@ -35,40 +31,28 @@ final class BaseSearchViewController: UIViewController {
         setupSearchBar()
         setupChildren()
         setupViews()
-        
-//        Color for position test
-//        scrollView.backgroundColor = .yellow
-//        stackView.backgroundColor = .purple
-//        contentView.backgroundColor = .green
-//        headerLabel.backgroundColor = .orange
-        
+
         scrollView.backgroundColor = UIColor.primaryGray()
         stackView.backgroundColor = UIColor.primaryGray()
         contentView.backgroundColor = UIColor.primaryGray()
     }
     
     private func setupSearchBar() {
-        //   For next VC, it should be set here.
-        if #available(iOS 14.0, *) {
-            navigationItem.backButtonDisplayMode = .minimal
-        }
-        else {
-            navigationItem.backButtonTitle = ""
-        }
-        
-        navigationItem.titleView = searchBarView
-        
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap))
-
-//        searchBarView.addGestureRecognizer(tapGesture)
+        searchBar.searchTextField.isEnabled = false
+        navigationItem.titleView = searchBar
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap))
+        searchBar.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func singleTap() {
+        let vc = TagSearchViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     /// - Method:
     ///     - Tips : addChild" and "didMove" method creates a parent-child relationship between the current view controller and another view controller that's gonna be child.
     private func setupChildren() {
 
-        let categorySearchVC = CategorySearchViewController()
-        let officialAppSearchVC = OfficialAppSearchViewController()
         addChild(categorySearchVC)
         addChild(officialAppSearchVC)
         stackView.addArrangedSubview(categorySearchVC.view)
@@ -77,7 +61,6 @@ final class BaseSearchViewController: UIViewController {
         officialAppSearchVC.didMove(toParent: self)
         
         stackView.addSubview(headerLabel)
-        headerLabel.anchor(top: categorySearchVC.view.bottomAnchor, leading: officialAppSearchVC.view.leadingAnchor, bottom: officialAppSearchVC.view.topAnchor, trailing: officialAppSearchVC.view.trailingAnchor, padding: .init(top: 30, left: 0, bottom: 0, right: 0))
 
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
@@ -86,6 +69,7 @@ final class BaseSearchViewController: UIViewController {
         scrollView.addSubview(contentView)
         contentView.addSubview(stackView)
 
+        view.addSubview(addButton)
     }
     
     
@@ -109,6 +93,10 @@ final class BaseSearchViewController: UIViewController {
         stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 94/100).isActive = true
         stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30).isActive = true
         stackView.spacing = 30
+        
+        headerLabel.anchor(top: categorySearchVC.view.bottomAnchor, leading: officialAppSearchVC.view.leadingAnchor, bottom: officialAppSearchVC.view.topAnchor, trailing: officialAppSearchVC.view.trailingAnchor, padding: .init(top: 30, left: 0, bottom: 0, right: 0))
+        
+        addButton.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 6))
     }
     
 }

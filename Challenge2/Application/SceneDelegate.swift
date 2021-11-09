@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         window.rootViewController = HomeTabBarController()
+//        window.rootViewController = UINavigationController(rootViewController: TeamDetailTableViewController())
         window.makeKeyAndVisible()
         self.window = window
     }

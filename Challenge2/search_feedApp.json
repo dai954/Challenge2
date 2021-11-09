@@ -1,0 +1,226 @@
+{
+    "feed": {
+        "title": "Top Free Apps",
+        "id": "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/10/apps.json",
+        "author": {
+            "name": "Apple",
+            "url": "https://www.apple.com/"
+        },
+        "links": [
+            {
+                "self": "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/10/apps.json"
+            }
+        ],
+        "copyright": "Copyright © 2021 Apple Inc. All rights reserved.",
+        "country": "us",
+        "icon": "https://www.apple.com/favicon.ico",
+        "updated": "Fri, 5 Nov 2021 04:31:41 +0000",
+        "results": [
+            {
+                "artistName": "fullsenders, inc.",
+                "id": "1588144619",
+                "name": "push it - get it now",
+                "releaseDate": "2021-11-04",
+                "kind": "apps",
+                "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/cc/a4/a8/cca4a812-c300-f097-a79d-da16a5602ec6/AppIcon-1x_U007emarketing-0-10-0-85-220.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6012",
+                        "name": "Lifestyle",
+                        "url": "https://itunes.apple.com/us/genre/id6012"
+                    },
+                    {
+                        "genreId": "6005",
+                        "name": "Social Networking",
+                        "url": "https://itunes.apple.com/us/genre/id6005"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/push-it-get-it-now/id1588144619"
+            },
+            {
+                "artistName": "TikTok Pte. Ltd.",
+                "id": "835599320",
+                "name": "TikTok",
+                "releaseDate": "2014-04-02",
+                "kind": "apps",
+                "artworkUrl100": "https://is5-ssl.mzstatic.com/image/thumb/Purple116/v4/52/8e/ab/528eab10-3184-2e53-493a-a628e8ecab19/AppIcon_TikTok-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6016",
+                        "name": "Entertainment",
+                        "url": "https://itunes.apple.com/us/genre/id6016"
+                    },
+                    {
+                        "genreId": "6008",
+                        "name": "Photo & Video",
+                        "url": "https://itunes.apple.com/us/genre/id6008"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/tiktok/id835599320"
+            },
+            {
+                "artistName": "Instagram, Inc.",
+                "id": "389801252",
+                "name": "Instagram",
+                "releaseDate": "2010-10-06",
+                "kind": "apps",
+                "artworkUrl100": "https://is2-ssl.mzstatic.com/image/thumb/Purple116/v4/93/aa/d5/93aad5b0-a0f0-a727-c0da-196e04d809f2/Prod-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6008",
+                        "name": "Photo & Video",
+                        "url": "https://itunes.apple.com/us/genre/id6008"
+                    },
+                    {
+                        "genreId": "6005",
+                        "name": "Social Networking",
+                        "url": "https://itunes.apple.com/us/genre/id6005"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/instagram/id389801252"
+            },
+            {
+                "artistName": "Google LLC",
+                "id": "544007664",
+                "name": "YouTube: Watch, Listen, Stream",
+                "releaseDate": "2012-09-11",
+                "kind": "apps",
+                "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Purple126/v4/33/c6/4d/33c64dd9-b387-ee73-f37e-10380ced9254/logo_youtube_color-0-0-1x_U007emarketing-0-0-0-6-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6008",
+                        "name": "Photo & Video",
+                        "url": "https://itunes.apple.com/us/genre/id6008"
+                    },
+                    {
+                        "genreId": "6016",
+                        "name": "Entertainment",
+                        "url": "https://itunes.apple.com/us/genre/id6016"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/youtube-watch-listen-stream/id544007664"
+            },
+            {
+                "artistName": "Snap, Inc.",
+                "id": "447188370",
+                "name": "Snapchat",
+                "releaseDate": "2011-07-13",
+                "kind": "apps",
+                "artworkUrl100": "https://is5-ssl.mzstatic.com/image/thumb/Purple126/v4/f1/56/28/f15628d0-d3d1-2f9d-9c1b-3ef7853b7b42/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6008",
+                        "name": "Photo & Video",
+                        "url": "https://itunes.apple.com/us/genre/id6008"
+                    },
+                    {
+                        "genreId": "6005",
+                        "name": "Social Networking",
+                        "url": "https://itunes.apple.com/us/genre/id6005"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/snapchat/id447188370"
+            },
+            {
+                "artistName": "Facebook, Inc.",
+                "id": "284882215",
+                "name": "Facebook",
+                "releaseDate": "2019-02-05",
+                "kind": "apps",
+                "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/30/fb/1a/30fb1a3f-6dd8-8658-2a2e-d5719d9d364e/Icon-Production-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6005",
+                        "name": "Social Networking",
+                        "url": "https://itunes.apple.com/us/genre/id6005"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/facebook/id284882215"
+            },
+            {
+                "artistName": "Square, Inc.",
+                "id": "711923939",
+                "name": "Cash App",
+                "releaseDate": "2013-10-16",
+                "kind": "apps",
+                "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Purple126/v4/da/34/c4/da34c416-86e9-a269-4d2f-4a1068edbba5/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6015",
+                        "name": "Finance",
+                        "url": "https://itunes.apple.com/us/genre/id6015"
+                    },
+                    {
+                        "genreId": "6000",
+                        "name": "Business",
+                        "url": "https://itunes.apple.com/us/genre/id6000"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/cash-app/id711923939"
+            },
+            {
+                "artistName": "Google LLC",
+                "id": "422689480",
+                "name": "Gmail - Email by Google",
+                "releaseDate": "2011-11-02",
+                "kind": "apps",
+                "artworkUrl100": "https://is4-ssl.mzstatic.com/image/thumb/Purple126/v4/fd/33/20/fd332037-80d7-412e-9937-d1a78687001a/contsched.nwhfejxl.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6007",
+                        "name": "Productivity",
+                        "url": "https://itunes.apple.com/us/genre/id6007"
+                    },
+                    {
+                        "genreId": "6005",
+                        "name": "Social Networking",
+                        "url": "https://itunes.apple.com/us/genre/id6005"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/gmail-email-by-google/id422689480"
+            },
+            {
+                "artistName": "Facebook, Inc.",
+                "id": "454638411",
+                "name": "Messenger",
+                "releaseDate": "2011-08-09",
+                "kind": "apps",
+                "artworkUrl100": "https://is5-ssl.mzstatic.com/image/thumb/Purple116/v4/62/4d/1b/624d1bf3-a4cf-06df-047d-a186aca694da/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6005",
+                        "name": "Social Networking",
+                        "url": "https://itunes.apple.com/us/genre/id6005"
+                    },
+                    {
+                        "genreId": "6007",
+                        "name": "Productivity",
+                        "url": "https://itunes.apple.com/us/genre/id6007"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/messenger/id454638411"
+            },
+            {
+                "artistName": "AMZN Mobile LLC",
+                "id": "297606951",
+                "name": "Amazon Shopping",
+                "releaseDate": "2008-12-03",
+                "kind": "apps",
+                "artworkUrl100": "https://is2-ssl.mzstatic.com/image/thumb/Purple126/v4/c2/cd/9e/c2cd9e2b-76d5-8b3b-2ab2-3778d51d839d/AppIcon-1x_U007emarketing-0-6-0-0-85-220-0.png/100x100bb.png",
+                "genres": [
+                    {
+                        "genreId": "6024",
+                        "name": "Shopping",
+                        "url": "https://itunes.apple.com/us/genre/id6024"
+                    },
+                    {
+                        "genreId": "6012",
+                        "name": "Lifestyle",
+                        "url": "https://itunes.apple.com/us/genre/id6012"
+                    }
+                ],
+                "url": "https://apps.apple.com/us/app/amazon-shopping/id297606951"
+            }
+        ]
+    }
+}

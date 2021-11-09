@@ -33,7 +33,7 @@ extension SearchResponse where Item == App {
         {
             "resultCount": 2,
             "results": [{
-                    "trackId": "1094591345",
+                    "trackId": 1094591345,
                     "trackName": "Pokémon GO",
                     "artistName": "Niantic, Inc.",
                     "screenshotUrls": [
@@ -54,7 +54,7 @@ extension SearchResponse where Item == App {
                     "releaseNotes": "驚きました。プッシュ通知またはアプリの中から接触確認を選ぶ"
                 },
                 {
-                    "trackId": "1094591312",
+                    "trackId": 1094591312,
                     "trackName": "artist2",
                     "artistName": "apple2",
                     "screenshotUrls": ["http//image2"],

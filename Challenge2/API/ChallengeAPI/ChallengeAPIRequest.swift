@@ -40,7 +40,7 @@ struct ChallengeAPIRequest {
         
     }
     
-    struct LookUpApp {
+    struct LookUpApp: ChallengeRequest {
         typealias Response = SearchResponse<App>
         
         let appId: Int

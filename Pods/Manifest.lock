@@ -1,5 +1,6 @@
 PODS:
   - Differentiator (5.0.0)
+  - Kingfisher (7.1.1)
   - RxBlocking (6.2.0):
     - RxSwift (= 6.2.0)
   - RxCocoa (6.2.0):
@@ -14,39 +15,36 @@ PODS:
   - RxSwift (6.2.0)
   - RxTest (6.2.0):
     - RxSwift (= 6.2.0)
-  - SDWebImage (5.12.1):
-    - SDWebImage/Core (= 5.12.1)
-  - SDWebImage/Core (5.12.1)
 
 DEPENDENCIES:
+  - Kingfisher (~> 7.0)
   - RxBlocking (= 6.2.0)
   - RxCocoa (= 6.2.0)
   - RxDataSources (~> 5.0)
   - RxSwift (= 6.2.0)
   - RxTest (= 6.2.0)
-  - SDWebImage
 
 SPEC REPOS:
   trunk:
     - Differentiator
+    - Kingfisher
     - RxBlocking
     - RxCocoa
     - RxDataSources
     - RxRelay
     - RxSwift
     - RxTest
-    - SDWebImage
 
 SPEC CHECKSUMS:
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
   RxBlocking: 0b29f7d2079109a8de49c411381bed7c33ef1eeb
   RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
   RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   RxTest: 0c692fa672b694373ba86d2b00033595297a2831
-  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
 
-PODFILE CHECKSUM: d05bbb348232be5034218673d0f0281f984ccf42
+PODFILE CHECKSUM: 762769359ea2d905bf2014087c843e78a7081d80
 
 COCOAPODS: 1.10.2

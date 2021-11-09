@@ -40,6 +40,47 @@
 		095DC4892731074B00547CE5 /* StubHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4882731074B00547CE5 /* StubHTTPClient.swift */; };
 		095DC48B273108C100547CE5 /* ChallengeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC48A273108C100547CE5 /* ChallengeClient.swift */; };
 		095DC48D27310C4A00547CE5 /* ChallengeClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC48C27310C4A00547CE5 /* ChallengeClientTests.swift */; };
+		095DC4C327322CAE00547CE5 /* search_itunes.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4C227322CAE00547CE5 /* search_itunes.json */; };
+		095DC4C52732310D00547CE5 /* search_itunes2.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4C42732310D00547CE5 /* search_itunes2.json */; };
+		095DC4C82732747B00547CE5 /* MockChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4C72732747B00547CE5 /* MockChallengeAPI.swift */; };
+		095DC4CA273274AF00547CE5 /* TeamListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4C9273274AF00547CE5 /* TeamListViewModel.swift */; };
+		095DC4CC2732756100547CE5 /* TeamListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4CB2732756100547CE5 /* TeamListSection.swift */; };
+		095DC4CE273275B500547CE5 /* TeamListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4CD273275B500547CE5 /* TeamListCellViewModel.swift */; };
+		095DC4D02732A29200547CE5 /* search_itunes.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4C227322CAE00547CE5 /* search_itunes.json */; };
+		095DC4D12732A2E300547CE5 /* search_itunes2.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4C42732310D00547CE5 /* search_itunes2.json */; };
+		095DC4D32732CECB00547CE5 /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4D22732CECB00547CE5 /* ChallengeAPI.swift */; };
+		095DC4D727343DB800547CE5 /* Kingfisher+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4D627343DB800547CE5 /* Kingfisher+RxExtension.swift */; };
+		095DC4DA2734D12700547CE5 /* OfficialAppSearchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4D92734D12700547CE5 /* OfficialAppSearchSection.swift */; };
+		095DC4DC2734D21C00547CE5 /* OfficialAppSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4DB2734D21C00547CE5 /* OfficialAppSearchViewModel.swift */; };
+		095DC4DE2734E89E00547CE5 /* search_feedApp.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4DD2734E89E00547CE5 /* search_feedApp.json */; };
+		095DC4E02734E8FF00547CE5 /* MockResourceFeedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4DF2734E8FF00547CE5 /* MockResourceFeedAPI.swift */; };
+		095DC4E2273513B400547CE5 /* TeamDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4E1273513B400547CE5 /* TeamDetailTableViewController.swift */; };
+		095DC4E42735148900547CE5 /* TeamDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4E32735148900547CE5 /* TeamDetailViewModel.swift */; };
+		095DC4E6273514AC00547CE5 /* TeamDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4E5273514AC00547CE5 /* TeamDetailSection.swift */; };
+		095DC4E8273514C900547CE5 /* TeamDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4E7273514C900547CE5 /* TeamDetailTableViewCell.swift */; };
+		095DC4EA273514E900547CE5 /* TeamDetailCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4E9273514E900547CE5 /* TeamDetailCellViewModel.swift */; };
+		095DC4EC273522C000547CE5 /* search_app.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4EB273522C000547CE5 /* search_app.json */; };
+		095DC4EE2735459800547CE5 /* TeamDetailImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4ED2735459800547CE5 /* TeamDetailImageCell.swift */; };
+		095DC4F12735496500547CE5 /* AchievementRateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4F02735496500547CE5 /* AchievementRateCell.swift */; };
+		095DC4F327354C6400547CE5 /* DetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4F227354C6400547CE5 /* DetailDescriptionCell.swift */; };
+		095DC4F527354EA200547CE5 /* DetailScreenshotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4F427354EA200547CE5 /* DetailScreenshotCell.swift */; };
+		095DC4F72735500E00547CE5 /* ScreenshotCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4F62735500E00547CE5 /* ScreenshotCollectionViewController.swift */; };
+		095DC4FB2735A5A400547CE5 /* DetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4FA2735A5A400547CE5 /* DetailInfoCell.swift */; };
+		095DC4FD2735B6D900547CE5 /* FavoriteRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4FC2735B6D900547CE5 /* FavoriteRegisterCell.swift */; };
+		095DC4FF2735B89800547CE5 /* ReportButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4FE2735B89800547CE5 /* ReportButtonCell.swift */; };
+		095DC5012735BA3700547CE5 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC5002735BA3700547CE5 /* BottomView.swift */; };
+		095DC5032736397F00547CE5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC5022736397F00547CE5 /* TableViewCell.swift */; };
+		095DC5052736522800547CE5 /* CustomDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC5042736522800547CE5 /* CustomDetailCell.swift */; };
+		095DC5092737B9EE00547CE5 /* AchievementRateCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC5082737B9EE00547CE5 /* AchievementRateCircleView.swift */; };
+		095DC50B2737EB3D00547CE5 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC50A2737EB3D00547CE5 /* UILabel+Extension.swift */; };
+		095DC52F27390F9700547CE5 /* FloatingViewScrollDownDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC52E27390F9600547CE5 /* FloatingViewScrollDownDemo.swift */; };
+		095DC5322739175E00547CE5 /* DropDownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC5312739175E00547CE5 /* DropDownTableViewController.swift */; };
+		095DC534273917ED00547CE5 /* DropDownTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC533273917ED00547CE5 /* DropDownTextFieldCell.swift */; };
+		095DC5362739187500547CE5 /* DropDownCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC5352739187500547CE5 /* DropDownCategoryCell.swift */; };
+		095DC5382739193000547CE5 /* DropDownSearchSegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC5372739193000547CE5 /* DropDownSearchSegmentedCell.swift */; };
+		095DC53A2739196100547CE5 /* DropDownSortSegmentedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC5392739196100547CE5 /* DropDownSortSegmentedCell.swift */; };
+		095DC53C273919AE00547CE5 /* DropDownSearchButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC53B273919AE00547CE5 /* DropDownSearchButtonCell.swift */; };
+		095DC54027393C7400547CE5 /* DropDownFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC53F27393C7400547CE5 /* DropDownFloatingView.swift */; };
 		09C55599272AA7130023D51C /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C55598272AA7130023D51C /* Configs.swift */; };
 		09C5559B272AA7FB0023D51C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5559A272AA7FB0023D51C /* UIView+Extension.swift */; };
 		09C55665272E7CFB0023D51C /* CategorySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C55664272E7CFB0023D51C /* CategorySearchViewModel.swift */; };
@@ -113,6 +154,45 @@
 		095DC4882731074B00547CE5 /* StubHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubHTTPClient.swift; sourceTree = "<group>"; };
 		095DC48A273108C100547CE5 /* ChallengeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeClient.swift; sourceTree = "<group>"; };
 		095DC48C27310C4A00547CE5 /* ChallengeClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeClientTests.swift; sourceTree = "<group>"; };
+		095DC4C227322CAE00547CE5 /* search_itunes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = search_itunes.json; sourceTree = "<group>"; };
+		095DC4C42732310D00547CE5 /* search_itunes2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_itunes2.json; sourceTree = "<group>"; };
+		095DC4C72732747B00547CE5 /* MockChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChallengeAPI.swift; sourceTree = "<group>"; };
+		095DC4C9273274AF00547CE5 /* TeamListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListViewModel.swift; sourceTree = "<group>"; };
+		095DC4CB2732756100547CE5 /* TeamListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListSection.swift; sourceTree = "<group>"; };
+		095DC4CD273275B500547CE5 /* TeamListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCellViewModel.swift; sourceTree = "<group>"; };
+		095DC4D22732CECB00547CE5 /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
+		095DC4D627343DB800547CE5 /* Kingfisher+RxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+RxExtension.swift"; sourceTree = "<group>"; };
+		095DC4D92734D12700547CE5 /* OfficialAppSearchSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialAppSearchSection.swift; sourceTree = "<group>"; };
+		095DC4DB2734D21C00547CE5 /* OfficialAppSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialAppSearchViewModel.swift; sourceTree = "<group>"; };
+		095DC4DD2734E89E00547CE5 /* search_feedApp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_feedApp.json; sourceTree = "<group>"; };
+		095DC4DF2734E8FF00547CE5 /* MockResourceFeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResourceFeedAPI.swift; sourceTree = "<group>"; };
+		095DC4E1273513B400547CE5 /* TeamDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailTableViewController.swift; sourceTree = "<group>"; };
+		095DC4E32735148900547CE5 /* TeamDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewModel.swift; sourceTree = "<group>"; };
+		095DC4E5273514AC00547CE5 /* TeamDetailSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailSection.swift; sourceTree = "<group>"; };
+		095DC4E7273514C900547CE5 /* TeamDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailTableViewCell.swift; sourceTree = "<group>"; };
+		095DC4E9273514E900547CE5 /* TeamDetailCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailCellViewModel.swift; sourceTree = "<group>"; };
+		095DC4EB273522C000547CE5 /* search_app.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_app.json; sourceTree = "<group>"; };
+		095DC4ED2735459800547CE5 /* TeamDetailImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailImageCell.swift; sourceTree = "<group>"; };
+		095DC4F02735496500547CE5 /* AchievementRateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AchievementRateCell.swift; sourceTree = "<group>"; };
+		095DC4F227354C6400547CE5 /* DetailDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailDescriptionCell.swift; sourceTree = "<group>"; };
+		095DC4F427354EA200547CE5 /* DetailScreenshotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailScreenshotCell.swift; sourceTree = "<group>"; };
+		095DC4F62735500E00547CE5 /* ScreenshotCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewController.swift; sourceTree = "<group>"; };
+		095DC4FA2735A5A400547CE5 /* DetailInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInfoCell.swift; sourceTree = "<group>"; };
+		095DC4FC2735B6D900547CE5 /* FavoriteRegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteRegisterCell.swift; sourceTree = "<group>"; };
+		095DC4FE2735B89800547CE5 /* ReportButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportButtonCell.swift; sourceTree = "<group>"; };
+		095DC5002735BA3700547CE5 /* BottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		095DC5022736397F00547CE5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		095DC5042736522800547CE5 /* CustomDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDetailCell.swift; sourceTree = "<group>"; };
+		095DC5082737B9EE00547CE5 /* AchievementRateCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRateCircleView.swift; sourceTree = "<group>"; };
+		095DC50A2737EB3D00547CE5 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		095DC52E27390F9600547CE5 /* FloatingViewScrollDownDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingViewScrollDownDemo.swift; sourceTree = "<group>"; };
+		095DC5312739175E00547CE5 /* DropDownTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewController.swift; sourceTree = "<group>"; };
+		095DC533273917ED00547CE5 /* DropDownTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextFieldCell.swift; sourceTree = "<group>"; };
+		095DC5352739187500547CE5 /* DropDownCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownCategoryCell.swift; sourceTree = "<group>"; };
+		095DC5372739193000547CE5 /* DropDownSearchSegmentedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownSearchSegmentedCell.swift; sourceTree = "<group>"; };
+		095DC5392739196100547CE5 /* DropDownSortSegmentedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownSortSegmentedCell.swift; sourceTree = "<group>"; };
+		095DC53B273919AE00547CE5 /* DropDownSearchButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownSearchButtonCell.swift; sourceTree = "<group>"; };
+		095DC53F27393C7400547CE5 /* DropDownFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownFloatingView.swift; sourceTree = "<group>"; };
 		09C55598272AA7130023D51C /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		09C5559A272AA7FB0023D51C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		09C55664272E7CFB0023D51C /* CategorySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearchViewModel.swift; sourceTree = "<group>"; };
@@ -198,7 +278,9 @@
 			isa = PBXGroup;
 			children = (
 				09D37FD22727FE6D003B4E6A /* OfficialAppSearchViewController.swift */,
+				095DC4DB2734D21C00547CE5 /* OfficialAppSearchViewModel.swift */,
 				09D37FD42727FF57003B4E6A /* OfficialAppSearchCell.swift */,
+				095DC4D92734D12700547CE5 /* OfficialAppSearchSection.swift */,
 			);
 			path = OfficialApp;
 			sourceTree = "<group>";
@@ -224,7 +306,11 @@
 			isa = PBXGroup;
 			children = (
 				094C001827297C9000313907 /* TeamListTableViewController.swift */,
+				095DC4C9273274AF00547CE5 /* TeamListViewModel.swift */,
 				094C001C2729A32C00313907 /* TeamListTableViewCell.swift */,
+				095DC4CD273275B500547CE5 /* TeamListCellViewModel.swift */,
+				095DC4CB2732756100547CE5 /* TeamListSection.swift */,
+				095DC5302739172E00547CE5 /* DropDownView+Cell */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -232,6 +318,12 @@
 		094C001727297C6B00313907 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				095DC4E1273513B400547CE5 /* TeamDetailTableViewController.swift */,
+				095DC4E32735148900547CE5 /* TeamDetailViewModel.swift */,
+				095DC4E7273514C900547CE5 /* TeamDetailTableViewCell.swift */,
+				095DC4E9273514E900547CE5 /* TeamDetailCellViewModel.swift */,
+				095DC4E5273514AC00547CE5 /* TeamDetailSection.swift */,
+				095DC4EF2735493300547CE5 /* Cell+BottomView */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -243,6 +335,7 @@
 				094C00262729AD6400313907 /* TeamListCollectionViewCell.swift */,
 				094C00222729AC1E00313907 /* DefaultCollectionViewCell.swift */,
 				094C00242729AC3000313907 /* CustomCollectionViewCell.swift */,
+				095DC52E27390F9600547CE5 /* FloatingViewScrollDownDemo.swift */,
 			);
 			path = Trash;
 			sourceTree = "<group>";
@@ -268,6 +361,7 @@
 				095DC47C2730E9F000547CE5 /* ChallengeAPIError.swift */,
 				095DC486273102A100547CE5 /* HTTPClient.swift */,
 				095DC48A273108C100547CE5 /* ChallengeClient.swift */,
+				095DC4D22732CECB00547CE5 /* ChallengeAPI.swift */,
 			);
 			path = ChallengeAPI;
 			sourceTree = "<group>";
@@ -287,6 +381,54 @@
 				09C55666272E7D310023D51C /* ResourceAPI.swift */,
 			);
 			path = ResourceAPI;
+			sourceTree = "<group>";
+		};
+		095DC4C62732744700547CE5 /* MockAPI */ = {
+			isa = PBXGroup;
+			children = (
+				095DC4C72732747B00547CE5 /* MockChallengeAPI.swift */,
+				095DC4DF2734E8FF00547CE5 /* MockResourceFeedAPI.swift */,
+			);
+			path = MockAPI;
+			sourceTree = "<group>";
+		};
+		095DC4D8273445E900547CE5 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				094CFFFF27292E0C00313907 /* FeedResult.swift */,
+				094C0005272936FE00313907 /* APIClientError.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		095DC4EF2735493300547CE5 /* Cell+BottomView */ = {
+			isa = PBXGroup;
+			children = (
+				095DC5042736522800547CE5 /* CustomDetailCell.swift */,
+				095DC4ED2735459800547CE5 /* TeamDetailImageCell.swift */,
+				095DC4F02735496500547CE5 /* AchievementRateCell.swift */,
+				095DC4F227354C6400547CE5 /* DetailDescriptionCell.swift */,
+				095DC4F427354EA200547CE5 /* DetailScreenshotCell.swift */,
+				095DC4FA2735A5A400547CE5 /* DetailInfoCell.swift */,
+				095DC4FC2735B6D900547CE5 /* FavoriteRegisterCell.swift */,
+				095DC4FE2735B89800547CE5 /* ReportButtonCell.swift */,
+				095DC5002735BA3700547CE5 /* BottomView.swift */,
+			);
+			path = "Cell+BottomView";
+			sourceTree = "<group>";
+		};
+		095DC5302739172E00547CE5 /* DropDownView+Cell */ = {
+			isa = PBXGroup;
+			children = (
+				095DC5312739175E00547CE5 /* DropDownTableViewController.swift */,
+				095DC53F27393C7400547CE5 /* DropDownFloatingView.swift */,
+				095DC533273917ED00547CE5 /* DropDownTextFieldCell.swift */,
+				095DC5352739187500547CE5 /* DropDownCategoryCell.swift */,
+				095DC5372739193000547CE5 /* DropDownSearchSegmentedCell.swift */,
+				095DC5392739196100547CE5 /* DropDownSortSegmentedCell.swift */,
+				095DC53B273919AE00547CE5 /* DropDownSearchButtonCell.swift */,
+			);
+			path = "DropDownView+Cell";
 			sourceTree = "<group>";
 		};
 		09C55597272AA7050023D51C /* Configs */ = {
@@ -331,7 +473,10 @@
 				09D37FB62727C688003B4E6A /* Modules */,
 				09D37F7527269C2B003B4E6A /* Assets.xcassets */,
 				09D37F7A27269C2B003B4E6A /* Info.plist */,
-				09D37F7027269C27003B4E6A /* ViewController.swift */,
+				095DC4C227322CAE00547CE5 /* search_itunes.json */,
+				095DC4C42732310D00547CE5 /* search_itunes2.json */,
+				095DC4DD2734E89E00547CE5 /* search_feedApp.json */,
+				095DC4EB273522C000547CE5 /* search_app.json */,
 			);
 			path = Challenge2;
 			sourceTree = "<group>";
@@ -363,9 +508,13 @@
 			children = (
 				09D37FC22727DF85003B4E6A /* BaseListController.swift */,
 				094C000B272958F400313907 /* LeftAlignedCollectionViewFlowLayout.swift */,
+				095DC5022736397F00547CE5 /* TableViewCell.swift */,
 				094C001A27298DCF00313907 /* DefaultTableViewCell.swift */,
 				094C001E2729A3E300313907 /* CustomTableViewCell.swift */,
+				09D37F7027269C27003B4E6A /* ViewController.swift */,
 				09C5566A272E7EBF0023D51C /* ViewModelType.swift */,
+				095DC4F62735500E00547CE5 /* ScreenshotCollectionViewController.swift */,
+				095DC5082737B9EE00547CE5 /* AchievementRateCircleView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -416,6 +565,8 @@
 				09D37FFA272841EF003B4E6A /* UIsearchBar+Extension.swift */,
 				09C5559A272AA7FB0023D51C /* UIView+Extension.swift */,
 				095DC4762730DFDF00547CE5 /* Float+Extension.swift */,
+				095DC4D627343DB800547CE5 /* Kingfisher+RxExtension.swift */,
+				095DC50A2737EB3D00547CE5 /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -432,10 +583,10 @@
 		09D38000272921DF003B4E6A /* API */ = {
 			isa = PBXGroup;
 			children = (
+				095DC4C62732744700547CE5 /* MockAPI */,
 				095DC46E272FDBAD00547CE5 /* ChallengeAPI */,
-				094CFFFF27292E0C00313907 /* FeedResult.swift */,
-				094C0005272936FE00313907 /* APIClientError.swift */,
 				095DC48E2731115900547CE5 /* ResourceAPI */,
+				095DC4D8273445E900547CE5 /* Feed */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -544,6 +695,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095DC4D12732A2E300547CE5 /* search_itunes2.json in Resources */,
+				095DC4DE2734E89E00547CE5 /* search_feedApp.json in Resources */,
+				095DC4D02732A29200547CE5 /* search_itunes.json in Resources */,
+				095DC4EC273522C000547CE5 /* search_app.json in Resources */,
 				09D37F7627269C2B003B4E6A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +707,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095DC4C52732310D00547CE5 /* search_itunes2.json in Resources */,
+				095DC4C327322CAE00547CE5 /* search_itunes.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,51 +802,86 @@
 			files = (
 				095DC47F2730EE4400547CE5 /* ChallengeAPIRequest.swift in Sources */,
 				09C55665272E7CFB0023D51C /* CategorySearchViewModel.swift in Sources */,
+				095DC4D32732CECB00547CE5 /* ChallengeAPI.swift in Sources */,
+				095DC4EA273514E900547CE5 /* TeamDetailCellViewModel.swift in Sources */,
 				094C000027292E0C00313907 /* FeedResult.swift in Sources */,
 				094C00252729AC3000313907 /* CustomCollectionViewCell.swift in Sources */,
+				095DC4F12735496500547CE5 /* AchievementRateCell.swift in Sources */,
+				095DC53C273919AE00547CE5 /* DropDownSearchButtonCell.swift in Sources */,
 				09C55667272E7D310023D51C /* ResourceAPI.swift in Sources */,
+				095DC4D727343DB800547CE5 /* Kingfisher+RxExtension.swift in Sources */,
 				09D37FD52727FF57003B4E6A /* OfficialAppSearchCell.swift in Sources */,
+				095DC4E02734E8FF00547CE5 /* MockResourceFeedAPI.swift in Sources */,
 				094C00142729720400313907 /* TagCollectionViewCell.swift in Sources */,
 				094C000C272958F400313907 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				095DC4852730F29000547CE5 /* MnemonicCode.swift in Sources */,
 				09D37FD12727EC57003B4E6A /* CategorySearchFooterReusableView.swift in Sources */,
 				09D37FCF2727E7F6003B4E6A /* CategoryResouce.swift in Sources */,
 				09D37FBF2727DBFB003B4E6A /* BaseSearchViewController.swift in Sources */,
+				095DC4C82732747B00547CE5 /* MockChallengeAPI.swift in Sources */,
+				095DC4E6273514AC00547CE5 /* TeamDetailSection.swift in Sources */,
 				094C000A2729579700313907 /* TagSearchViewController.swift in Sources */,
 				09C55669272E7D9B0023D51C /* CategorySearchSection.swift in Sources */,
+				095DC52F27390F9700547CE5 /* FloatingViewScrollDownDemo.swift in Sources */,
 				094C0012272971D000313907 /* TagSearchHeaderReusableView.swift in Sources */,
+				095DC4FB2735A5A400547CE5 /* DetailInfoCell.swift in Sources */,
+				095DC50B2737EB3D00547CE5 /* UILabel+Extension.swift in Sources */,
 				09D37F7127269C27003B4E6A /* ViewController.swift in Sources */,
 				094C001D2729A32C00313907 /* TeamListTableViewCell.swift in Sources */,
+				095DC53A2739196100547CE5 /* DropDownSortSegmentedCell.swift in Sources */,
 				09D37FFB272841EF003B4E6A /* UIsearchBar+Extension.swift in Sources */,
 				09C5559B272AA7FB0023D51C /* UIView+Extension.swift in Sources */,
+				095DC5322739175E00547CE5 /* DropDownTableViewController.swift in Sources */,
+				095DC4E2273513B400547CE5 /* TeamDetailTableViewController.swift in Sources */,
 				095DC47B2730E98B00547CE5 /* ChallengeClientError.swift in Sources */,
+				095DC5382739193000547CE5 /* DropDownSearchSegmentedCell.swift in Sources */,
 				09D37F6D27269C27003B4E6A /* AppDelegate.swift in Sources */,
+				095DC4F327354C6400547CE5 /* DetailDescriptionCell.swift in Sources */,
+				095DC4DA2734D12700547CE5 /* OfficialAppSearchSection.swift in Sources */,
+				095DC4F527354EA200547CE5 /* DetailScreenshotCell.swift in Sources */,
+				095DC4CA273274AF00547CE5 /* TeamListViewModel.swift in Sources */,
+				095DC4FD2735B6D900547CE5 /* FavoriteRegisterCell.swift in Sources */,
 				09D37FCA2727E3B6003B4E6A /* CategorySearchCell.swift in Sources */,
+				095DC4CC2732756100547CE5 /* TeamListSection.swift in Sources */,
 				09D37FBD2727CC59003B4E6A /* ThemeManager.swift in Sources */,
 				095DC46B272FCA7200547CE5 /* TagSearchViewModel.swift in Sources */,
+				095DC5362739187500547CE5 /* DropDownCategoryCell.swift in Sources */,
 				094C001B27298DCF00313907 /* DefaultTableViewCell.swift in Sources */,
 				09C55599272AA7130023D51C /* Configs.swift in Sources */,
 				095DC487273102A100547CE5 /* HTTPClient.swift in Sources */,
 				09D37FC62727E0B4003B4E6A /* UIColor+Extension.swift in Sources */,
 				09D37FCC2727E40D003B4E6A /* UIView+Layout.swift in Sources */,
 				094C001F2729A3E300313907 /* CustomTableViewCell.swift in Sources */,
+				095DC5032736397F00547CE5 /* TableViewCell.swift in Sources */,
 				094C00212729AB7B00313907 /* TeamListCollectionViewController.swift in Sources */,
+				095DC4EE2735459800547CE5 /* TeamDetailImageCell.swift in Sources */,
 				09D37FD32727FE6D003B4E6A /* OfficialAppSearchViewController.swift in Sources */,
+				095DC5092737B9EE00547CE5 /* AchievementRateCircleView.swift in Sources */,
+				095DC4FF2735B89800547CE5 /* ReportButtonCell.swift in Sources */,
+				095DC5012735BA3700547CE5 /* BottomView.swift in Sources */,
 				095DC4792730E89100547CE5 /* App.swift in Sources */,
 				094C001927297C9000313907 /* TeamListTableViewController.swift in Sources */,
 				095DC48B273108C100547CE5 /* ChallengeClient.swift in Sources */,
 				095DC4812730EE7100547CE5 /* ChallengeRequest.swift in Sources */,
+				095DC4F72735500E00547CE5 /* ScreenshotCollectionViewController.swift in Sources */,
 				095DC47D2730E9F000547CE5 /* ChallengeAPIError.swift in Sources */,
 				094C00232729AC1E00313907 /* DefaultCollectionViewCell.swift in Sources */,
 				09D37FBA2727C72D003B4E6A /* HomeTabBarController.swift in Sources */,
 				095DC471272FDD8100547CE5 /* SearchResponse.swift in Sources */,
+				095DC4E42735148900547CE5 /* TeamDetailViewModel.swift in Sources */,
+				095DC54027393C7400547CE5 /* DropDownFloatingView.swift in Sources */,
 				094C00272729AD6400313907 /* TeamListCollectionViewCell.swift in Sources */,
+				095DC4DC2734D21C00547CE5 /* OfficialAppSearchViewModel.swift in Sources */,
 				095DC46D272FCD9700547CE5 /* TagSearchSection.swift in Sources */,
 				09D37F6F27269C27003B4E6A /* SceneDelegate.swift in Sources */,
+				095DC4E8273514C900547CE5 /* TeamDetailTableViewCell.swift in Sources */,
 				09C5566D272E7FB10023D51C /* UIViewController+RxExtension.swift in Sources */,
+				095DC4CE273275B500547CE5 /* TeamListCellViewModel.swift in Sources */,
 				094C000827293BDF00313907 /* TagResource.swift in Sources */,
 				09C5566B272E7EBF0023D51C /* ViewModelType.swift in Sources */,
 				09D37FC32727DF85003B4E6A /* BaseListController.swift in Sources */,
+				095DC5052736522800547CE5 /* CustomDetailCell.swift in Sources */,
+				095DC534273917ED00547CE5 /* DropDownTextFieldCell.swift in Sources */,
 				095DC4832730EF2B00547CE5 /* HTTPMethod.swift in Sources */,
 				094C0006272936FE00313907 /* APIClientError.swift in Sources */,
 				095DC4772730DFDF00547CE5 /* Float+Extension.swift in Sources */,

@@ -6,8 +6,9 @@
 //
 
 import RxSwift
+import RxCocoa
 
-class ResourceAPI {
+class ResourceAPI: ResourceFeedAPIType {
 
     static let resourceAPIShared = ResourceAPI()
 
@@ -35,5 +36,26 @@ class ResourceAPI {
         return Observable.just(tagSections)
     }
 
+    func getFeedResult() -> Observable<FeedResult> {
+//        let urlString = "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/\(limitNumber)/apps.json"
+//        let url = URL(string: urlString)!
+//        let request = URLRequest(url: url)
+//
+//        return Observable.just(request)
+//            .flatMap { request in
+//                return URLSession.shared.rx.data(request: request)
+//            }
+//            .map { data in
+//                return try JSONDecoder().decode(FeedResult.self, from: data)
+//            }
+        
+        let url = Bundle(for: type(of: self)).url(forResource: "search_feedApp", withExtension: "json")!
+        let data = try! Data(contentsOf: url)
+        
+        let response = try! JSONDecoder().decode(FeedResult.self, from: data)
+        
+        return Observable.just(response)
+        
+    }
 }
 

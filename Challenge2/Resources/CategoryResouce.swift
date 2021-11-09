@@ -5,7 +5,7 @@
 //  Created by 石川大輔 on 2021/10/26.
 //
 
-import Foundation
+import UIKit
 
 enum CategoryResouce: Int, CaseIterable {
     case appleWatch, weight, meal, workout, walking, walkingRelay, diabetes, frail, running, getUpEarly, sleep, mindfulness, study, helthcareAndBeauty, houseworkAndWork, HobbyAndCreation, minchalleBiginer
@@ -46,6 +46,45 @@ enum CategoryResouce: Int, CaseIterable {
             return "趣味・創作"
         case .minchalleBiginer:
             return "みんチャレ初心者"
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        case .appleWatch:
+            return #imageLiteral(resourceName: "meow")
+        case .weight:
+            return #imageLiteral(resourceName: "meow2")
+        case .meal:
+            return #imageLiteral(resourceName: "meow4")
+        case .workout:
+            return #imageLiteral(resourceName: "meow5")
+        case .walking:
+            return #imageLiteral(resourceName: "meow3")
+        case .walkingRelay:
+            return #imageLiteral(resourceName: "meow2")
+        case .diabetes:
+            return #imageLiteral(resourceName: "meow")
+        case .frail:
+            return #imageLiteral(resourceName: "meow2")
+        case .running:
+            return #imageLiteral(resourceName: "meow4")
+        case .getUpEarly:
+            return #imageLiteral(resourceName: "meow5")
+        case .sleep:
+            return #imageLiteral(resourceName: "meow3")
+        case .mindfulness:
+            return #imageLiteral(resourceName: "meow")
+        case .study:
+            return #imageLiteral(resourceName: "meow2")
+        case .helthcareAndBeauty:
+            return #imageLiteral(resourceName: "meow4")
+        case .houseworkAndWork:
+            return #imageLiteral(resourceName: "meow5")
+        case .HobbyAndCreation:
+            return #imageLiteral(resourceName: "meow3")
+        case .minchalleBiginer:
+            return #imageLiteral(resourceName: "meow3")
         }
     }
 }

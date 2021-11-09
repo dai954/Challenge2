@@ -8,14 +8,16 @@
 import UIKit
 
 class CustomTableViewCell: DefaultTableViewCell {
+    
+    static let cellId = "CustomTableViewCellId"
 
     let beginerTag: UILabel = {
         let label = UILabel()
         label.text = "初心者歓迎"
-        label.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        label.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         label.textAlignment = .center
         label.clipsToBounds = true
-        label.layer.cornerRadius = 12
+        label.layer.cornerRadius = 10
         label.textColor = .white
         label.font = .systemFont(ofSize: 12)
         return label
@@ -31,11 +33,11 @@ class CustomTableViewCell: DefaultTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(beginerTag)
-        addSubview(starImage)
+        teamImage.addSubview(beginerTag)
+        teamImage.addSubview(starImage)
         
-        beginerTag.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 16, bottom: 0, right: 0), size: .init(width: 80, height: 24))
-        starImage.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 0, bottom: 0, right: 16), size: .init(width: 20, height: 20))
+        beginerTag.anchor(top: teamImage.topAnchor, leading: teamImage.leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 5, left: 8, bottom: 0, right: 0), size: .init(width: 70, height: 20))
+        starImage.anchor(top: teamImage.topAnchor, leading: nil, bottom: nil, trailing: teamImage.trailingAnchor, padding: .init(top: 5, left: 0, bottom: 0, right: 8), size: .init(width: 20, height: 20))
         
     }
 

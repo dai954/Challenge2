@@ -12,10 +12,12 @@ class CategorySearchViewModel: ViewModelType {
     
     struct Input {
         let viewLayoutEvent: Observable<Void>
+        let selection: Observable<CategoryResouce>
     }
     
     struct Output {
         let categories: Observable<[CategorySearchSection]>
+        let categorySelected: Observable<TeamListViewModel>
     }
     
     let resourceAPI: ResourceAPI!
@@ -28,8 +30,13 @@ class CategorySearchViewModel: ViewModelType {
         let categorySections = input.viewLayoutEvent
             .flatMap { _ in
                 self.resourceAPI.getCategorySections()
-            }
+            }.share(replay: 1)
         
-        return Output(categories: categorySections)
+        let categorySelected = input.selection
+            .map { categoryResouce in
+                TeamListViewModel(challengeAPI: ChallengeAPI.challengeAPIShared, keyword: categoryResouce.title)
+            }.share(replay: 1)
+        
+        return Output(categories: categorySections, categorySelected: categorySelected)
     }
 }

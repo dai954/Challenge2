@@ -9,6 +9,8 @@ import UIKit
 
 class OfficialAppSearchCell: UICollectionViewCell {
     
+    static let cellId = "officialAppSearchCellId"
+    
     let appImage: UIImageView = {
        let imageView = UIImageView()
         imageView.backgroundColor = .yellow
