@@ -12,81 +12,70 @@ class TeamDetailViewModel: ViewModelType {
     
     struct Input {
         let viewLayoutEvent: Observable<Void>
+        let willDisplayCell: Observable<WillDisplayCellEvent>
     }
     
     struct Output {
         let teamDetailSections: Observable<[TeamDetailSection]>
     }
     
-    let challengeAPI: ChallengeAPIType!
-    
-    let appId: BehaviorRelay<Int>
+    let app: BehaviorRelay<App>
 
-    init(challengeAPI: ChallengeAPIType, appId: Int) {
-        self.challengeAPI = challengeAPI
-        self.appId = BehaviorRelay(value: appId)
+    init(app: App) {
+        self.app = BehaviorRelay(value: app)
     }
     
-//    case teamImage(viewModel: TeamDetailCellViewModel)
-//    case achievementRate(viewModel: TeamDetailCellViewModel)
-//    case description(viewModel: TeamDetailCellViewModel)
-//    case dateInfo(viewModel: TeamDetailCellViewModel)
-//    case ageInfo(viewModel: TeamDetailCellViewModel)
-//    case sexInfo(viewModel: TeamDetailCellViewModel)
-//    case termInfo(viewModel: TeamDetailCellViewModel)
-//    case autoExitTermInfo(viewModel: TeamDetailCellViewModel)
-//    case assistantInfo(viewModel: TeamDetailCellViewModel)
-//    case favorite(viewModel: TeamDetailCellViewModel)
-//    case report(viewModel: TeamDetailCellViewModel)
     
     func transform(input: Input) -> Output {
         
-        let sections = appId.asObservable()
-            .flatMap { appId -> Observable<App>  in
-                let app = self.challengeAPI.getTeamDetail(appId: appId)
-                return app
-            }.map { app -> [TeamDetailSection] in
+        let sections = app.asObservable()
+            .map { app -> [TeamDetailSection] in
                 var items: [TeamSectionItem] = []
+                let willDisplayRatingCell = input.willDisplayCell
+                    .filter { $1.item == 1 }
+                    .share(replay: 1)
                 
-                let teamImageCellViewModel = TeamDetailCellViewModel(app: app)
+                let teamImageCellViewModel = TeamDetailImageCellViewModel(app: app)
                 items.append(TeamSectionItem.teamImage(viewModel: teamImageCellViewModel))
                 
-                let achievementRateCellViewModel = TeamDetailCellViewModel(app: app)
+                let achievementRateCellViewModel = AchievementRateCellViewModel(app: app ,willDisplayObservable: willDisplayRatingCell)
                 items.append(TeamSectionItem.achievementRate(viewModel: achievementRateCellViewModel))
                 
-                let descripthionCellViewModel = TeamDetailCellViewModel(app: app)
+                let descripthionCellViewModel = DetailDescriptionCellViewModel(app: app)
                 items.append(TeamSectionItem.description(viewModel: descripthionCellViewModel))
                 
-                let dateInfoCellViewModel = TeamDetailCellViewModel(app: app)
-                items.append(TeamSectionItem.teamImage(viewModel: dateInfoCellViewModel))
+                let screenShotCellViewModel = DetailScreenshotCellViewModel(app: app)
+                items.append(TeamSectionItem.screenshots(viewModel: screenShotCellViewModel))
                 
-                let ageInfoCellViewModel = TeamDetailCellViewModel(app: app)
-                items.append(TeamSectionItem.achievementRate(viewModel: ageInfoCellViewModel))
+                let dateInfoCellViewModel = DetailInfoCellViewModel(app: app, detail: .lastUpdate)
+                items.append(TeamSectionItem.dateInfo(viewModel: dateInfoCellViewModel))
                 
-                let sexInfoCellViewModel = TeamDetailCellViewModel(app: app)
-                items.append(TeamSectionItem.description(viewModel: sexInfoCellViewModel))
+                let ageInfoCellViewModel = DetailInfoCellViewModel(app: app, detail: .ageRestrict)
+                items.append(TeamSectionItem.ageInfo(viewModel: ageInfoCellViewModel))
                 
-                let termInfoCellViewModel = TeamDetailCellViewModel(app: app)
-                items.append(TeamSectionItem.teamImage(viewModel: termInfoCellViewModel))
+                let sexInfoCellViewModel = DetailInfoCellViewModel(app: app, detail: .genderRistrict)
+                items.append(TeamSectionItem.sexInfo(viewModel: sexInfoCellViewModel))
                 
-                let autoExitTermCellViewModel = TeamDetailCellViewModel(app: app)
-                items.append(TeamSectionItem.achievementRate(viewModel: autoExitTermCellViewModel))
+                let termInfoCellViewModel = DetailInfoCellViewModel(app: app, detail: .challengeTerm)
+                items.append(TeamSectionItem.termInfo(viewModel: termInfoCellViewModel))
                 
-                let assistantInfoCellViewModel = TeamDetailCellViewModel(app: app)
-                items.append(TeamSectionItem.description(viewModel: assistantInfoCellViewModel))
+                let autoExitTermCellViewModel = DetailInfoCellViewModel(app: app, detail: .autoExitTerm)
+                items.append(TeamSectionItem.autoExitTermInfo(viewModel: autoExitTermCellViewModel))
                 
-                let favoriteCellViewModel = TeamDetailCellViewModel(app: app)
-                items.append(TeamSectionItem.teamImage(viewModel: favoriteCellViewModel))
+                let assistantInfoCellViewModel = DetailInfoCellViewModel(app: app, detail: .assistantColor)
+                items.append(TeamSectionItem.assistantInfo(viewModel: assistantInfoCellViewModel))
                 
-                let reportCellViewModel = TeamDetailCellViewModel(app: app)
-                items.append(TeamSectionItem.achievementRate(viewModel: reportCellViewModel))
+                let favoriteCellViewModel = FavoriteRegisterCellViewModel()
+                items.append(TeamSectionItem.favorite(viewModel: favoriteCellViewModel))
+                
+                let reportCellViewModel = ReportButtonCellViewModel()
+                items.append(TeamSectionItem.report(viewModel: reportCellViewModel))
                 
                 let sections = TeamDetailSection(header: "header", items: items)
                 
                 return [sections]
             }
             .share(replay: 1)
-            
         
         return Output(teamDetailSections: sections)
     }

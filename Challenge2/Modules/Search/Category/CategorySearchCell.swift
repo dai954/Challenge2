@@ -21,7 +21,7 @@ class SearchCategoryCell: UICollectionViewCell {
     
     let categoryImage: UIImageView = {
         let image = UIImageView()
-        image.image = #imageLiteral(resourceName: "meow2")
+        image.image = #imageLiteral(resourceName: "cat3")
         image.widthAnchor.constraint(equalToConstant: 70).isActive = true
         return image
     }()

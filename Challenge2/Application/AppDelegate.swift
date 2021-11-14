@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.primaryRed()
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().isTranslucent = false
+        
+        // count number of rx object (Observables, Observers, Disposables, etc.).
+//        let timer = Timer(timeInterval: 3.0, target: BlockOperation.init(block: {
+//                print("Resource count \(RxSwift.Resources.total)")
+//            }), selector: #selector(Operation.main), userInfo: nil, repeats: true)
+//        RunLoop.main.add(timer, forMode: .common)
+        
         return true
     }
 

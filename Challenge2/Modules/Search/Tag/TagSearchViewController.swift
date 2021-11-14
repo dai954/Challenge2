@@ -20,7 +20,11 @@ class TagSearchViewController: ViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         makeUI()
         bindViewModel()
-        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.view.setNeedsLayout()
+        navigationController?.view.layoutIfNeeded()
     }
     
     func makeUI() {
@@ -52,7 +56,7 @@ class TagSearchViewController: ViewController, UICollectionViewDelegate {
     
     @objc private func dismissKeyboard() {
             searchBar.endEditing(true)
-        }
+    }
     
     private func bindViewModel() {
         let viewModel = TagSearchViewModel(resourceAPI: ResourceAPI.resourceAPIShared)

@@ -51,7 +51,8 @@ extension SearchResponse where Item == App {
                     "averageUserRating": 3.341130000000000155324642037157900631427764892578125,
                     "primaryGenreName": "game",
                     "description": "very good",
-                    "releaseNotes": "驚きました。プッシュ通知またはアプリの中から接触確認を選ぶ"
+                    "releaseNotes": "驚きました。プッシュ通知またはアプリの中から接触確認を選ぶ",
+                    "releaseDate":"2021-10-31T07:00:00Z"
                 },
                 {
                     "trackId": 1094591312,
@@ -62,7 +63,8 @@ extension SearchResponse where Item == App {
                     "averageUserRating": 3.2,
                     "primaryGenreName": "Games",
                     "description": "very good 2",
-                    "releaseNotes": "awsome"
+                    "releaseNotes": "awsome",
+                    "releaseDate":"2021-10-31T07:00:00Z"
                 }
             ]
         }

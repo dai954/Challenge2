@@ -32,9 +32,17 @@ final class BaseSearchViewController: ViewController {
         setupChildren()
         setupViews()
 
+        view.backgroundColor = .blue
         scrollView.backgroundColor = UIColor.primaryGray()
         stackView.backgroundColor = UIColor.primaryGray()
         contentView.backgroundColor = UIColor.primaryGray()
+    }
+    
+    // to prevent weird blak line at the top of view while transforming to next view
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.view.setNeedsLayout()
+        navigationController?.view.layoutIfNeeded()
     }
     
     private func setupSearchBar() {

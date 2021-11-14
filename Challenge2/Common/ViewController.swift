@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         button.widthAnchor.constraint(equalToConstant: 48).isActive = true
         button.heightAnchor.constraint(equalToConstant: 48).isActive = true
         button.layer.cornerRadius = 24
-        button.backgroundColor = #colorLiteral(red: 0.9353960156, green: 0.2671836317, blue: 0.2663446367, alpha: 1)
+        button.backgroundColor = UIColor.primaryRed()
         return button
     }()
     
@@ -39,6 +39,13 @@ class ViewController: UIViewController {
         }
         else {
             navigationItem.backButtonTitle = ""
+        }
+        
+        if #available(iOS 13, *)
+        {
+            let statusBar = UIView(frame: (UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene?.statusBarManager?.statusBarFrame)!)
+            statusBar.backgroundColor = UIColor.primaryRed()
+            UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.addSubview(statusBar)
         }
         
     }

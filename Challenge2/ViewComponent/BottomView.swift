@@ -8,6 +8,11 @@
 import UIKit
 
 class BottomView: UIView {
+    let topBorder: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
    
     let firstLabel: UILabel = {
         let label = UILabel()
@@ -40,9 +45,11 @@ class BottomView: UIView {
         
         let stackView = UIStackView(arrangedSubviews: [firstLabel, secondLabel, partInButton])
         addSubview(stackView)
+        addSubview(topBorder)
         stackView.axis = .vertical
         stackView.distribution = .equalSpacing
         stackView.fillSuperview(padding: .init(top: 10, left: 10, bottom: 40, right: 10))
+        topBorder.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, size: .init(width: 0, height: 0.3))
     }
     
     required init?(coder: NSCoder) {

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class DetailDescriptionCell: CustomDetailCell {
     
@@ -26,6 +28,14 @@ class DetailDescriptionCell: CustomDetailCell {
         
         containerView.addSubview(descriptionLabel)
         descriptionLabel.fillSuperview(padding: .init(top: 10, left: 20, bottom: 10, right: 0))
+    }
+    
+    func bind(to viewModel: DetailDescriptionCellViewModel) {
+        
+        viewModel.description
+            .bind(to: descriptionLabel.rx.text)
+            .disposed(by: disposeBag)
+        
     }
     
     required init?(coder: NSCoder) {

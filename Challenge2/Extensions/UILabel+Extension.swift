@@ -13,7 +13,7 @@ extension UILabel {
 
         let changePosition = value.count - 1
         
-        let attrText = NSMutableAttributedString(string: self.text!)
+        let attrText = NSMutableAttributedString(string: self.text ?? "0" )
         attrText.addAttributes([
                 .font: UIFont.systemFont(ofSize: 12)
             ], range: NSMakeRange(changePosition, 1))

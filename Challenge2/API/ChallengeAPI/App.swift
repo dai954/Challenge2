@@ -17,4 +17,5 @@ struct App: Decodable {
     let trackName: String
     var artistName: String?
     var releaseNotes: String?
+    var releaseDate: String
 }

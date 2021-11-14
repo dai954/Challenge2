@@ -8,21 +8,14 @@
 import RxSwift
 import RxCocoa
 
-class TeamListCellViewModel {
+class TeamListCellViewModel: CustomTableViewCellViewModel {
     
     let app: App
     
-    let title = BehaviorRelay<String?>(value: nil)
-    let imageUrl = BehaviorRelay<String?>(value: nil)
-    let description = BehaviorRelay<String?>(value: nil)
-    let avatarImage1 = BehaviorRelay<String?>(value: nil)
-    let avatarImage2 = BehaviorRelay<String?>(value: nil)
-    let avatarImage3 = BehaviorRelay<String?>(value: nil)
-    let avatarImage4 = BehaviorRelay<String?>(value: nil)
-    let avatarImage5 = BehaviorRelay<String?>(value: nil)
-    
     init(app: App) {
         self.app = app
+        super.init()
+    
         title.accept(app.trackName)
         imageUrl.accept(app.artworkUrl100)
         description.accept(app.description)

@@ -5,7 +5,8 @@
 //  Created by 石川大輔 on 2021/07/30.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class ReportButtonCell: CustomDetailCell {
     
@@ -49,7 +50,16 @@ class ReportButtonCell: CustomDetailCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        backgroundColor = .gray
-
+        contentView.isUserInteractionEnabled = false
+        makeUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.disposeBag = DisposeBag()
+    }
+    
+    private func makeUI() {
         let buttonParentView = UIView()
         buttonParentView.backgroundColor = .white
         buttonParentView.constrainHeight(constant: 25)
@@ -65,6 +75,15 @@ class ReportButtonCell: CustomDetailCell {
         containerView.addSubview(stackView)
         stackView.fillSuperview()
         
+    }
+    
+    func bind(to viewModel: ReportButtonCellViewModel) {
+        print("viewModel called in ReportButtonCell")
+        // hold tap event "until" prepareForReuse method is called.
+        let prepareForReuseObservable = self.rx.sentMessage(#selector(UITableViewCell.prepareForReuse))
+        let input = ReportButtonCellViewModel.Input(reportButtonTapped: reportButton.rx.tap
+                                                        .take(until: prepareForReuseObservable).asObservable())
+        viewModel.wireAction(input: input)
     }
     
     required init?(coder: NSCoder) {

@@ -9,25 +9,20 @@ import UIKit
 
 class CircleProgressView: UIView {
     
-    private var backgroundLayer: CAShapeLayer!
-    public var foregroundLayer: CAShapeLayer!
+    private var backgroundLayer = CAShapeLayer()
+    public var foregroundLayer = CAShapeLayer()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
-    }
-    
-    override func draw(_ rect: CGRect) {
+        let rect = CGRect(x: 0, y: 0, width: 60, height: 60)
         
         let radius: CGFloat = 20
-        
         backgroundLayer = createCircularLayer(rect: rect, radius: radius, strokeColor: UIColor.lightGray.cgColor, fillColor: UIColor.clear.cgColor, lineWidth: 4, strokeEnd: 1)
         
         foregroundLayer = createCircularLayer(rect: rect, radius: radius, strokeColor: UIColor.primaryRed().cgColor, fillColor: UIColor.clear.cgColor, lineWidth: 4, strokeEnd: 0)
         
         layer.addSublayer(backgroundLayer)
         layer.addSublayer(foregroundLayer)
-
     }
     
     private func createCircularLayer(rect: CGRect, radius: CGFloat, strokeColor: CGColor, fillColor: CGColor, lineWidth: CGFloat, strokeEnd: CGFloat) -> CAShapeLayer {

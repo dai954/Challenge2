@@ -5,7 +5,8 @@
 //  Created by 石川大輔 on 2021/07/30.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class FavoriteRegisterCell: CustomDetailCell {
     
@@ -41,6 +42,12 @@ class FavoriteRegisterCell: CustomDetailCell {
         favoriteButton.anchor(top: favoriteLabel.bottomAnchor, leading: containerView.leadingAnchor, bottom: containerView.bottomAnchor, trailing: containerView.trailingAnchor, padding: .init(top: 10, left: 20, bottom: 10, right: 20))
     }
 
+    func bind(to viewModel: FavoriteRegisterCellViewModel) {
+//        viewModel.numberOfFavoriteText.bind(to: favoriteLabel.rx.attributedText).disposed(by: disposeBag)
+        viewModel.numberOfFavoriteText.subscribe(onNext: { attrText in
+            self.favoriteLabel.attributedText = attrText
+        }).disposed(by: disposeBag)
+    }
     
     required init?(coder: NSCoder) {
         fatalError()

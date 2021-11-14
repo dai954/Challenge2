@@ -5,7 +5,8 @@
 //  Created by 石川大輔 on 2021/07/30.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class DetailInfoCell: CustomDetailCell {
     
@@ -34,17 +35,23 @@ class DetailInfoCell: CustomDetailCell {
     
     let icon: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .systemPink
-        image.constrainWidth(constant: 10)
-        image.constrainHeight(constant: 10)
+        image.backgroundColor = .clear
+        image.constrainWidth(constant: 30)
+        image.constrainHeight(constant: 30)
         image.clipsToBounds = true
         image.layer.cornerRadius = 5
+        image.isHidden = true
         return image
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 //        backgroundColor = .gray
+        contentView.isUserInteractionEnabled = false
+        makeUI()
+    }
+    
+    private func makeUI() {
         containerView.addSubview(leftLabel)
         containerView.addSubview(questionButton)
         containerView.addSubview(rightLabel)
@@ -53,9 +60,20 @@ class DetailInfoCell: CustomDetailCell {
         leftLabel.anchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: containerView.bottomAnchor, trailing: nil, padding: .init(top: 10, left: 20, bottom: 10, right: 20))
         questionButton.anchor(top: containerView.topAnchor, leading: leftLabel.trailingAnchor, bottom: containerView.bottomAnchor, trailing: nil, padding: .init(top: 5, left: 5, bottom: 5, right: 0))
         rightLabel.anchor(top: containerView.topAnchor, leading: nil, bottom: containerView.bottomAnchor, trailing: containerView.trailingAnchor, padding: .init(top: 10, left: 20, bottom: 10, right: 20))
-        icon.anchor(top: containerView.topAnchor, leading: nil, bottom: nil, trailing: rightLabel.leadingAnchor, padding: .init(top: 9, left: 0, bottom: 0, right: 5))
-
-
+        icon.anchor(top: nil, leading: nil, bottom: nil, trailing: rightLabel.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 5))
+        icon.centerYInSuperview()
+    }
+    
+    func bind(to viewModel: DetailInfoCellViewModel) {
+        viewModel.title.bind(to: leftLabel.rx.text).disposed(by: disposeBag)
+        viewModel.info.bind(to: rightLabel.rx.text).disposed(by: disposeBag)
+        viewModel.isQuestionLabelHidden.bind(to: questionButton.rx.isHidden).disposed(by: disposeBag)
+        viewModel.assistantColor.bind(to: icon.rx.image).disposed(by: disposeBag)
+        viewModel.isAssistantHidden.bind(to: icon.rx.isHidden).disposed(by: disposeBag)
+        
+        let prepareForReuseObservable = self.rx.sentMessage(#selector(UITableViewCell.prepareForReuse))
+        let input = DetailInfoCellViewModel.Input(questionButtonTapped: questionButton.rx.tap.take(until: prepareForReuseObservable).asObservable())
+        viewModel.wireAction(input: input)
     }
     
     required init?(coder: NSCoder) {

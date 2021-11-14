@@ -5,13 +5,12 @@
 //  Created by 石川大輔 on 2021/07/29.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class AchievementRateCell: CustomDetailCell {
     
     static let cellId = "AchievementRateCellId"
-    
-    let rate: Double = 5
     
     let percentageNumberLabel: UILabel = {
         let label = UILabel()
@@ -40,12 +39,6 @@ class AchievementRateCell: CustomDetailCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        backgroundColor = .gray
-        
-        // ↓↓↓↓↓ going to delete
-        contentView.isUserInteractionEnabled = false
-        achievementRateCircleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
-        
         
         let leftStackView = UIStackView(arrangedSubviews: [lastThreeDaysLabel, achievementRateLabel])
         leftStackView.axis = .vertical
@@ -60,50 +53,49 @@ class AchievementRateCell: CustomDetailCell {
         rightStackView.anchor(top: containerView.topAnchor, leading: leadingAnchor, bottom: containerView.bottomAnchor, trailing: nil, padding: .init(top: 0, left: frame.width * 8.5 / 10, bottom: 0, right: 0))
     }
     
-    @objc private func handleTap() {
+    func bind(to viewModel: AchievementRateCellViewModel) {
         
-        let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+        viewModel.achievementRate
+            .subscribe(onNext: { rate in
+                let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
+                basicAnimation.toValue = rate
+                basicAnimation.duration = rate * self.animationSpeed
+                basicAnimation.fillMode = CAMediaTimingFillMode.forwards
+                basicAnimation.isRemovedOnCompletion = false
+                self.achievementRateCircleView.foregroundLayer.add(basicAnimation, forKey: "urSoBasic")
+            }).disposed(by: disposeBag)
         
-        let ratePercentage = rate / 5
-        basicAnimation.toValue = ratePercentage
-        
-        animationDuration = rate / 5
-        basicAnimation.duration = animationDuration
-        basicAnimation.fillMode = CAMediaTimingFillMode.forwards
-        basicAnimation.isRemovedOnCompletion = false
-
-        achievementRateCircleView.foregroundLayer.add(basicAnimation, forKey: "urSoBasic")
-   
-        countupOnLabel()
+        viewModel.achievementRate
+            .subscribe(onNext: { rate in
+                self.rate = rate
+                self.countupOnLabel()
+            })
+            .disposed(by: disposeBag)
     }
     
-    var startValue: Double = 0
-    var endValue: Double = 100
-    var animationDuration: Double = 1.0
+    
     var animationStartDate: Date = Date()
+    var rate: Double = 0
+    let animationSpeed = 1.5
     
     private func countupOnLabel() {
-        
         animationStartDate = Date()
         let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
-        displayLink.add(to: .main, forMode: .default)
-        
+        displayLink.add(to: .current, forMode: .common)
     }
     
     @objc func handleUpdate() {
-        
         let now = Date()
         let elapsedTime = now.timeIntervalSince(animationStartDate)
+        let duration = rate * animationSpeed
         
-        endValue = rate / 5
-        
-        if elapsedTime > animationDuration {
-            let stringEndValue = String(format: "%.0f%", endValue * 100) + "%"
+        if elapsedTime > duration {
+            let stringEndValue = String(format: "%.0f%", rate * 100) + "%"
             percentageNumberLabel.text = stringEndValue
             percentageNumberLabel.lastLetterToSmall(value: stringEndValue)
         } else {
-            let persentage = elapsedTime / animationDuration
-            let value = persentage * (endValue - startValue)
+            let persentage = elapsedTime / duration
+            let value = persentage * rate
             let stringValue = String(format: "%.0f%", value * 100) + "%"
             percentageNumberLabel.text = stringValue
             percentageNumberLabel.lastLetterToSmall(value: stringValue)

@@ -40,6 +40,7 @@ class ChallengeAPI: ChallengeAPIType {
             .map { result in
                 switch result {
                 case .success(let response):
+                    print("app in CallengeAPI", response)
                     let app = response.results[0]
                     return app
                 default:

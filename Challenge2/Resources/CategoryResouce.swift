@@ -52,39 +52,39 @@ enum CategoryResouce: Int, CaseIterable {
     var image: UIImage {
         switch self {
         case .appleWatch:
-            return #imageLiteral(resourceName: "meow")
+            return #imageLiteral(resourceName: "cat1")
         case .weight:
-            return #imageLiteral(resourceName: "meow2")
+            return #imageLiteral(resourceName: "cat3")
         case .meal:
-            return #imageLiteral(resourceName: "meow4")
+            return #imageLiteral(resourceName: "cat7")
         case .workout:
-            return #imageLiteral(resourceName: "meow5")
+            return #imageLiteral(resourceName: "cat4")
         case .walking:
-            return #imageLiteral(resourceName: "meow3")
+            return #imageLiteral(resourceName: "cat6")
         case .walkingRelay:
-            return #imageLiteral(resourceName: "meow2")
+            return #imageLiteral(resourceName: "cat10")
         case .diabetes:
-            return #imageLiteral(resourceName: "meow")
+            return #imageLiteral(resourceName: "cat5")
         case .frail:
-            return #imageLiteral(resourceName: "meow2")
+            return #imageLiteral(resourceName: "cat7")
         case .running:
-            return #imageLiteral(resourceName: "meow4")
+            return #imageLiteral(resourceName: "cat3")
         case .getUpEarly:
-            return #imageLiteral(resourceName: "meow5")
+            return #imageLiteral(resourceName: "cat6")
         case .sleep:
-            return #imageLiteral(resourceName: "meow3")
+            return #imageLiteral(resourceName: "cat4")
         case .mindfulness:
-            return #imageLiteral(resourceName: "meow")
+            return #imageLiteral(resourceName: "cat5")
         case .study:
-            return #imageLiteral(resourceName: "meow2")
+            return #imageLiteral(resourceName: "cat3")
         case .helthcareAndBeauty:
-            return #imageLiteral(resourceName: "meow4")
+            return #imageLiteral(resourceName: "cat10")
         case .houseworkAndWork:
-            return #imageLiteral(resourceName: "meow5")
+            return #imageLiteral(resourceName: "cat6")
         case .HobbyAndCreation:
-            return #imageLiteral(resourceName: "meow3")
+            return #imageLiteral(resourceName: "cat9")
         case .minchalleBiginer:
-            return #imageLiteral(resourceName: "meow3")
+            return #imageLiteral(resourceName: "cat7")
         }
     }
 }

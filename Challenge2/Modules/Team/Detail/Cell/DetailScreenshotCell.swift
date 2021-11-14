@@ -5,7 +5,8 @@
 //  Created by 石川大輔 on 2021/07/30.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
 class DetailScreenshotCell: CustomDetailCell {
 
@@ -43,6 +44,14 @@ class DetailScreenshotCell: CustomDetailCell {
         
         containerView.addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 10, left: 20, bottom: 10, right: 20))
+    }
+    
+    func bind(to viewModel: DetailScreenshotCellViewModel) {
+        
+        viewModel.screenshotSections
+            .bind(to: screenshotCollectionViewController.viewModel.screenshotSections)
+            .disposed(by: disposeBag)
+        
     }
     
     required init?(coder: NSCoder) {

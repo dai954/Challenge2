@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import RxSwift
 
 class DefaultTableViewCell: TableViewCell {
-
+    
     let teamImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .white
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.heightAnchor.constraint(equalToConstant: 90).isActive = true
@@ -23,7 +24,6 @@ class DefaultTableViewCell: TableViewCell {
         }()
         imageView.addSubview(blackBlindView)
         blackBlindView.fillSuperview()
-        
         return imageView
     }()
 

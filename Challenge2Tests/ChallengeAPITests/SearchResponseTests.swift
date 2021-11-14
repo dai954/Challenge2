@@ -20,6 +20,7 @@ class SearchResponseTests: XCTestCase {
         
         XCTAssertEqual(searchResult.resultCount, 2)
         XCTAssertEqual(firstResult.artistName, "Niantic, Inc.")
+        XCTAssertEqual(firstResult.releaseDate, "2021-10-31T07:00:00Z")
         
         let ceiledRating = ceil(firstResult.averageUserRating! * 10) / 10
         XCTAssertEqual(ceiledRating, 3.4)

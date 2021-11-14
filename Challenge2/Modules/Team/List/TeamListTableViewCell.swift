@@ -12,7 +12,6 @@ import RxCocoa
 class TeamListTableViewCell: CustomTableViewCell {
     
     static let teamListCell = "teamListCell"
-    let disposeBag = DisposeBag()
     
     let teamDescription: UILabel = {
         let label = UILabel()

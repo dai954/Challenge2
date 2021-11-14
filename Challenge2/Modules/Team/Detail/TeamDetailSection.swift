@@ -7,28 +7,19 @@
 
 import RxDataSources
 
-//              DetailCollectionViewCell
-//              AchievementRateCell
-//              DetailDescriptionCell
-//              DetailScreenshotCell
-//              DetailInfoCell.self
-//              detailInfoCellPlusQButton
-//              detailInfoCellPlusICon
-//              FavoriteRegisterCell
-//              BottomAlertCell
-
 enum TeamSectionItem {
-    case teamImage(viewModel: TeamDetailCellViewModel)
-    case achievementRate(viewModel: TeamDetailCellViewModel)
-    case description(viewModel: TeamDetailCellViewModel)
-    case dateInfo(viewModel: TeamDetailCellViewModel)
-    case ageInfo(viewModel: TeamDetailCellViewModel)
-    case sexInfo(viewModel: TeamDetailCellViewModel)
-    case termInfo(viewModel: TeamDetailCellViewModel)
-    case autoExitTermInfo(viewModel: TeamDetailCellViewModel)
-    case assistantInfo(viewModel: TeamDetailCellViewModel)
-    case favorite(viewModel: TeamDetailCellViewModel)
-    case report(viewModel: TeamDetailCellViewModel)
+    case teamImage(viewModel: TeamDetailImageCellViewModel)
+    case achievementRate(viewModel: AchievementRateCellViewModel)
+    case description(viewModel: DetailDescriptionCellViewModel)
+    case screenshots(viewModel: DetailScreenshotCellViewModel)
+    case dateInfo(viewModel: DetailInfoCellViewModel)
+    case ageInfo(viewModel: DetailInfoCellViewModel)
+    case sexInfo(viewModel: DetailInfoCellViewModel)
+    case termInfo(viewModel: DetailInfoCellViewModel)
+    case autoExitTermInfo(viewModel: DetailInfoCellViewModel)
+    case assistantInfo(viewModel: DetailInfoCellViewModel)
+    case favorite(viewModel: FavoriteRegisterCellViewModel)
+    case report(viewModel: ReportButtonCellViewModel)
 }
 
 struct TeamDetailSection {

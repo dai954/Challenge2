@@ -30,12 +30,14 @@ class TagSearchViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         
+        // Display tag
         let tagSections = input.viewLayoutEvent
             .flatMap { _ in
                 self.resourceAPI.getTagSections()
             }
             .share(replay: 1)
         
+        // Search with textField and tag
         let buttonClickedWithText = input.searchButtonClick.withLatestFrom(input.searchWord)
         let searchInvoked = Observable.of(input.selection, buttonClickedWithText).merge()
             .map { text in
