@@ -26,7 +26,7 @@ class TeamListViewModel: ViewModelType {
     
     let challengeAPI: ChallengeAPIType!
     let keyword: BehaviorRelay<String>
-
+    
     init(challengeAPI: ChallengeAPIType, keyword: String) {
         self.challengeAPI = challengeAPI
         self.keyword = BehaviorRelay(value: keyword)
@@ -37,14 +37,44 @@ class TeamListViewModel: ViewModelType {
         let refreshingIndicator = activityIndicator.asObservable()
         
         let sectionsAtFirst = keyword
-            .flatMap { keyword -> Observable<[TeamListSection]> in
-               return self.challengeAPI.getTeamListSections(keyword: keyword)
+            .flatMap { keyword in
+                return self.challengeAPI.getTeamList(keyword: keyword)
+            }
+            .catch { error in
+                if error is ChallengeClientError {
+                    print("ChallengeClientError: \(error)")
+                } else {
+                    print("ConnectionError: \(error)")
+                }
+                return Observable.just([])
+            }
+            .map { apps -> [TeamListSection] in
+                let teamListCellViewModels = apps.map { app in
+                    return TeamListCellViewModel(app: app)
+                }
+                let teamListSection = TeamListSection(header: "header", items: teamListCellViewModels)
+                return [teamListSection]
             }.share(replay: 1)
         
         let sectionsByRefresh = input.refreshControlEvent.withLatestFrom(keyword)
-            .flatMap { keyword -> Observable<[TeamListSection]> in
-                return self.challengeAPI.getTeamListSections(keyword: keyword)
+            .flatMap { keyword in
+                return self.challengeAPI.getTeamList(keyword: keyword)
                     .trackActivity(activityIndicator)
+            }
+            .catch { error in
+                if error is ChallengeClientError {
+                    print("ChallengeClientError: \(error)")
+                } else {
+                    print("unexpectedError: \(error)")
+                }
+                return Observable.just([])
+            }
+            .map { apps -> [TeamListSection] in
+                let teamListCellViewModels = apps.map { app in
+                    return TeamListCellViewModel(app: app)
+                }
+                let teamListSection = TeamListSection(header: "header", items: teamListCellViewModels)
+                return [teamListSection]
             }.share(replay: 1)
         
         let sections = Observable.of(sectionsAtFirst, sectionsByRefresh).merge()
@@ -59,7 +89,7 @@ class TeamListViewModel: ViewModelType {
             .map { sections in
                 "\(sections[0].items.count)チーム募集"
             }.share(replay: 1)
-
+        
         return Output(viewModelSections: sections, teamSelected: teamSelected, refreshing: refreshingIndicator, numberOfTeam: numberOfTeam)
     }
 }

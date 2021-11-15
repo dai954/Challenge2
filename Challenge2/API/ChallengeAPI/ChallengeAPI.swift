@@ -12,11 +12,11 @@ class ChallengeAPI: ChallengeAPIType {
     
     static let challengeAPIShared = ChallengeAPI()
     
-    let challengeClient = ChallengeClient.challengeClientShared
+    var challengeClient = ChallengeClient.challengeClientShared
     
     func getTeamListSections(keyword: String) -> Observable<[TeamListSection]> {
         let request = ChallengeAPIRequest.SearchApps.init(keyword: keyword, country: .japan, entity: .software)
-        
+
         return challengeClient.search(request: request)
             .map { result in
                 switch result {
@@ -27,11 +27,26 @@ class ChallengeAPI: ChallengeAPIType {
                     }
                     let teamListSections = TeamListSection(header: "header", items: teamListCellViewModels)
                     return [teamListSections]
-                default:
-                    fatalError("failed to fetch data")
+                case .failure(let error):
+                    throw error
                 }
             }
-    }
+        }
+    
+    func getTeamList(keyword: String) -> Observable<[App]> {
+        let request = ChallengeAPIRequest.SearchApps.init(keyword: keyword, country: .japan, entity: .software)
+
+        return challengeClient.search(request: request)
+            .map { result in
+                switch result {
+                case .success(let response):
+                    let apps = response.results
+                    return apps
+                case .failure(let error):
+                    throw error
+                }
+            }
+        }
     
     func getTeamDetail(appId: Int) -> Observable<App> {
         let request = ChallengeAPIRequest.LookUpApp.init(appId: appId)

@@ -10,6 +10,7 @@ import RxSwift
 protocol ChallengeAPIType {
     func getTeamListSections(keyword: String) -> Observable<[TeamListSection]>
     func getTeamDetail(appId: Int) -> Observable<App>
+    func getTeamList(keyword: String) -> Observable<[App]>
 }
 
 class MockChallengeAPI: ChallengeAPIType {
@@ -31,6 +32,16 @@ class MockChallengeAPI: ChallengeAPIType {
         let teamListSections = TeamListSection(header: "header", items: teamListCellViewModels)
         
         return Observable.just([teamListSections]).delay(.seconds(1), scheduler: MainScheduler.instance)
+    }
+    
+    func getTeamList(keyword: String) -> Observable<[App]> {
+        let url = Bundle(for: type(of: self)).url(forResource: "search_itunes", withExtension: "json")!
+        let data = try! Data(contentsOf: url)
+        
+        let response = try! JSONDecoder().decode(SearchResponse<App>.self, from: data)
+        let apps = response.results
+        
+        return Observable.just(apps)
     }
     
     func getTeamDetail(appId: Int) -> Observable<App> {
