@@ -11,34 +11,39 @@ import RxCocoa
 
 class TeamListViewModel: ViewModelType {
     
+    deinit {
+        print("TeamListViewModel deinit !!")
+    }
+    
+    
     struct Input {
-        let viewLayoutEvent: Observable<Void>
-        let selection: Observable<TeamListCellViewModel>
+        let selection: Driver<TeamListCellViewModel>
         let refreshControlEvent: Observable<Void>
     }
     
     struct Output {
-        let viewModelSections: Observable<[TeamListSection]>
-        let teamSelected: Observable<TeamDetailViewModel>
-        let refreshing: Observable<Bool>
-        let numberOfTeam: Observable<String>
+        let viewModelSections: Driver<[TeamListSection]>
+        let teamSelected: Driver<TeamDetailViewModel>
+        let refreshing: Driver<Bool>
+        let numberOfTeam: Driver<String>
     }
     
     let challengeAPI: ChallengeAPIType!
-    let keyword: BehaviorRelay<String>
+    var keyword = BehaviorRelay<String>(value: "")
     
     init(challengeAPI: ChallengeAPIType, keyword: String) {
+        print("TeamListViewModel init")
         self.challengeAPI = challengeAPI
         self.keyword = BehaviorRelay(value: keyword)
     }
     
     func transform(input: Input) -> Output {
         let activityIndicator = ActivityIndicator()
-        let refreshingIndicator = activityIndicator.asObservable()
+        let refreshingIndicator = activityIndicator.asDriver()
         
         let sectionsAtFirst = keyword
             .flatMap { keyword in
-                return self.challengeAPI.getTeamList(keyword: keyword)
+                return self.challengeAPI.getTeamList(keyword: keyword )
             }
             .catch { error in
                 if error is ChallengeClientError {
@@ -77,18 +82,18 @@ class TeamListViewModel: ViewModelType {
                 return [teamListSection]
             }.share(replay: 1)
         
-        let sections = Observable.of(sectionsAtFirst, sectionsByRefresh).merge()
+        let sections = Observable.of(sectionsAtFirst, sectionsByRefresh).merge().asDriver(onErrorJustReturn: [])
         
         let teamSelected = input.selection
             .map { teamListCellViewModel -> TeamDetailViewModel in
                 let teamDetailViewModel = TeamDetailViewModel(app: teamListCellViewModel.app)
                 return teamDetailViewModel
-            }.share(replay: 1)
+            }
         
         let numberOfTeam = sections
             .map { sections in
                 "\(sections[0].items.count)チーム募集"
-            }.share(replay: 1)
+            }
         
         return Output(viewModelSections: sections, teamSelected: teamSelected, refreshing: refreshingIndicator, numberOfTeam: numberOfTeam)
     }

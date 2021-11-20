@@ -33,7 +33,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        defaultViewControllerSetting()
+        makeUI()
+        bindViewModel()
+    }
+
+    private func defaultViewControllerSetting() {
         if #available(iOS 14.0, *) {
             navigationItem.backButtonDisplayMode = .minimal
         }
@@ -47,9 +52,12 @@ class ViewController: UIViewController {
             statusBar.backgroundColor = UIColor.primaryRed()
             UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.addSubview(statusBar)
         }
-        
+    }
+    
+    func makeUI() {
     }
 
-
+    func bindViewModel() {
+    }
 }
 

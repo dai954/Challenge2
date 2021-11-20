@@ -43,10 +43,7 @@ class FavoriteRegisterCell: CustomDetailCell {
     }
 
     func bind(to viewModel: FavoriteRegisterCellViewModel) {
-//        viewModel.numberOfFavoriteText.bind(to: favoriteLabel.rx.attributedText).disposed(by: disposeBag)
-        viewModel.numberOfFavoriteText.subscribe(onNext: { attrText in
-            self.favoriteLabel.attributedText = attrText
-        }).disposed(by: disposeBag)
+        viewModel.numberOfFavoriteText.drive(favoriteLabel.rx.attributedText).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {

@@ -26,9 +26,14 @@ class TeamListTableViewCell: CustomTableViewCell {
         view.backgroundColor = .white
         return view
     }()
+    
+    deinit {
+        print("TeamListTableViewCell deinit")
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        print("TeamListTableViewCell init")
         selectedBackgroudViewClear()
         
         addSubview(containerView)
@@ -61,7 +66,7 @@ class TeamListTableViewCell: CustomTableViewCell {
         viewModel.title.asDriver().drive(teamLabel.rx.text).disposed(by: disposeBag)
         
         viewModel.imageUrl.map { URL(string: $0 ?? "") }.asDriver(onErrorJustReturn: nil).drive(teamImage.rx.imageURL).disposed(by: disposeBag)
-        
+
         viewModel.avatarImage1.map{ URL(string: $0 ?? "") }.asDriver(onErrorJustReturn: nil).drive(memberImage1.rx.imageURL).disposed(by: disposeBag)
         viewModel.avatarImage2.map{ URL(string: $0 ?? "") }.asDriver(onErrorJustReturn: nil).drive(memberImage2.rx.imageURL).disposed(by: disposeBag)
         viewModel.avatarImage3.map{ URL(string: $0 ?? "") }.asDriver(onErrorJustReturn: nil).drive(memberImage3.rx.imageURL).disposed(by: disposeBag)
@@ -69,6 +74,10 @@ class TeamListTableViewCell: CustomTableViewCell {
         viewModel.avatarImage5.map{ URL(string: $0 ?? "") }.asDriver(onErrorJustReturn: nil).drive(memberImage5.rx.imageURL).disposed(by: disposeBag)
         
         viewModel.description.asDriver(onErrorJustReturn: nil).drive(teamDescription.rx.text).disposed(by: disposeBag)
+        
+        viewModel.isPremireHidden?.drive(premireTagImage.rx.isHidden).disposed(by: disposeBag)
+        viewModel.isBignnerHidden?.drive(beginerTag.rx.isHidden).disposed(by: disposeBag)
+        viewModel.isFullHidden?.drive(fullTeamTag.rx.isHidden).disposed(by: disposeBag)
     }
     
 }

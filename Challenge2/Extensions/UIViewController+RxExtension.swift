@@ -52,3 +52,9 @@ extension ObservableType {
         return map { _ in }
     }
 }
+
+extension Driver {
+    func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
+        return map { _ in }
+    }
+}

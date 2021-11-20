@@ -10,13 +10,18 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class TeamListTableViewController: ViewController {
+class TeamListTableViewController: ViewController, UITableViewDelegate {
+    
+    deinit {
+        print("TeamListTableViewController deinit !!")
+    }
     
     let tableView = UITableView()
     let refreshControl = UIRefreshControl()
     var viewModel: TeamListViewModel!
     
     init(viewModel: TeamListViewModel) {
+        print("TeamListTableViewController init")
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -27,25 +32,22 @@ class TeamListTableViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeUI()
-        bindViewModel()
     }
     
-//    to transition back to previous screen smoothly
     override func viewWillDisappear(_ animated: Bool) {
+        //    to transition back to previous screen smoothly
         navigationController?.view.setNeedsLayout()
         navigationController?.view.layoutIfNeeded()
     }
     
     override func viewDidLayoutSubviews() {
-//        self.dummyTableViewController.view.removeFromSuperview()
-        
         dropDownFloatingView.floatingViewYPosition = dropDownFloatingView.frame.maxY
         dropDownFloatingView.safeAreaInsetsTop = view.safeAreaInsets.top
 
     }
     
-    private func makeUI() {
+    override func makeUI() {
+        super.makeUI()
         view.backgroundColor = UIColor.primaryGray()
         tableView.backgroundColor = UIColor.primaryGray()
         tableView.delegate = self
@@ -63,54 +65,57 @@ class TeamListTableViewController: ViewController {
         setupFloatingView()
     }
     
-    private func bindViewModel() {
+    override func bindViewModel() {
+        super.bindViewModel()
         let dataSource = RxTableViewSectionedReloadDataSource<TeamListSection> { dataSource, tableView, indexPath, cellViewModel in
             let cell = tableView.dequeueReusableCell(withIdentifier: TeamListTableViewCell.teamListCell, for: indexPath) as! TeamListTableViewCell
             cell.bind(to: cellViewModel)
             return cell
         }
         
-        let input = TeamListViewModel.Input(viewLayoutEvent: rx.viewWillAppear.mapToVoid(),
-                                            selection: tableView.rx.modelSelected(TeamListCellViewModel.self).asObservable(),
-                                            refreshControlEvent: refreshControl.rx.controlEvent(.valueChanged).mapToVoid()
+        let input = TeamListViewModel.Input(selection: tableView.rx.modelSelected(TeamListCellViewModel.self).asDriver(),
+                                            refreshControlEvent:
+                                                refreshControl.rx.controlEvent(.valueChanged).mapToVoid()
         )
         
         let output = viewModel.transform(input: input)
         output.viewModelSections
-            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         output.teamSelected
-            .subscribe(onNext: { viewModel in
+            .drive(onNext: { [weak self] viewModel in
                 let vc = TeamDetailTableViewController(viewModel: viewModel)
-                vc.navigationItem.title = self.viewModel.keyword.value
-                self.navigationController?.pushViewController(vc, animated: true)
+                vc.navigationItem.title = self?.viewModel.keyword.value
+                self?.navigationController?.pushViewController(vc, animated: true)
             }).disposed(by: disposeBag)
         
         output.refreshing
-            .bind(to: refreshControl.rx.isRefreshing)
+            .drive(refreshControl.rx.isRefreshing)
             .disposed(by: disposeBag)
         
         output.numberOfTeam
-            .bind(to: dropDownFloatingView.teamNumberlabel.rx.text)
+            .drive(dropDownFloatingView.teamNumberlabel.rx.text)
             .disposed(by: disposeBag)
         
     }
     
+    
+    
+    //MARK: - FloatingView setting and logic
     
     static let floatingViewHeight: CGFloat = 42
     let dropDownFloatingView: DropDownFloatingView = DropDownFloatingView()
     private func setupFloatingView() {
         view.addSubview(dropDownFloatingView)
         dropDownFloatingView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, size: .init(width: 0, height: TeamListTableViewController.floatingViewHeight))
-//        calculateTableViewContentHeight(dropDownFloatingView: dropDownFloatingView)
     }
     
-    var firstPosition: CGFloat = 0  //to determin scroll down or up
-    var lastPosition: CGFloat = 0   //to determin scroll down or up
-    var position: CGFloat = 0   //position value is between 0 to "floting view height"
-    var accuracy: CGFloat = 3   //How mach speed to hide floting view
-    var flag = true // to get scroll fisrt position
+    private var firstPosition: CGFloat = 0  //to determin scroll down or up
+    private var lastPosition: CGFloat = 0   //to determin scroll down or up
+    private var position: CGFloat = 0   //position value is between 0 to "floting view height"
+    private var accuracy: CGFloat = 3   //How mach speed to hide floting view
+    private var flag = true // to get scroll fisrt position
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
@@ -144,34 +149,4 @@ class TeamListTableViewController: ViewController {
             return false
         }
     }
-}
-
-extension TeamListTableViewController: UITableViewDelegate {
-
-    
-    
-}
-
-
-extension TeamListTableViewController {
-    //
-    //        var dummyTableViewController = DropDownTableViewController()
-    //
-    //        fileprivate func calculateTableViewContentHeight(dropDownFloatingView:  DropDownFloatingView) {
-    //            view.addSubview(dummyTableViewController.view)
-    //            UIView.animate(withDuration: 0, animations: {
-    //            }) { (complete) in
-    //                var heightOfTableView: CGFloat = 0.0
-    //                // Get visible cells and sum up their heights
-    //                let cells = self.dummyTableViewController.tableView.visibleCells
-    //                for cell in cells {
-    //                    //                print(cell.frame)
-    //                    heightOfTableView += cell.frame.height
-    //                }
-    //                // Edit heightOfTableViewConstraint's constant to update height of table view
-    //                print(heightOfTableView)
-    //                dropDownFloatingView.tableViewHeight = heightOfTableView
-    //
-    //            }
-    //        }
 }

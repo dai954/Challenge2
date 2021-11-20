@@ -65,14 +65,14 @@ class DetailInfoCell: CustomDetailCell {
     }
     
     func bind(to viewModel: DetailInfoCellViewModel) {
-        viewModel.title.bind(to: leftLabel.rx.text).disposed(by: disposeBag)
-        viewModel.info.bind(to: rightLabel.rx.text).disposed(by: disposeBag)
-        viewModel.isQuestionLabelHidden.bind(to: questionButton.rx.isHidden).disposed(by: disposeBag)
-        viewModel.assistantColor.bind(to: icon.rx.image).disposed(by: disposeBag)
-        viewModel.isAssistantHidden.bind(to: icon.rx.isHidden).disposed(by: disposeBag)
+        viewModel.title.drive(leftLabel.rx.text).disposed(by: disposeBag)
+        viewModel.info.drive(rightLabel.rx.text).disposed(by: disposeBag)
+        viewModel.isQuestionLabelHidden.drive(questionButton.rx.isHidden).disposed(by: disposeBag)
+        viewModel.assistantColor.drive(icon.rx.image).disposed(by: disposeBag)
+        viewModel.isAssistantHidden.drive(icon.rx.isHidden).disposed(by: disposeBag)
         
         let prepareForReuseObservable = self.rx.sentMessage(#selector(UITableViewCell.prepareForReuse))
-        let input = DetailInfoCellViewModel.Input(questionButtonTapped: questionButton.rx.tap.take(until: prepareForReuseObservable).asObservable())
+        let input = DetailInfoCellViewModel.Input(questionButtonTapped: questionButton.rx.tap.take(until: prepareForReuseObservable).asSignal(onErrorJustReturn: ()))
         viewModel.wireAction(input: input)
     }
     

@@ -11,11 +11,11 @@ import RxCocoa
 class OfficialAppSearchViewModel: ViewModelType {
     
     struct Input {
-        let viewLayoutEvent: Observable<Void>
+        let viewWillAppearEvent: Signal<()>
     }
     
     struct Output {
-        let officialAppSearchSections: Observable<[OfficialAppSearchSection]>
+        let officialAppSearchSections: Driver<[OfficialAppSearchSection]>
     }
     
     let resourceAPI: ResourceFeedAPIType!
@@ -26,13 +26,14 @@ class OfficialAppSearchViewModel: ViewModelType {
     
     func transform(input: Input) -> Output {
         
-        let sections = input.viewLayoutEvent
+        let sections = input.viewWillAppearEvent
             .flatMap { _ in
                     self.resourceAPI.getFeedResult()
+                        .asDriver(onErrorJustReturn: nil)
             }
             .map { feedResult in
-                [OfficialAppSearchSection(header: "header", items: feedResult.feed.results)]
-            }.share(replay: 1)
+                [OfficialAppSearchSection(header: "header", items: feedResult?.feed.results ?? [])]
+            }
         
         return Output(officialAppSearchSections: sections)
     }

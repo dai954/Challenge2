@@ -11,17 +11,16 @@ import RxCocoa
 
 class AchievementRateCellViewModel {
 
-    let achievementRate: Observable<Double>
-    let achievementRateLabel = BehaviorRelay<String?>(value: nil)
+    let achievementRate: Driver<Double>
     
-    init(app: App, willDisplayObservable: Observable<WillDisplayCellEvent>) {
+    init(app: App, willDisplayCellEvent: Driver<WillDisplayCellEvent>) {
+        let app = Driver.just(app)
         
-        achievementRate = willDisplayObservable
-            .map { _ -> Double in
+        achievementRate = willDisplayCellEvent.withLatestFrom(app)
+            .map { app -> Double in
                 let averageUsersRating = app.averageUserRating ?? 0
                 return Double(averageUsersRating / 5)
             }
-            .share(replay: 1)
         
     }
     

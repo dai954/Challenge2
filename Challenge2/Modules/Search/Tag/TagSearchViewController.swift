@@ -18,8 +18,6 @@ class TagSearchViewController: ViewController, UICollectionViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeUI()
-        bindViewModel()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -27,7 +25,8 @@ class TagSearchViewController: ViewController, UICollectionViewDelegate {
         navigationController?.view.layoutIfNeeded()
     }
     
-    func makeUI() {
+    override func makeUI() {
+        super.makeUI()
         navigationItem.titleView = searchBar
         searchBar.becomeFirstResponder()
         addDissmissKeyboardTapGenture()
@@ -58,14 +57,15 @@ class TagSearchViewController: ViewController, UICollectionViewDelegate {
             searchBar.endEditing(true)
     }
     
-    private func bindViewModel() {
+    override func bindViewModel() {
+        super.bindViewModel()
         let viewModel = TagSearchViewModel(resourceAPI: ResourceAPI.resourceAPIShared)
         
         let input = TagSearchViewModel.Input(
-            viewLayoutEvent: rx.viewWillAppear.mapToVoid(),
-            selection: collectionView.rx.modelSelected(String.self).asObservable(),
-            searchWord: searchBar.rx.text.orEmpty.asObservable(),
-            searchButtonClick: searchBar.rx.searchButtonClicked.asObservable()
+            viewLWillAppearEvent: rx.viewWillAppear.asSignal().mapToVoid(),
+            selection: collectionView.rx.modelSelected(String.self).asDriver(),
+            searchWord: searchBar.rx.text.orEmpty.asDriver(),
+            searchButtonClicked: searchBar.rx.searchButtonClicked.asSignal()
         )
         let output = viewModel.transform(input: input)
         let dataSource = RxCollectionViewSectionedReloadDataSource<TagSearchSection> { dataSource, collectionView, indexPath, item in
@@ -79,14 +79,14 @@ class TagSearchViewController: ViewController, UICollectionViewDelegate {
         }
         
         output.tags
-            .bind(to: collectionView.rx.items(dataSource: dataSource))
+            .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         output.searchInvoked
-            .subscribe(onNext: { viewModel in
+            .drive(onNext: { [weak self] viewModel in
                 let vc = TeamListTableViewController(viewModel: viewModel)
                 vc.navigationItem.title = viewModel.keyword.value
-                self.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
             }).disposed(by: disposeBag)
     }
 

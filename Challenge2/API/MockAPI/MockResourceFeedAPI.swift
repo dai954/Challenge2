@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol ResourceFeedAPIType {
-    func getFeedResult() -> Observable<FeedResult>
+    func getFeedResult() -> Observable<FeedResult?>
 }
 
 
@@ -16,7 +16,7 @@ class MockResourceFeedAPI: ResourceFeedAPIType {
     
     static let mockResourceFeedAPIShared = MockResourceFeedAPI()
     
-    func getFeedResult() -> Observable<FeedResult> {
+    func getFeedResult() -> Observable<FeedResult?> {
         let url = Bundle(for: type(of: self)).url(forResource: "search_feedApp", withExtension: "json")!
         let data = try! Data(contentsOf: url)
         

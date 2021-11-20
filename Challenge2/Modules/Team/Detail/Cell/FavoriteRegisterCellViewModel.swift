@@ -11,13 +11,13 @@ import RxDataSources
 
 class FavoriteRegisterCellViewModel {
     
-    let numberOfFavoriteText: Observable<NSMutableAttributedString>
+    let numberOfFavoriteText: Driver<NSMutableAttributedString>
     
-    init(mockAPI: MockChallengeAPI = MockChallengeAPI.mockChallegeAPIShared) {
-        let testData = mockAPI.getSampleTeamData()
+    init(sampleAPI: ChallengeSampleDataAPI = ChallengeSampleDataAPI.challengeSampleDataAPIShared) {
+        let testData = sampleAPI.getSampleTeamData()
         let numberOfFavorite = testData.NumberOfFavorite
         
-        numberOfFavoriteText = Observable.just(numberOfFavorite)
+        numberOfFavoriteText = Driver.just(numberOfFavorite)
             .map { number -> NSMutableAttributedString  in
                 let stringOfNumber = String(number)
                 let digit = stringOfNumber.count
@@ -26,7 +26,7 @@ class FavoriteRegisterCellViewModel {
                 attributedString.addAttribute(.foregroundColor,
                                               value: UIColor.primaryRed(), range: NSMakeRange(2, digit + 1))
                 return attributedString
-            }.share(replay: 1)
+            }
     }
     
 }

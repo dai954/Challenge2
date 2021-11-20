@@ -142,6 +142,19 @@ enum AssistantColor {
         case .no: return "表示しないようにします。"
         }
 }
-
     
+}
+
+
+enum TeamWelcome {
+    case biginner, full, premire, no
+    
+    var title: String {
+        switch self {
+        case .biginner: return "初心者歓迎"
+        case .full: return  "満員"
+        case .premire: return ""
+        case .no: return ""
+        }
+    }
 }

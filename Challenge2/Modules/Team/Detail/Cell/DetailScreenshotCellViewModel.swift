@@ -10,10 +10,10 @@ import RxCocoa
 
 class DetailScreenshotCellViewModel {
     
-    let screenshotSections = BehaviorRelay<[ScreenshotSection]>(value: [])
+    let screenshotSections: Driver<[ScreenshotSection]>
     
     init(app: App) {
         let sections = ScreenshotSection(header: "header", items: app.screenshotUrls ?? [])
-        screenshotSections.accept([sections])
+        self.screenshotSections = Driver.just([sections])
     }
 }

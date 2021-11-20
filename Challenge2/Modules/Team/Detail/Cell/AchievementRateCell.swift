@@ -37,9 +37,13 @@ class AchievementRateCell: CustomDetailCell {
     
     let achievementRateCircleView = CircleProgressView()
     
+    deinit {
+        print("AchievementRateCell deinit")
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        print("AchievementRateCell init")
         let leftStackView = UIStackView(arrangedSubviews: [lastThreeDaysLabel, achievementRateLabel])
         leftStackView.axis = .vertical
         leftStackView.spacing = 5
@@ -56,43 +60,45 @@ class AchievementRateCell: CustomDetailCell {
     func bind(to viewModel: AchievementRateCellViewModel) {
         
         viewModel.achievementRate
-            .subscribe(onNext: { rate in
+            .drive(onNext: { [weak self] rate in
                 let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
                 basicAnimation.toValue = rate
-                basicAnimation.duration = rate * self.animationSpeed
+                basicAnimation.duration = rate * (self?.animationSpeed ?? 1.5)
                 basicAnimation.fillMode = CAMediaTimingFillMode.forwards
                 basicAnimation.isRemovedOnCompletion = false
-                self.achievementRateCircleView.foregroundLayer.add(basicAnimation, forKey: "urSoBasic")
+                self?.achievementRateCircleView.foregroundLayer.add(basicAnimation, forKey: "urSoBasic")
             }).disposed(by: disposeBag)
         
         viewModel.achievementRate
-            .subscribe(onNext: { rate in
-                self.rate = rate
-                self.countupOnLabel()
+            .drive(onNext: {[weak self] rate in
+                self?.rate = rate
+                self?.countupOnLabel()
             })
             .disposed(by: disposeBag)
     }
     
-    
+    //MARK: - RateLabel Animation Logic
     var animationStartDate: Date = Date()
     var rate: Double = 0
     let animationSpeed = 1.5
+    var displayLink: CADisplayLink?
     
     private func countupOnLabel() {
         animationStartDate = Date()
-        let displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
-        displayLink.add(to: .current, forMode: .common)
+        displayLink = CADisplayLink(target: self, selector: #selector(handleUpdate))
+        displayLink?.add(to: .current, forMode: .common)
     }
     
     @objc func handleUpdate() {
         let now = Date()
         let elapsedTime = now.timeIntervalSince(animationStartDate)
         let duration = rate * animationSpeed
-        
+
         if elapsedTime > duration {
             let stringEndValue = String(format: "%.0f%", rate * 100) + "%"
             percentageNumberLabel.text = stringEndValue
             percentageNumberLabel.lastLetterToSmall(value: stringEndValue)
+            self.displayLink?.invalidate()
         } else {
             let persentage = elapsedTime / duration
             let value = persentage * rate
@@ -100,7 +106,7 @@ class AchievementRateCell: CustomDetailCell {
             percentageNumberLabel.text = stringValue
             percentageNumberLabel.lastLetterToSmall(value: stringValue)
         }
-        
+
     }
     
     

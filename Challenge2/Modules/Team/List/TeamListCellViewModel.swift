@@ -14,6 +14,7 @@ class TeamListCellViewModel: CustomTableViewCellViewModel {
     
     init(app: App) {
         self.app = app
+        
         super.init()
     
         title.accept(app.trackName)
@@ -37,5 +38,25 @@ class TeamListCellViewModel: CustomTableViewCellViewModel {
             }
         }
       }
+        
+//        Mock data
+        if app.screenshotUrls?.count ?? 0 >= 5 {
+            isFullHidden = Driver.just(false)
+            isPremireHidden = Driver.just(true)
+            isBignnerHidden = Driver.just(true)
+        } else if app.screenshotUrls?.count ?? 0 == 4 {
+            isFullHidden = Driver.just(true)
+            isPremireHidden = Driver.just(false)
+            isBignnerHidden = Driver.just(true)
+        } else if app.screenshotUrls?.count ?? 0 == 3 {
+            isFullHidden = Driver.just(true)
+            isPremireHidden = Driver.just(true)
+            isBignnerHidden = Driver.just(false)
+        } else {
+            isFullHidden = Driver.just(true)
+            isPremireHidden = Driver.just(true)
+            isBignnerHidden = Driver.just(true)
+        }
+        
     }
 }

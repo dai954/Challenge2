@@ -49,7 +49,7 @@ class DetailScreenshotCell: CustomDetailCell {
     func bind(to viewModel: DetailScreenshotCellViewModel) {
         
         viewModel.screenshotSections
-            .bind(to: screenshotCollectionViewController.viewModel.screenshotSections)
+            .drive(screenshotCollectionViewController.viewModel.screenshotSections)
             .disposed(by: disposeBag)
         
     }

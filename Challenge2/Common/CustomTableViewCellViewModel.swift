@@ -19,4 +19,8 @@ class CustomTableViewCellViewModel {
     let avatarImage4 = BehaviorRelay<String?>(value: nil)
     let avatarImage5 = BehaviorRelay<String?>(value: nil)
     
+    var isPremireHidden: Driver<Bool>?
+    var isBignnerHidden: Driver<Bool>?
+    var isFullHidden: Driver<Bool>?
+   
 }

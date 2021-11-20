@@ -23,23 +23,18 @@ class CategorySearchViewController: ViewController {
     var layout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        makeUI()
-        bindViewModel()
-        
+        super.viewDidLoad()        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         collectionView.heightAnchor.constraint(equalToConstant: layout.collectionViewContentSize.height).isActive = true
         view.layoutIfNeeded()
         view.frame.size.height = layout.collectionViewContentSize.height
-        
     }
     
-    private func makeUI() {
+    override func makeUI() {
+        super.makeUI()
         layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.itemSize = .init(width: view.frame.width / 2 - CategorySearchSizeAndInset.spacing * 2, height: CategorySearchSizeAndInset.cellHeight)
@@ -56,12 +51,13 @@ class CategorySearchViewController: ViewController {
         collectionView.fillSuperview()
     }
     
-    private func bindViewModel() {
+    override func bindViewModel() {
+        super.bindViewModel()
         let viewModel = CategorySearchViewModel(resourceAPI: ResourceAPI.resourceAPIShared)
         
         let input = CategorySearchViewModel.Input(
-            viewLayoutEvent: rx.viewWillAppear.mapToVoid(),
-            selection: collectionView.rx.modelSelected(CategoryResouce.self).asObservable())
+            viewWillAppearEvent: rx.viewWillAppear.asSignal().mapToVoid(),
+            selection: collectionView.rx.modelSelected(CategoryResouce.self).asDriver())
         let output = viewModel.transform(input: input)
         
         let dataSource = RxCollectionViewSectionedReloadDataSource<CategorySearchSection> { dataSource, collectionView, indexPath, item in
@@ -73,15 +69,16 @@ class CategorySearchViewController: ViewController {
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: supplementaryViewOfKind, withReuseIdentifier: CategorySearchFooterReusableView.footerReusableViewId, for: indexPath)
             return footer
         }
+        
         output.categories
-            .bind(to: collectionView.rx.items(dataSource: dataSource))
+            .drive(collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         output.categorySelected
-            .subscribe(onNext: { viewModel in
+            .drive(onNext: { [weak self] viewModel in
                 let vc = TeamListTableViewController(viewModel: viewModel)
                 vc.navigationItem.title = "【\(viewModel.keyword.value)】"
-                self.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
             })
             .disposed(by: disposeBag)
     }

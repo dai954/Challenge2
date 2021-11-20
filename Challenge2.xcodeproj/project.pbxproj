@@ -64,7 +64,7 @@
 		095DC4D02732A29200547CE5 /* search_itunes.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4C227322CAE00547CE5 /* search_itunes.json */; };
 		095DC4D12732A2E300547CE5 /* search_itunes2.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4C42732310D00547CE5 /* search_itunes2.json */; };
 		095DC4D32732CECB00547CE5 /* ChallengeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4D22732CECB00547CE5 /* ChallengeAPI.swift */; };
-		095DC4D727343DB800547CE5 /* Kingfisher+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4D627343DB800547CE5 /* Kingfisher+RxExtension.swift */; };
+		095DC4D727343DB800547CE5 /* Reactive+RxExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4D627343DB800547CE5 /* Reactive+RxExtension.swift */; };
 		095DC4DA2734D12700547CE5 /* OfficialAppSearchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4D92734D12700547CE5 /* OfficialAppSearchSection.swift */; };
 		095DC4DC2734D21C00547CE5 /* OfficialAppSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC4DB2734D21C00547CE5 /* OfficialAppSearchViewModel.swift */; };
 		095DC4DE2734E89E00547CE5 /* search_feedApp.json in Resources */ = {isa = PBXBuildFile; fileRef = 095DC4DD2734E89E00547CE5 /* search_feedApp.json */; };
@@ -122,6 +122,9 @@
 		09D37FD32727FE6D003B4E6A /* OfficialAppSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D37FD22727FE6D003B4E6A /* OfficialAppSearchViewController.swift */; };
 		09D37FD52727FF57003B4E6A /* OfficialAppSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D37FD42727FF57003B4E6A /* OfficialAppSearchCell.swift */; };
 		09D37FFB272841EF003B4E6A /* UIsearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D37FFA272841EF003B4E6A /* UIsearchBar+Extension.swift */; };
+		09E1A3252744F837001CE726 /* ChallengeSampleDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1A3242744F837001CE726 /* ChallengeSampleDataAPI.swift */; };
+		09E1A32727463AF4001CE726 /* CaluculateDropDownViewHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1A32627463AF4001CE726 /* CaluculateDropDownViewHeight.swift */; };
+		09E1A3292746439C001CE726 /* Others.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E1A3282746439C001CE726 /* Others.swift */; };
 		85872163FF2020BCFBE757DD /* Pods_Challenge2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC749EFDD15C18C2D7A8BA21 /* Pods_Challenge2.framework */; };
 		BFBD87A01DF794755300BC2D /* Pods_Challenge2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B3EA5EAEB3D786D1A46BCCD /* Pods_Challenge2Tests.framework */; };
 /* End PBXBuildFile section */
@@ -192,7 +195,7 @@
 		095DC4CB2732756100547CE5 /* TeamListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListSection.swift; sourceTree = "<group>"; };
 		095DC4CD273275B500547CE5 /* TeamListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListCellViewModel.swift; sourceTree = "<group>"; };
 		095DC4D22732CECB00547CE5 /* ChallengeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAPI.swift; sourceTree = "<group>"; };
-		095DC4D627343DB800547CE5 /* Kingfisher+RxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingfisher+RxExtension.swift"; sourceTree = "<group>"; };
+		095DC4D627343DB800547CE5 /* Reactive+RxExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+RxExtension.swift"; sourceTree = "<group>"; };
 		095DC4D92734D12700547CE5 /* OfficialAppSearchSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialAppSearchSection.swift; sourceTree = "<group>"; };
 		095DC4DB2734D21C00547CE5 /* OfficialAppSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialAppSearchViewModel.swift; sourceTree = "<group>"; };
 		095DC4DD2734E89E00547CE5 /* search_feedApp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = search_feedApp.json; sourceTree = "<group>"; };
@@ -254,6 +257,9 @@
 		09D37FD22727FE6D003B4E6A /* OfficialAppSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialAppSearchViewController.swift; sourceTree = "<group>"; };
 		09D37FD42727FF57003B4E6A /* OfficialAppSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialAppSearchCell.swift; sourceTree = "<group>"; };
 		09D37FFA272841EF003B4E6A /* UIsearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIsearchBar+Extension.swift"; sourceTree = "<group>"; };
+		09E1A3242744F837001CE726 /* ChallengeSampleDataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSampleDataAPI.swift; sourceTree = "<group>"; };
+		09E1A32627463AF4001CE726 /* CaluculateDropDownViewHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaluculateDropDownViewHeight.swift; sourceTree = "<group>"; };
+		09E1A3282746439C001CE726 /* Others.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Others.swift; sourceTree = "<group>"; };
 		0F21AEA2CCEC8E49D3AC9D4A /* Pods-Challenge2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge2.debug.xcconfig"; path = "Target Support Files/Pods-Challenge2/Pods-Challenge2.debug.xcconfig"; sourceTree = "<group>"; };
 		3052620CBBA1B3561980B195 /* Pods-Challenge2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Challenge2.release.xcconfig"; path = "Target Support Files/Pods-Challenge2/Pods-Challenge2.release.xcconfig"; sourceTree = "<group>"; };
 		7B3EA5EAEB3D786D1A46BCCD /* Pods_Challenge2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Challenge2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -368,6 +374,8 @@
 				094C00242729AC3000313907 /* CustomCollectionViewCell.swift */,
 				095DC52E27390F9600547CE5 /* FloatingViewScrollDownDemo.swift */,
 				095D49F2273D04EC0067AF55 /* SampleTestTableViewController.swift */,
+				09E1A32627463AF4001CE726 /* CaluculateDropDownViewHeight.swift */,
+				09E1A3282746439C001CE726 /* Others.swift */,
 			);
 			path = Trash;
 			sourceTree = "<group>";
@@ -416,6 +424,7 @@
 				095DC486273102A100547CE5 /* HTTPClient.swift */,
 				095DC48A273108C100547CE5 /* ChallengeClient.swift */,
 				095DC4D22732CECB00547CE5 /* ChallengeAPI.swift */,
+				09E1A3242744F837001CE726 /* ChallengeSampleDataAPI.swift */,
 			);
 			path = ChallengeAPI;
 			sourceTree = "<group>";
@@ -622,12 +631,12 @@
 			isa = PBXGroup;
 			children = (
 				09C5566C272E7FB10023D51C /* UIViewController+RxExtension.swift */,
+				095DC4D627343DB800547CE5 /* Reactive+RxExtension.swift */,
 				095D4A0C273F89040067AF55 /* UIAlertController+Extension.swift */,
 				09D37FC52727E0B4003B4E6A /* UIColor+Extension.swift */,
 				09D37FFA272841EF003B4E6A /* UIsearchBar+Extension.swift */,
 				09C5559A272AA7FB0023D51C /* UIView+Extension.swift */,
 				095DC4762730DFDF00547CE5 /* Float+Extension.swift */,
-				095DC4D627343DB800547CE5 /* Kingfisher+RxExtension.swift */,
 				095DC50A2737EB3D00547CE5 /* UILabel+Extension.swift */,
 				095D49EF273C39A50067AF55 /* String+Extension.swift */,
 			);
@@ -877,7 +886,7 @@
 				095DC53C273919AE00547CE5 /* DropDownSearchButtonCell.swift in Sources */,
 				09C55667272E7D310023D51C /* ResourceAPI.swift in Sources */,
 				095D49E8273BF9820067AF55 /* DetailScreenshotCellViewModel.swift in Sources */,
-				095DC4D727343DB800547CE5 /* Kingfisher+RxExtension.swift in Sources */,
+				095DC4D727343DB800547CE5 /* Reactive+RxExtension.swift in Sources */,
 				09D37FD52727FF57003B4E6A /* OfficialAppSearchCell.swift in Sources */,
 				095D49E4273BF21B0067AF55 /* TeamDetailImageCellViewModel.swift in Sources */,
 				095D4A3B27411C5C0067AF55 /* ActivityIndicator.swift in Sources */,
@@ -888,6 +897,7 @@
 				095DC4852730F29000547CE5 /* MnemonicCode.swift in Sources */,
 				09D37FD12727EC57003B4E6A /* CategorySearchFooterReusableView.swift in Sources */,
 				09D37FCF2727E7F6003B4E6A /* CategoryResouce.swift in Sources */,
+				09E1A3252744F837001CE726 /* ChallengeSampleDataAPI.swift in Sources */,
 				09D37FBF2727DBFB003B4E6A /* BaseSearchViewController.swift in Sources */,
 				095DC4C82732747B00547CE5 /* MockChallengeAPI.swift in Sources */,
 				095DC4E6273514AC00547CE5 /* TeamDetailSection.swift in Sources */,
@@ -956,6 +966,7 @@
 				095D49E2273BEFFC0067AF55 /* CustomTableViewCellViewModel.swift in Sources */,
 				095DC4E8273514C900547CE5 /* TeamDetailTableViewCell.swift in Sources */,
 				09C5566D272E7FB10023D51C /* UIViewController+RxExtension.swift in Sources */,
+				09E1A32727463AF4001CE726 /* CaluculateDropDownViewHeight.swift in Sources */,
 				095DC4CE273275B500547CE5 /* TeamListCellViewModel.swift in Sources */,
 				094C000827293BDF00313907 /* TagResource.swift in Sources */,
 				09C5566B272E7EBF0023D51C /* ViewModelType.swift in Sources */,
@@ -964,6 +975,7 @@
 				095DC534273917ED00547CE5 /* DropDownTextFieldCell.swift in Sources */,
 				095DC4832730EF2B00547CE5 /* HTTPMethod.swift in Sources */,
 				094C0006272936FE00313907 /* APIClientError.swift in Sources */,
+				09E1A3292746439C001CE726 /* Others.swift in Sources */,
 				095DC4772730DFDF00547CE5 /* Float+Extension.swift in Sources */,
 				09D37FC12727DF3D003B4E6A /* CategorySearchViewController.swift in Sources */,
 			);

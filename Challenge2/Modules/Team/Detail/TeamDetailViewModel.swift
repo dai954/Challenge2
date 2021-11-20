@@ -10,35 +10,38 @@ import RxCocoa
 
 class TeamDetailViewModel: ViewModelType {
     
+    deinit {
+        print("TeamDetailViewModel deinit")
+    }
+    
     struct Input {
-        let viewLayoutEvent: Observable<Void>
-        let willDisplayCell: Observable<WillDisplayCellEvent>
+        let willDisplayCellEvent: Driver<WillDisplayCellEvent>
     }
     
     struct Output {
-        let teamDetailSections: Observable<[TeamDetailSection]>
+        let teamDetailSections: Driver<[TeamDetailSection]>
     }
     
-    let app: BehaviorRelay<App>
+    let app: Driver<App>
 
     init(app: App) {
-        self.app = BehaviorRelay(value: app)
+        print("TeamDetailViewModel init")
+        self.app = Driver.just(app)
     }
     
     
     func transform(input: Input) -> Output {
         
-        let sections = app.asObservable()
+        let sections = app
             .map { app -> [TeamDetailSection] in
                 var items: [TeamSectionItem] = []
-                let willDisplayRatingCell = input.willDisplayCell
+                let willDisplayRatingCell = input.willDisplayCellEvent
                     .filter { $1.item == 1 }
-                    .share(replay: 1)
                 
                 let teamImageCellViewModel = TeamDetailImageCellViewModel(app: app)
                 items.append(TeamSectionItem.teamImage(viewModel: teamImageCellViewModel))
                 
-                let achievementRateCellViewModel = AchievementRateCellViewModel(app: app ,willDisplayObservable: willDisplayRatingCell)
+                let achievementRateCellViewModel = AchievementRateCellViewModel(app: app ,willDisplayCellEvent: willDisplayRatingCell)
                 items.append(TeamSectionItem.achievementRate(viewModel: achievementRateCellViewModel))
                 
                 let descripthionCellViewModel = DetailDescriptionCellViewModel(app: app)
@@ -75,7 +78,6 @@ class TeamDetailViewModel: ViewModelType {
                 
                 return [sections]
             }
-            .share(replay: 1)
         
         return Output(teamDetailSections: sections)
     }

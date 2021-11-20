@@ -15,15 +15,19 @@ class DetailDescriptionCell: CustomDetailCell {
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "body ------------ body _____//// \n bodyNNNNbody ------------ body _____//// \n bodyNNNNbody ------------ body _____//// \n bodyNNNNbody ------------ body _____//// \n bodyNNNN"
+        label.text = "body ------------ body ---------- \n body --------- body ---------- \n body ----------- body ---------- \n body ------------ body ----------- \n body -----------"
         label.font = .systemFont(ofSize: 14)
         label.numberOfLines = 0
         return label
     }()
     
+    deinit {
+        print("DetailDescriptionCell deinit")
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        print("DetailDescriptionCell init")
 //        backgroundColor = .gray
         
         containerView.addSubview(descriptionLabel)
@@ -33,7 +37,7 @@ class DetailDescriptionCell: CustomDetailCell {
     func bind(to viewModel: DetailDescriptionCellViewModel) {
         
         viewModel.description
-            .bind(to: descriptionLabel.rx.text)
+            .drive(descriptionLabel.rx.text)
             .disposed(by: disposeBag)
         
     }

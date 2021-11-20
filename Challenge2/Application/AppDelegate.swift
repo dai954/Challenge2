@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import Kingfisher
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,11 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().isTranslucent = false
         
-        // count number of rx object (Observables, Observers, Disposables, etc.).
-//        let timer = Timer(timeInterval: 3.0, target: BlockOperation.init(block: {
-//                print("Resource count \(RxSwift.Resources.total)")
-//            }), selector: #selector(Operation.main), userInfo: nil, repeats: true)
-//        RunLoop.main.add(timer, forMode: .common)
+        // Config image cache limit
+        let cache = ImageCache.default
+        cache.memoryStorage.config.totalCostLimit = 1024 * 1024 * 100 // Constrain Memory Cache
+        cache.diskStorage.config.sizeLimit = 1024 * 1024 * 300 // Constrain Disk Cache
+        
+        // Count number of rx object (Observables, Observers, Disposables, etc.).
+        
+        let timer = Timer(timeInterval: 3.0, target: BlockOperation.init(block: {
+                print("Resource count \(RxSwift.Resources.total)")
+            }), selector: #selector(Operation.main), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer, forMode: .common)
         
         return true
     }

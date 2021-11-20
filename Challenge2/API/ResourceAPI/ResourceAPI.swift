@@ -36,7 +36,8 @@ class ResourceAPI: ResourceFeedAPIType {
         return Observable.just(tagSections)
     }
 
-    func getFeedResult() -> Observable<FeedResult> {
+    func getFeedResult() -> Observable<FeedResult?> {
+//        let limitNumber = 10
 //        let urlString = "https://rss.applemarketingtools.com/api/v2/us/apps/top-free/\(limitNumber)/apps.json"
 //        let url = URL(string: urlString)!
 //        let request = URLRequest(url: url)
@@ -51,9 +52,9 @@ class ResourceAPI: ResourceFeedAPIType {
         
         let url = Bundle(for: type(of: self)).url(forResource: "search_feedApp", withExtension: "json")!
         let data = try! Data(contentsOf: url)
-        
+
         let response = try! JSONDecoder().decode(FeedResult.self, from: data)
-        
+
         return Observable.just(response)
         
     }

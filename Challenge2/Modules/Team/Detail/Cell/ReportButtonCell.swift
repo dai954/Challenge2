@@ -78,11 +78,10 @@ class ReportButtonCell: CustomDetailCell {
     }
     
     func bind(to viewModel: ReportButtonCellViewModel) {
-        print("viewModel called in ReportButtonCell")
         // hold tap event "until" prepareForReuse method is called.
         let prepareForReuseObservable = self.rx.sentMessage(#selector(UITableViewCell.prepareForReuse))
         let input = ReportButtonCellViewModel.Input(reportButtonTapped: reportButton.rx.tap
-                                                        .take(until: prepareForReuseObservable).asObservable())
+                                                        .take(until: prepareForReuseObservable).asSignal(onErrorJustReturn: ()))
         viewModel.wireAction(input: input)
     }
     

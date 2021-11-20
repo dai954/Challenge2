@@ -38,9 +38,10 @@ final class BaseSearchViewController: ViewController {
         contentView.backgroundColor = UIColor.primaryGray()
     }
     
-    // to prevent weird blak line at the top of view while transforming to next view
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        // to prevent weird blak line at the top of view while transforming to next view
         navigationController?.view.setNeedsLayout()
         navigationController?.view.layoutIfNeeded()
     }

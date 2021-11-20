@@ -10,12 +10,10 @@ import RxCocoa
 
 class DetailDescriptionCellViewModel {
     
-    let app: App
-    let description = BehaviorRelay<String?>(value: nil)
+    let description: Driver<String>
     
     init(app: App) {
-        self.app = app
-        description.accept(app.description)
+        self.description = Driver.just(app.description ?? "")
     }
     
 }

@@ -11,13 +11,13 @@ import RxCocoa
 class CategorySearchViewModel: ViewModelType {
     
     struct Input {
-        let viewLayoutEvent: Observable<Void>
-        let selection: Observable<CategoryResouce>
+        let viewWillAppearEvent: Signal<()>
+        let selection: Driver<CategoryResouce>
     }
     
     struct Output {
-        let categories: Observable<[CategorySearchSection]>
-        let categorySelected: Observable<TeamListViewModel>
+        let categories: Driver<[CategorySearchSection]>
+        let categorySelected: Driver<TeamListViewModel>
     }
     
     let resourceAPI: ResourceAPI!
@@ -27,15 +27,17 @@ class CategorySearchViewModel: ViewModelType {
     }
     
     func transform(input: Input) -> Output {
-        let categorySections = input.viewLayoutEvent
-            .flatMap { _ in
+        
+        let categorySections = input.viewWillAppearEvent
+            .flatMap { _ -> Driver<[CategorySearchSection]> in
                 self.resourceAPI.getCategorySections()
-            }.share(replay: 1)
+                    .asDriver(onErrorJustReturn: [])
+            }
         
         let categorySelected = input.selection
             .map { categoryResouce in
                 TeamListViewModel(challengeAPI: ChallengeAPI.challengeAPIShared, keyword: categoryResouce.title)
-            }.share(replay: 1)
+            }
         
         return Output(categories: categorySections, categorySelected: categorySelected)
     }

@@ -11,30 +11,30 @@ import RxCocoa
 class DetailInfoCellViewModel {
     let disposeBag = DisposeBag()
     
-    let appData: Observable<App>
-    let detailInfo: Observable<DetailInfo>
-    let teamTestData: Observable<TeamTestData>
+    let appData: Driver<App>
+    let detailInfo: Driver<DetailInfo>
+    let teamTestData: Driver<TeamTestData>
     
-    let title = BehaviorRelay<String?>(value: nil)
-    let isQuestionLabelHidden = BehaviorRelay<Bool>(value: true)
-    let info: Observable<String>
-    let assistantColor: Observable<UIImage?>
-    let isAssistantHidden: Observable<Bool>
+    let title: Driver<String>
+    let isQuestionLabelHidden: Driver<Bool>
+    let info: Driver<String>
+    let assistantColor: Driver<UIImage?>
+    let isAssistantHidden: Driver<Bool>
     
     struct Input {
-        let questionButtonTapped: Observable<Void>
+        let questionButtonTapped: Signal<()>
     }
     
 
-    init(app: App, detail: DetailInfo, mockAPI: MockChallengeAPI = MockChallengeAPI.mockChallegeAPIShared) {
-        self.appData = Observable.just(app)
-        self.detailInfo = Observable.just(detail)
-        let testData = mockAPI.getSampleTeamData()
-        self.teamTestData = Observable.just(testData)
-        title.accept(detail.title)
-        isQuestionLabelHidden.accept(detail.isQuestionLabelHidden)
+    init(app: App, detail: DetailInfo, sampleAPI: ChallengeSampleDataAPI = ChallengeSampleDataAPI.challengeSampleDataAPIShared) {
+        self.appData = Driver.just(app)
+        self.detailInfo = Driver.just(detail)
+        let testData = sampleAPI.getSampleTeamData()
+        self.teamTestData = Driver.just(testData)
+        self.title = Driver.just(detail.title)
+        self.isQuestionLabelHidden = Driver.just(detail.isQuestionLabelHidden)
         
-        info = Observable.combineLatest(detailInfo, teamTestData, appData) { detail, testData, appData -> String in
+        info = Driver.combineLatest(detailInfo, teamTestData, appData) { detail, testData, appData -> String in
                 switch detail {
                 case .lastUpdate:
                     return appData.releaseDate.challengeDateString
@@ -52,26 +52,26 @@ class DetailInfoCellViewModel {
                 case .assistantColor:
                     return "\(testData.assistantColor.text)"
                 }
-        }.share(replay: 1)
+        }
         
         assistantColor = teamTestData
             .map{ data -> UIImage? in
                 return data.assistantColor.image
-            }.share(replay: 1)
+            }
         
         isAssistantHidden = detailInfo
             .map { detail in
                 detail.isAssinstantIconHidden
-            }.share(replay: 1)
+            }
     }
     
     func wireAction(input: Input) {
         print("called wire action")
         let wireframe = DefaultWireframe.shared
-        let detailAndTestData = Observable.combineLatest(detailInfo, teamTestData)
+        let detailAndTestData = Driver.combineLatest(detailInfo, teamTestData)
         
         let _ = input.questionButtonTapped.withLatestFrom(detailAndTestData)
-            .flatMap { detailAndTestData -> Observable<String> in
+            .flatMap { detailAndTestData -> Driver<String> in
                 var description = detailAndTestData.0.description
                 
                 if detailAndTestData.0 == .assistantColor {
@@ -79,8 +79,8 @@ class DetailInfoCellViewModel {
                     description += "オーナーのみ変更できます。"
                 }
                 
-                return wireframe.promptFor(title: nil, message: description, titleColor: nil, messageColor: .lightGray, titleFont: nil, messageFont: .systemFont(ofSize: 14), actionTextColor: UIColor.primaryRed() , cancelAction: "閉じる", actions: [], preferrdeStyle: .alert, cancelActionStyle: .default)
-            }.subscribe(onNext: { action in
+                return wireframe.promptFor(title: nil, message: description, titleColor: nil, messageColor: .lightGray, titleFont: nil, messageFont: .systemFont(ofSize: 14), actionTextColor: UIColor.primaryRed() , cancelAction: "閉じる", actions: [], preferrdeStyle: .alert, cancelActionStyle: .default).asDriver(onErrorJustReturn: "")
+            }.drive(onNext: { action in
                 print("action: ", action)
             }).disposed(by: disposeBag)
         

@@ -43,6 +43,9 @@ class TeamDetailImageCell: CustomTableViewCell {
         viewModel.avatarImage4.map{ URL(string: $0 ?? "") }.asDriver(onErrorJustReturn: nil).drive(memberImage4.rx.imageURL).disposed(by: disposeBag)
         viewModel.avatarImage5.map{ URL(string: $0 ?? "") }.asDriver(onErrorJustReturn: nil).drive(memberImage5.rx.imageURL).disposed(by: disposeBag)
         
+        viewModel.isPremireHidden?.drive(premireTagImage.rx.isHidden).disposed(by: disposeBag)
+        viewModel.isBignnerHidden?.drive(beginerTag.rx.isHidden).disposed(by: disposeBag)
+        viewModel.isFullHidden?.drive(fullTeamTag.rx.isHidden).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
