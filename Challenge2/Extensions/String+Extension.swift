@@ -5,7 +5,7 @@
 //  Created by 石川大輔 on 2021/11/11.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     
@@ -18,6 +18,14 @@ extension String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM月dd日 hh:mm"
         return formatter.string(from: date)
+    }
+    
+    func lineSpaceAttributedString(space: CGFloat) -> NSMutableAttributedString {
+        let attributedString = NSMutableAttributedString(string: self)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = space
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        return attributedString
     }
     
 }

@@ -120,7 +120,6 @@ class DropDownFloatingView: UIView {
             
             NSLayoutConstraint.deactivate([dropViewHeightConstraint, dropViewTopConstraint ,blindViewTopConstraint, containerViewTrailingConstraint])
             dropViewHeightConstraint.constant = tableViewHeight
-            print("dropDownTableViewController.tableView.contentSize.height", dropDownTableViewController.tableView.contentSize.height)
             blindViewTopConstraint.constant = TeamListTableViewController.floatingViewHeight
             dropViewTopConstraint.constant = flotingPosition
             superview?.bringSubviewToFront(dropDownTableViewController.view)

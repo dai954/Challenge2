@@ -29,7 +29,6 @@ class DefaultTableViewCell: TableViewCell {
 
     let teamLabel: UILabel = {
         let label = UILabel()
-        label.text = "食事記録"
         label.numberOfLines = 1
         label.textColor = .white
         label.textAlignment = .center

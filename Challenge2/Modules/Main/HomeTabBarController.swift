@@ -15,7 +15,7 @@ class HomeTabBarController: UITabBarController {
         private func controller() -> UIViewController {
             switch self {
             case .search:
-                let vc = BaseSearchViewController()
+                let vc = BaseSearchViewController(categorySearchVC: CategorySearchViewController(), officialAppSearchVC: OfficialAppSearchViewController())
                 return UINavigationController(rootViewController: vc)
             case .team:
                 let vc = UIViewController()

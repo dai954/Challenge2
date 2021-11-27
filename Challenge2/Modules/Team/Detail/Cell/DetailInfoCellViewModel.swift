@@ -77,6 +77,8 @@ class DetailInfoCellViewModel {
                 if detailAndTestData.0 == .assistantColor {
                     description += detailAndTestData.1.assistantColor.description
                     description += "オーナーのみ変更できます。"
+                } else if detailAndTestData.0 == .autoExitTerm {
+                    description = detailAndTestData.1.autoExitTerm.text + description
                 }
                 
                 return wireframe.promptFor(title: nil, message: description, titleColor: nil, messageColor: .lightGray, titleFont: nil, messageFont: .systemFont(ofSize: 14), actionTextColor: UIColor.primaryRed() , cancelAction: "閉じる", actions: [], preferrdeStyle: .alert, cancelActionStyle: .default).asDriver(onErrorJustReturn: "")

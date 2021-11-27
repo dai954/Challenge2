@@ -8,7 +8,7 @@
 import UIKit
 
 enum DetailInfo {
-    case lastUpdate, genderRistrict, ageRestrict,challengeTerm,autoExitTerm, assistantColor
+    case lastUpdate, genderRistrict, ageRestrict, challengeTerm, autoExitTerm, assistantColor
     
     var title: String {
         switch self {
@@ -49,7 +49,8 @@ enum DetailInfo {
         case .ageRestrict: return "チームに参加できるユーザーの条件です。オーナーのみ変更できます。"
         case .genderRistrict: return "チームに参加できるユーザーの条件です。オーナーのみ変更できます。"
         case .challengeTerm: return "期間が終わるタイミングで、終了するか継続するかを聞かれます。継続を選ぶかどちらも選択しないとチームに残り、次の期間に延長されます。"
-        case .autoExitTerm: return "2日間行動がないメンバーはシステムにより自動的に退出させられます。オーナーのみ変更できます。"
+        case .autoExitTerm:
+            return "行動がないメンバーはシステムにより自動的に退出させられます。オーナーのみ変更できます。"
         case .assistantColor:
             return "チャットに参加するアシスタントです。"
         }

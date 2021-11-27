@@ -43,7 +43,6 @@ class TeamListTableViewController: ViewController, UITableViewDelegate {
     override func viewDidLayoutSubviews() {
         dropDownFloatingView.floatingViewYPosition = dropDownFloatingView.frame.maxY
         dropDownFloatingView.safeAreaInsetsTop = view.safeAreaInsets.top
-
     }
     
     override func makeUI() {
@@ -57,10 +56,10 @@ class TeamListTableViewController: ViewController, UITableViewDelegate {
         
         tableView.register(TeamListTableViewCell.self, forCellReuseIdentifier: TeamListTableViewCell.teamListCell)
         
-        view.addSubview(addButton)
         view.addSubview(tableView)
-        addButton.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 6))
+        view.addSubview(addButton)
         tableView.fillSuperview()
+        addButton.anchor(top: nil, leading: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 6))
         
         setupFloatingView()
     }

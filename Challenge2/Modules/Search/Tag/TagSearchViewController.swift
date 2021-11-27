@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class TagSearchViewController: ViewController, UICollectionViewDelegate {
+class TagSearchViewController: ViewController {
 
     var collectionView: UICollectionView!
     var layout: LeftAlignedCollectionViewFlowLayout!

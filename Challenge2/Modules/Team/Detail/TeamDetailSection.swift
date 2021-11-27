@@ -36,17 +36,3 @@ extension TeamDetailSection: SectionModelType {
         self.items = items
     }
 }
-
-//struct TeamListSection {
-//    var header: String
-//    var items: [Item]
-//}
-//
-//extension TeamListSection: SectionModelType {
-//    typealias Item = TeamListCellViewModel
-//
-//    init(original: TeamListSection, items: [Item]) {
-//        self = original
-//        self.items = items
-//    }
-//}

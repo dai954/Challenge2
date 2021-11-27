@@ -13,7 +13,7 @@ class ReportButtonCell: CustomDetailCell {
     static let cellId = "ReportButtonCellId"
     
     let reportButton: UIButton = {
-        let button = UIButton(frame: .init(x: 20, y: 10, width: 150, height: 15))
+        let button = UIButton()
         button.setTitle("このチームを通報する", for: .normal)
         button.setTitleColor(.lightGray, for: .normal)
         let image = UIImage(systemName: "exclamationmark.bubble")
@@ -21,35 +21,12 @@ class ReportButtonCell: CustomDetailCell {
         button.tintColor = .lightGray
         button.titleLabel?.adjustsFontSizeToFitWidth = true
         button.imageView?.contentMode = .scaleAspectFit
+        button.constrainWidth(constant: 120)
         return button
-    }()
-    
-    let bottomContainerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        return view
-    }()
-    
-    let paddingDummyView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.primaryGray()
-        view.constrainHeight(constant: 30)
-        return view
-    }()
-    
-    let roundDummyView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.constrainHeight(constant: 30)
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 8
-        view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
-        return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        backgroundColor = .gray
         contentView.isUserInteractionEnabled = false
         makeUI()
     }
@@ -60,21 +37,13 @@ class ReportButtonCell: CustomDetailCell {
     }
     
     private func makeUI() {
-        let buttonParentView = UIView()
-        buttonParentView.backgroundColor = .white
-        buttonParentView.constrainHeight(constant: 25)
-        buttonParentView.addSubview(reportButton)
+        containerView.clipsToBounds = true
+        containerView.layer.cornerRadius = 8
+        containerView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         
-        let dummyView = UIView()
-        dummyView.backgroundColor = UIColor.primaryGray()
+        containerView.addSubview(reportButton)
         
-        let stackView = UIStackView(arrangedSubviews: [buttonParentView, roundDummyView, paddingDummyView, dummyView])
-        
-        containerView.backgroundColor = UIColor.primaryGray()
-        stackView.axis = .vertical
-        containerView.addSubview(stackView)
-        stackView.fillSuperview()
-        
+        reportButton.anchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: containerView.bottomAnchor, trailing: nil, padding: .init(top: 10, left: 20, bottom: 20, right: 0))
     }
     
     func bind(to viewModel: ReportButtonCellViewModel) {

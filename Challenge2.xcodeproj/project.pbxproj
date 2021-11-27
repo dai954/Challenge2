@@ -97,6 +97,36 @@
 		095DC53C273919AE00547CE5 /* DropDownSearchButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC53B273919AE00547CE5 /* DropDownSearchButtonCell.swift */; };
 		095DC54027393C7400547CE5 /* DropDownFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC53F27393C7400547CE5 /* DropDownFloatingView.swift */; };
 		095DC542273B81EA00547CE5 /* AchievementRateCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095DC541273B81EA00547CE5 /* AchievementRateCellViewModel.swift */; };
+		095FE409274B5E760096D8A6 /* TeamCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE408274B5E760096D8A6 /* TeamCreateViewController.swift */; };
+		095FE40B274B61140096D8A6 /* TeamCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE40A274B61140096D8A6 /* TeamCreateViewModel.swift */; };
+		095FE40D274B61530096D8A6 /* TeamCreateImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE40C274B61530096D8A6 /* TeamCreateImageCell.swift */; };
+		095FE410274B67630096D8A6 /* TeamCreateCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE40F274B67630096D8A6 /* TeamCreateCategoryCell.swift */; };
+		095FE412274B6F130096D8A6 /* TeamCreateDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE411274B6F130096D8A6 /* TeamCreateDefaultCell.swift */; };
+		095FE414274B72AD0096D8A6 /* TeamCreateNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE413274B72AD0096D8A6 /* TeamCreateNameCell.swift */; };
+		095FE416274B77820096D8A6 /* TeamCreateOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE415274B77820096D8A6 /* TeamCreateOptionCell.swift */; };
+		095FE489275073AD0096D8A6 /* GeneralPickerKiyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE488275073AD0096D8A6 /* GeneralPickerKiyboardView.swift */; };
+		095FE48B275073C50096D8A6 /* BackGroundImageCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE48A275073C50096D8A6 /* BackGroundImageCollectionViewController.swift */; };
+		095FE48D2750762E0096D8A6 /* TeamCreateHeaderImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE48C2750762E0096D8A6 /* TeamCreateHeaderImageCell.swift */; };
+		095FE48F275076940096D8A6 /* TeamCreatePremiumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE48E275076940096D8A6 /* TeamCreatePremiumCell.swift */; };
+		095FE493275076A80096D8A6 /* TeamCreateBeginnerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE490275076A80096D8A6 /* TeamCreateBeginnerCell.swift */; };
+		095FE494275076A80096D8A6 /* TeamCreateChallengeTermCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE491275076A80096D8A6 /* TeamCreateChallengeTermCell.swift */; };
+		095FE495275076A80096D8A6 /* TeamCreateDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE492275076A80096D8A6 /* TeamCreateDescriptionCell.swift */; };
+		095FE497275076BF0096D8A6 /* TeamCreateOptionDefaultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE496275076BF0096D8A6 /* TeamCreateOptionDefaultCell.swift */; };
+		095FE49B275077010096D8A6 /* TeamCreateButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE498275077000096D8A6 /* TeamCreateButtonCell.swift */; };
+		095FE49C275077010096D8A6 /* TeamCreateOptionTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE499275077010096D8A6 /* TeamCreateOptionTopCell.swift */; };
+		095FE49D275077010096D8A6 /* TeamCreateOptionBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE49A275077010096D8A6 /* TeamCreateOptionBottomCell.swift */; };
+		095FE49F2750781A0096D8A6 /* PlaceHolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE49E2750781A0096D8A6 /* PlaceHolderTextView.swift */; };
+		095FE4A12750783F0096D8A6 /* RecommendTagCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4A02750783E0096D8A6 /* RecommendTagCollectionViewController.swift */; };
+		095FE4A32750784B0096D8A6 /* RecommendTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4A22750784B0096D8A6 /* RecommendTagCell.swift */; };
+		095FE4A5275081B90096D8A6 /* TeamCreateSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4A4275081B90096D8A6 /* TeamCreateSection.swift */; };
+		095FE4A7275148D50096D8A6 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4A6275148D50096D8A6 /* CategoryViewController.swift */; };
+		095FE4A9275149CC0096D8A6 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4A8275149CC0096D8A6 /* CategoryViewModel.swift */; };
+		095FE4AB27514CDF0096D8A6 /* OfficialAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4AA27514CDF0096D8A6 /* OfficialAppViewController.swift */; };
+		095FE4AD27514CF20096D8A6 /* OfficialAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4AC27514CF20096D8A6 /* OfficialAppViewModel.swift */; };
+		095FE4AF275151050096D8A6 /* CategorySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4AE275151050096D8A6 /* CategorySelectionViewController.swift */; };
+		095FE4B12751519C0096D8A6 /* CategorySelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4B02751519C0096D8A6 /* CategorySelectionViewModel.swift */; };
+		095FE4B3275200B20096D8A6 /* BaseScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4B2275200B20096D8A6 /* BaseScrollViewController.swift */; };
+		095FE4B62752016F0096D8A6 /* SelectionScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095FE4B52752016F0096D8A6 /* SelectionScrollViewController.swift */; };
 		09C55599272AA7130023D51C /* Configs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C55598272AA7130023D51C /* Configs.swift */; };
 		09C5559B272AA7FB0023D51C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C5559A272AA7FB0023D51C /* UIView+Extension.swift */; };
 		09C55665272E7CFB0023D51C /* CategorySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C55664272E7CFB0023D51C /* CategorySearchViewModel.swift */; };
@@ -228,6 +258,36 @@
 		095DC53B273919AE00547CE5 /* DropDownSearchButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownSearchButtonCell.swift; sourceTree = "<group>"; };
 		095DC53F27393C7400547CE5 /* DropDownFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownFloatingView.swift; sourceTree = "<group>"; };
 		095DC541273B81EA00547CE5 /* AchievementRateCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementRateCellViewModel.swift; sourceTree = "<group>"; };
+		095FE408274B5E760096D8A6 /* TeamCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreateViewController.swift; sourceTree = "<group>"; };
+		095FE40A274B61140096D8A6 /* TeamCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreateViewModel.swift; sourceTree = "<group>"; };
+		095FE40C274B61530096D8A6 /* TeamCreateImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreateImageCell.swift; sourceTree = "<group>"; };
+		095FE40F274B67630096D8A6 /* TeamCreateCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreateCategoryCell.swift; sourceTree = "<group>"; };
+		095FE411274B6F130096D8A6 /* TeamCreateDefaultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreateDefaultCell.swift; sourceTree = "<group>"; };
+		095FE413274B72AD0096D8A6 /* TeamCreateNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreateNameCell.swift; sourceTree = "<group>"; };
+		095FE415274B77820096D8A6 /* TeamCreateOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreateOptionCell.swift; sourceTree = "<group>"; };
+		095FE488275073AD0096D8A6 /* GeneralPickerKiyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPickerKiyboardView.swift; sourceTree = "<group>"; };
+		095FE48A275073C50096D8A6 /* BackGroundImageCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackGroundImageCollectionViewController.swift; sourceTree = "<group>"; };
+		095FE48C2750762E0096D8A6 /* TeamCreateHeaderImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateHeaderImageCell.swift; sourceTree = "<group>"; };
+		095FE48E275076940096D8A6 /* TeamCreatePremiumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreatePremiumCell.swift; sourceTree = "<group>"; };
+		095FE490275076A80096D8A6 /* TeamCreateBeginnerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateBeginnerCell.swift; sourceTree = "<group>"; };
+		095FE491275076A80096D8A6 /* TeamCreateChallengeTermCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateChallengeTermCell.swift; sourceTree = "<group>"; };
+		095FE492275076A80096D8A6 /* TeamCreateDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateDescriptionCell.swift; sourceTree = "<group>"; };
+		095FE496275076BF0096D8A6 /* TeamCreateOptionDefaultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateOptionDefaultCell.swift; sourceTree = "<group>"; };
+		095FE498275077000096D8A6 /* TeamCreateButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateButtonCell.swift; sourceTree = "<group>"; };
+		095FE499275077010096D8A6 /* TeamCreateOptionTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateOptionTopCell.swift; sourceTree = "<group>"; };
+		095FE49A275077010096D8A6 /* TeamCreateOptionBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCreateOptionBottomCell.swift; sourceTree = "<group>"; };
+		095FE49E2750781A0096D8A6 /* PlaceHolderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceHolderTextView.swift; sourceTree = "<group>"; };
+		095FE4A02750783E0096D8A6 /* RecommendTagCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendTagCollectionViewController.swift; sourceTree = "<group>"; };
+		095FE4A22750784B0096D8A6 /* RecommendTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendTagCell.swift; sourceTree = "<group>"; };
+		095FE4A4275081B90096D8A6 /* TeamCreateSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreateSection.swift; sourceTree = "<group>"; };
+		095FE4A6275148D50096D8A6 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		095FE4A8275149CC0096D8A6 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		095FE4AA27514CDF0096D8A6 /* OfficialAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialAppViewController.swift; sourceTree = "<group>"; };
+		095FE4AC27514CF20096D8A6 /* OfficialAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfficialAppViewModel.swift; sourceTree = "<group>"; };
+		095FE4AE275151050096D8A6 /* CategorySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewController.swift; sourceTree = "<group>"; };
+		095FE4B02751519C0096D8A6 /* CategorySelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionViewModel.swift; sourceTree = "<group>"; };
+		095FE4B2275200B20096D8A6 /* BaseScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseScrollViewController.swift; sourceTree = "<group>"; };
+		095FE4B52752016F0096D8A6 /* SelectionScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionScrollViewController.swift; sourceTree = "<group>"; };
 		09C55598272AA7130023D51C /* Configs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configs.swift; sourceTree = "<group>"; };
 		09C5559A272AA7FB0023D51C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		09C55664272E7CFB0023D51C /* CategorySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySearchViewModel.swift; sourceTree = "<group>"; };
@@ -393,10 +453,17 @@
 			children = (
 				095DC5082737B9EE00547CE5 /* AchievementRateCircleView.swift */,
 				095DC5002735BA3700547CE5 /* BottomView.swift */,
+				095FE49E2750781A0096D8A6 /* PlaceHolderTextView.swift */,
+				095FE488275073AD0096D8A6 /* GeneralPickerKiyboardView.swift */,
+				095FE48A275073C50096D8A6 /* BackGroundImageCollectionViewController.swift */,
+				095FE4A02750783E0096D8A6 /* RecommendTagCollectionViewController.swift */,
+				095FE4A22750784B0096D8A6 /* RecommendTagCell.swift */,
 				095DC4F62735500E00547CE5 /* ScreenshotCollectionViewController.swift */,
 				095D49E9273BFCD90067AF55 /* ScreenshotCollectionViewModel.swift */,
 				095D49ED273BFE8A0067AF55 /* ScreenshotCell.swift */,
 				095D49EB273BFD080067AF55 /* ScreenshotSection.swift */,
+				095FE4AE275151050096D8A6 /* CategorySelectionViewController.swift */,
+				095FE4B02751519C0096D8A6 /* CategorySelectionViewModel.swift */,
 			);
 			path = ViewComponent;
 			sourceTree = "<group>";
@@ -500,6 +567,38 @@
 			path = "DropDownView+Cell";
 			sourceTree = "<group>";
 		};
+		095FE407274B5E400096D8A6 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				095FE408274B5E760096D8A6 /* TeamCreateViewController.swift */,
+				095FE40A274B61140096D8A6 /* TeamCreateViewModel.swift */,
+				095FE4A4275081B90096D8A6 /* TeamCreateSection.swift */,
+				095FE40E274B616A0096D8A6 /* Cell */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		095FE40E274B616A0096D8A6 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				095FE411274B6F130096D8A6 /* TeamCreateDefaultCell.swift */,
+				095FE40C274B61530096D8A6 /* TeamCreateImageCell.swift */,
+				095FE48C2750762E0096D8A6 /* TeamCreateHeaderImageCell.swift */,
+				095FE40F274B67630096D8A6 /* TeamCreateCategoryCell.swift */,
+				095FE413274B72AD0096D8A6 /* TeamCreateNameCell.swift */,
+				095FE48E275076940096D8A6 /* TeamCreatePremiumCell.swift */,
+				095FE490275076A80096D8A6 /* TeamCreateBeginnerCell.swift */,
+				095FE491275076A80096D8A6 /* TeamCreateChallengeTermCell.swift */,
+				095FE492275076A80096D8A6 /* TeamCreateDescriptionCell.swift */,
+				095FE496275076BF0096D8A6 /* TeamCreateOptionDefaultCell.swift */,
+				095FE499275077010096D8A6 /* TeamCreateOptionTopCell.swift */,
+				095FE415274B77820096D8A6 /* TeamCreateOptionCell.swift */,
+				095FE49A275077010096D8A6 /* TeamCreateOptionBottomCell.swift */,
+				095FE498275077000096D8A6 /* TeamCreateButtonCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		09C55597272AA7050023D51C /* Configs */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,6 +684,12 @@
 				095D49E1273BEFFC0067AF55 /* CustomTableViewCellViewModel.swift */,
 				09D37F7027269C27003B4E6A /* ViewController.swift */,
 				09C5566A272E7EBF0023D51C /* ViewModelType.swift */,
+				095FE4A6275148D50096D8A6 /* CategoryViewController.swift */,
+				095FE4A8275149CC0096D8A6 /* CategoryViewModel.swift */,
+				095FE4AA27514CDF0096D8A6 /* OfficialAppViewController.swift */,
+				095FE4AC27514CF20096D8A6 /* OfficialAppViewModel.swift */,
+				095FE4B2275200B20096D8A6 /* BaseScrollViewController.swift */,
+				095FE4B52752016F0096D8A6 /* SelectionScrollViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -595,6 +700,7 @@
 				09D37FB72727C6C9003B4E6A /* Main */,
 				09D37FB82727C6D1003B4E6A /* Search */,
 				094C001527297BE200313907 /* Team */,
+				095FE407274B5E400096D8A6 /* Create */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -873,14 +979,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				095FE4A12750783F0096D8A6 /* RecommendTagCollectionViewController.swift in Sources */,
 				095DC47F2730EE4400547CE5 /* ChallengeAPIRequest.swift in Sources */,
 				09C55665272E7CFB0023D51C /* CategorySearchViewModel.swift in Sources */,
 				095DC4D32732CECB00547CE5 /* ChallengeAPI.swift in Sources */,
+				095FE49D275077010096D8A6 /* TeamCreateOptionBottomCell.swift in Sources */,
 				095D49F0273C39A50067AF55 /* String+Extension.swift in Sources */,
 				095DC4EA273514E900547CE5 /* DetailInfoCellViewModel.swift in Sources */,
 				095D49FA273D3C870067AF55 /* Wireframe.swift in Sources */,
+				095FE4A5275081B90096D8A6 /* TeamCreateSection.swift in Sources */,
 				094C000027292E0C00313907 /* FeedResult.swift in Sources */,
 				094C00252729AC3000313907 /* CustomCollectionViewCell.swift in Sources */,
+				095FE48B275073C50096D8A6 /* BackGroundImageCollectionViewController.swift in Sources */,
+				095FE4A32750784B0096D8A6 /* RecommendTagCell.swift in Sources */,
+				095FE49C275077010096D8A6 /* TeamCreateOptionTopCell.swift in Sources */,
 				095DC4F12735496500547CE5 /* AchievementRateCell.swift in Sources */,
 				095D49EC273BFD080067AF55 /* ScreenshotSection.swift in Sources */,
 				095DC53C273919AE00547CE5 /* DropDownSearchButtonCell.swift in Sources */,
@@ -890,23 +1002,33 @@
 				09D37FD52727FF57003B4E6A /* OfficialAppSearchCell.swift in Sources */,
 				095D49E4273BF21B0067AF55 /* TeamDetailImageCellViewModel.swift in Sources */,
 				095D4A3B27411C5C0067AF55 /* ActivityIndicator.swift in Sources */,
+				095FE414274B72AD0096D8A6 /* TeamCreateNameCell.swift in Sources */,
 				095DC4E02734E8FF00547CE5 /* MockResourceFeedAPI.swift in Sources */,
 				095D49EE273BFE8A0067AF55 /* ScreenshotCell.swift in Sources */,
 				094C00142729720400313907 /* TagCollectionViewCell.swift in Sources */,
 				094C000C272958F400313907 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				095DC4852730F29000547CE5 /* MnemonicCode.swift in Sources */,
+				095FE4AB27514CDF0096D8A6 /* OfficialAppViewController.swift in Sources */,
 				09D37FD12727EC57003B4E6A /* CategorySearchFooterReusableView.swift in Sources */,
 				09D37FCF2727E7F6003B4E6A /* CategoryResouce.swift in Sources */,
+				095FE410274B67630096D8A6 /* TeamCreateCategoryCell.swift in Sources */,
 				09E1A3252744F837001CE726 /* ChallengeSampleDataAPI.swift in Sources */,
+				095FE4B3275200B20096D8A6 /* BaseScrollViewController.swift in Sources */,
+				095FE49B275077010096D8A6 /* TeamCreateButtonCell.swift in Sources */,
+				095FE412274B6F130096D8A6 /* TeamCreateDefaultCell.swift in Sources */,
 				09D37FBF2727DBFB003B4E6A /* BaseSearchViewController.swift in Sources */,
+				095FE416274B77820096D8A6 /* TeamCreateOptionCell.swift in Sources */,
 				095DC4C82732747B00547CE5 /* MockChallengeAPI.swift in Sources */,
 				095DC4E6273514AC00547CE5 /* TeamDetailSection.swift in Sources */,
 				094C000A2729579700313907 /* TagSearchViewController.swift in Sources */,
 				09C55669272E7D9B0023D51C /* CategorySearchSection.swift in Sources */,
 				095D49F7273D2CB40067AF55 /* FavoriteRegisterCellViewModel.swift in Sources */,
+				095FE48F275076940096D8A6 /* TeamCreatePremiumCell.swift in Sources */,
 				095DC52F27390F9700547CE5 /* FloatingViewScrollDownDemo.swift in Sources */,
+				095FE489275073AD0096D8A6 /* GeneralPickerKiyboardView.swift in Sources */,
 				094C0012272971D000313907 /* TagSearchHeaderReusableView.swift in Sources */,
 				095DC4FB2735A5A400547CE5 /* DetailInfoCell.swift in Sources */,
+				095FE4AD27514CF20096D8A6 /* OfficialAppViewModel.swift in Sources */,
 				095D49E6273BF6230067AF55 /* DetailDescriptionCellViewModel.swift in Sources */,
 				095DC50B2737EB3D00547CE5 /* UILabel+Extension.swift in Sources */,
 				09D37F7127269C27003B4E6A /* ViewController.swift in Sources */,
@@ -917,15 +1039,21 @@
 				095DC5322739175E00547CE5 /* DropDownTableViewController.swift in Sources */,
 				095DC4E2273513B400547CE5 /* TeamDetailTableViewController.swift in Sources */,
 				095DC47B2730E98B00547CE5 /* ChallengeClientError.swift in Sources */,
+				095FE4B62752016F0096D8A6 /* SelectionScrollViewController.swift in Sources */,
 				095DC5382739193000547CE5 /* DropDownSearchSegmentedCell.swift in Sources */,
 				09D37F6D27269C27003B4E6A /* AppDelegate.swift in Sources */,
 				095DC4F327354C6400547CE5 /* DetailDescriptionCell.swift in Sources */,
+				095FE4B12751519C0096D8A6 /* CategorySelectionViewModel.swift in Sources */,
 				095DC4DA2734D12700547CE5 /* OfficialAppSearchSection.swift in Sources */,
 				095DC4F527354EA200547CE5 /* DetailScreenshotCell.swift in Sources */,
 				095DC4CA273274AF00547CE5 /* TeamListViewModel.swift in Sources */,
 				095DC4FD2735B6D900547CE5 /* FavoriteRegisterCell.swift in Sources */,
 				09D37FCA2727E3B6003B4E6A /* CategorySearchCell.swift in Sources */,
+				095FE4AF275151050096D8A6 /* CategorySelectionViewController.swift in Sources */,
 				095DC4CC2732756100547CE5 /* TeamListSection.swift in Sources */,
+				095FE49F2750781A0096D8A6 /* PlaceHolderTextView.swift in Sources */,
+				095FE4A9275149CC0096D8A6 /* CategoryViewModel.swift in Sources */,
+				095FE40B274B61140096D8A6 /* TeamCreateViewModel.swift in Sources */,
 				09D37FBD2727CC59003B4E6A /* ThemeManager.swift in Sources */,
 				095DC46B272FCA7200547CE5 /* TagSearchViewModel.swift in Sources */,
 				095D4A0D273F89040067AF55 /* UIAlertController+Extension.swift in Sources */,
@@ -937,19 +1065,23 @@
 				09D37FC62727E0B4003B4E6A /* UIColor+Extension.swift in Sources */,
 				09D37FCC2727E40D003B4E6A /* UIView+Layout.swift in Sources */,
 				094C001F2729A3E300313907 /* CustomTableViewCell.swift in Sources */,
+				095FE493275076A80096D8A6 /* TeamCreateBeginnerCell.swift in Sources */,
 				095DC5032736397F00547CE5 /* TableViewCell.swift in Sources */,
 				094C00212729AB7B00313907 /* TeamListCollectionViewController.swift in Sources */,
 				095DC4EE2735459800547CE5 /* TeamDetailImageCell.swift in Sources */,
 				09D37FD32727FE6D003B4E6A /* OfficialAppSearchViewController.swift in Sources */,
 				095D49F3273D04EC0067AF55 /* SampleTestTableViewController.swift in Sources */,
 				095D49FC273D3D520067AF55 /* ReportButtonCellViewModel.swift in Sources */,
+				095FE497275076BF0096D8A6 /* TeamCreateOptionDefaultCell.swift in Sources */,
 				095DC5092737B9EE00547CE5 /* AchievementRateCircleView.swift in Sources */,
+				095FE409274B5E760096D8A6 /* TeamCreateViewController.swift in Sources */,
 				095DC4FF2735B89800547CE5 /* ReportButtonCell.swift in Sources */,
 				095D49F5273D202E0067AF55 /* TeamDetailInfoResource.swift in Sources */,
 				095DC542273B81EA00547CE5 /* AchievementRateCellViewModel.swift in Sources */,
 				095DC5012735BA3700547CE5 /* BottomView.swift in Sources */,
 				095DC4792730E89100547CE5 /* App.swift in Sources */,
 				094C001927297C9000313907 /* TeamListTableViewController.swift in Sources */,
+				095FE48D2750762E0096D8A6 /* TeamCreateHeaderImageCell.swift in Sources */,
 				095DC48B273108C100547CE5 /* ChallengeClient.swift in Sources */,
 				095DC4812730EE7100547CE5 /* ChallengeRequest.swift in Sources */,
 				095DC4F72735500E00547CE5 /* ScreenshotCollectionViewController.swift in Sources */,
@@ -961,16 +1093,20 @@
 				095DC54027393C7400547CE5 /* DropDownFloatingView.swift in Sources */,
 				094C00272729AD6400313907 /* TeamListCollectionViewCell.swift in Sources */,
 				095DC4DC2734D21C00547CE5 /* OfficialAppSearchViewModel.swift in Sources */,
+				095FE40D274B61530096D8A6 /* TeamCreateImageCell.swift in Sources */,
 				095DC46D272FCD9700547CE5 /* TagSearchSection.swift in Sources */,
 				09D37F6F27269C27003B4E6A /* SceneDelegate.swift in Sources */,
 				095D49E2273BEFFC0067AF55 /* CustomTableViewCellViewModel.swift in Sources */,
 				095DC4E8273514C900547CE5 /* TeamDetailTableViewCell.swift in Sources */,
 				09C5566D272E7FB10023D51C /* UIViewController+RxExtension.swift in Sources */,
 				09E1A32727463AF4001CE726 /* CaluculateDropDownViewHeight.swift in Sources */,
+				095FE494275076A80096D8A6 /* TeamCreateChallengeTermCell.swift in Sources */,
 				095DC4CE273275B500547CE5 /* TeamListCellViewModel.swift in Sources */,
+				095FE4A7275148D50096D8A6 /* CategoryViewController.swift in Sources */,
 				094C000827293BDF00313907 /* TagResource.swift in Sources */,
 				09C5566B272E7EBF0023D51C /* ViewModelType.swift in Sources */,
 				09D37FC32727DF85003B4E6A /* BaseListController.swift in Sources */,
+				095FE495275076A80096D8A6 /* TeamCreateDescriptionCell.swift in Sources */,
 				095DC5052736522800547CE5 /* CustomDetailCell.swift in Sources */,
 				095DC534273917ED00547CE5 /* DropDownTextFieldCell.swift in Sources */,
 				095DC4832730EF2B00547CE5 /* HTTPMethod.swift in Sources */,

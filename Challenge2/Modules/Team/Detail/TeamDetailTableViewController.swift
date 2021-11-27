@@ -47,9 +47,9 @@ class TeamDetailTableViewController: ViewController {
         view.backgroundColor = UIColor.primaryGray()
         tableView.backgroundColor = UIColor.primaryGray()
 
-        tableView.allowsSelection = false
         tableView.separatorInset = .init(top: 0, left: 20, bottom: 0, right: 20)
-        tableView.contentInset = .init(top: 0, left: 0, bottom: 100, right: 0)
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 150, right: 0)
+        tableView.allowsSelection = false
 
         tableView.register(TeamDetailImageCell.self, forCellReuseIdentifier: TeamDetailImageCell.teamDetailImageCellId)
         tableView.register(AchievementRateCell.self, forCellReuseIdentifier: AchievementRateCell.cellId)
@@ -103,8 +103,8 @@ class TeamDetailTableViewController: ViewController {
         }
 
         let input = TeamDetailViewModel.Input(willDisplayCellEvent: tableView.rx.willDisplayCell.asDriver())
-        
         let output = viewModel.transform(input: input)
+        
         output.teamDetailSections
             .drive(tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)

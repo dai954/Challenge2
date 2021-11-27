@@ -26,10 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Count number of rx object (Observables, Observers, Disposables, etc.).
         
-        let timer = Timer(timeInterval: 3.0, target: BlockOperation.init(block: {
-                print("Resource count \(RxSwift.Resources.total)")
-            }), selector: #selector(Operation.main), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer, forMode: .common)
+//        let timer = Timer(timeInterval: 3.0, target: BlockOperation.init(block: {
+//                print("Resource count \(RxSwift.Resources.total)")
+//            }), selector: #selector(Operation.main), userInfo: nil, repeats: true)
+//        RunLoop.main.add(timer, forMode: .common)
         
         return true
     }
