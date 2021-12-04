@@ -22,6 +22,7 @@ class TeamCreateButtonCell: TeamCreateDefaultCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        separatorInset = .init(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         
         containerView.clipsToBounds = true
         containerView.layer.cornerRadius = 8

@@ -25,6 +25,20 @@ class TagSearchViewController: ViewController {
         navigationController?.view.layoutIfNeeded()
     }
     
+    func addDissmissKeyboardTapGenture() {
+        
+        let tapGesture = UITapGestureRecognizer(
+                    target: self,
+            action: #selector(dismissKeyboard(_:)))
+                tapGesture.cancelsTouchesInView = false
+                view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        searchBar.endEditing(true)
+        print("dismissKeyboard for tag")
+    }
+    
     override func makeUI() {
         super.makeUI()
         navigationItem.titleView = searchBar
@@ -43,18 +57,6 @@ class TagSearchViewController: ViewController {
         
         view.addSubview(collectionView)
         collectionView.fillSuperview()
-    }
-    
-    private func addDissmissKeyboardTapGenture() {
-        let tapGesture = UITapGestureRecognizer(
-                    target: self,
-                    action: #selector(dismissKeyboard))
-                tapGesture.cancelsTouchesInView = false
-                view.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc private func dismissKeyboard() {
-            searchBar.endEditing(true)
     }
     
     override func bindViewModel() {

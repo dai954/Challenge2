@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     let navBar: UINavigationBar = {
         let bar = UINavigationBar()
         let navItem = UINavigationItem()
-        let stopItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.stop, target: nil, action: #selector(dissmissView))
+        let stopItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.stop, target: nil, action: #selector(dissmissModalView))
         navItem.rightBarButtonItem = stopItem
         bar.setItems([navItem], animated: false)
         bar.tintColor = .white
@@ -81,13 +81,35 @@ class ViewController: UIViewController {
     
     @objc private func plusButtonTapped() {
         let vc = TeamCreateViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        vc.navigationItem.title = "チーム作成"
+        vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: vc, action: #selector(dissmissView))
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: vc, action: nil)
+        
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.moveIn
+        transition.subtype = CATransitionSubtype.fromTop
+        navigationController?.view.layer.add(transition, forKey: nil)
+        navigationController?.pushViewController(vc, animated: false)
+        
+        tabBarController?.tabBar.isHidden = true
     }
     
     @objc func dissmissView(){
-            self.dismiss(animated: true, completion: nil)
+        let transition = CATransition()
+            transition.duration = 0.3
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.reveal
+        transition.subtype = CATransitionSubtype.fromBottom
+            navigationController?.view.layer.add(transition, forKey: nil)
+            _ = navigationController?.popViewController(animated: false)
+        
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    @objc func dissmissModalView() {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
-

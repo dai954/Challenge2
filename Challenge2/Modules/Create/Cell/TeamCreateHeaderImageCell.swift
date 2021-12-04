@@ -7,11 +7,11 @@
 
 import UIKit
 
-class TeamCreateHeaderImageCell: TeamCreateDefaultCell, PickableCellType {
+class TeamCreateHeaderImageCell: TeamCreateDefaultCell {
     
     static let cellId = "HeaderImageCellId"
     
-    let pickerKeyboardView = GeneralPickerKiyboardView(pickerKeyboardType: .selectBackImage)
+//    let pickerKeyboardView = GeneralPickerKiyboardView(pickerKeyboardType: .selectBackImage)
     
     let headerImage: UIImageView = {
         let imageView = UIImageView()
@@ -23,7 +23,7 @@ class TeamCreateHeaderImageCell: TeamCreateDefaultCell, PickableCellType {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(pickerKeyboardView)
+//        addSubview(pickerKeyboardView)
         titleLabel.text = "ヘッダー画像"
 
         rightContainerView.addSubview(headerImage)
@@ -36,6 +36,10 @@ class TeamCreateHeaderImageCell: TeamCreateDefaultCell, PickableCellType {
         headerImage.centerYInSuperview()
         headerImage.anchor(top: nil, leading: nil, bottom: nil, trailing: pullDownImage.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 10))
         
+    }
+    
+    func bind(to viewModel: TeamCreateHeaderImageCellViewModel) {
+        viewModel.backImageSelection.drive(headerImage.rx.image).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {

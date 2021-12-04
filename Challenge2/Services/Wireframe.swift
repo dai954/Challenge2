@@ -16,6 +16,7 @@ class DefaultWireframe: Wireframe {
     static let shared = DefaultWireframe()
     
     static func rootViewController() -> UIViewController {
+        print((UIApplication.shared.windows.first { $0.isKeyWindow }?.rootViewController)!)
         return (UIApplication.shared.windows.first { $0.isKeyWindow }?.rootViewController)!
     }
     
@@ -42,7 +43,9 @@ class DefaultWireframe: Wireframe {
                 }))
             }
             
-            DefaultWireframe.rootViewController().present(alertView, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                DefaultWireframe.rootViewController().present(alertView, animated: true, completion: nil)
+            }
             
             return Disposables.create {
                 print("actionSheet disposed")

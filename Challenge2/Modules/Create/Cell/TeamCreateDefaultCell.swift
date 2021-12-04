@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeamCreateDefaultCell: UITableViewCell {
+class TeamCreateDefaultCell: TableViewCell {
    
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -17,11 +17,6 @@ class TeamCreateDefaultCell: UITableViewCell {
     let rightLabel: UILabel = {
         let label = UILabel()
         return label
-    }()
-    
-    let textField: UITextField = {
-        let field = UITextField()
-        return field
     }()
     
     let switchButton: UISwitch = {
@@ -58,12 +53,14 @@ class TeamCreateDefaultCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.primaryGray()
-
+        selectionStyle = .none
+        
         addSubview(containerView)
         containerView.addSubview(titleLabel)
         containerView.addSubview(rightContainerView)
-      
         containerView.anchor(top: nil, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 0, left: 10, bottom: 0, right: 10))
+        
+        
         containerView.translatesAutoresizingMaskIntoConstraints = false
         containerViewTopAnchor = containerView.topAnchor.constraint(equalTo: topAnchor)
         containerViewTopAnchor.isActive = true

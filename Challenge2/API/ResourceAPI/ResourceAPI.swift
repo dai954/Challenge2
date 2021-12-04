@@ -35,6 +35,12 @@ class ResourceAPI: ResourceFeedAPIType {
         }
         return Observable.just(tagSections)
     }
+    
+    func getBackImageSections() -> Observable<[BackGroundImageSection]> {
+        let backImageResources = BackImageResource.allCases
+        let backImageSection = BackGroundImageSection(header: "header", items: backImageResources)
+        return Observable.just([backImageSection])
+    }
 
     func getFeedResult() -> Observable<FeedResult?> {
 //        let limitNumber = 10

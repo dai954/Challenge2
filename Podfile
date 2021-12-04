@@ -10,6 +10,7 @@ target 'Challenge2' do
     pod 'RxSwift', '6.2.0'
     pod 'RxCocoa', '6.2.0'
     pod 'RxOptional'
+    pod "RxGesture"
     pod 'RxDataSources', '~> 5.0'
     pod 'Kingfisher', '~> 7.0'
 

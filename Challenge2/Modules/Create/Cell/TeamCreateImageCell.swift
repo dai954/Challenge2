@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeamCreateImageCell: DefaultTableViewCell {
+class TeamCreateImageCell: CustomTableViewCell {
     
     static let teamCreatecellId = "TeamCreateImageCellId"
     
@@ -19,8 +19,14 @@ class TeamCreateImageCell: DefaultTableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         teamImage.image = #imageLiteral(resourceName: "backImage1")
         memberImage1.image = #imageLiteral(resourceName: "garden")
+        starImage.isHidden = true
+        fullTeamTag.isHidden = true
+        beginerTag.isHidden = true
+        premireTagImage.isHidden = true
+        
         
         addSubview(topContainerView)
         topContainerView.addSubview(defaultContainerView)
@@ -31,6 +37,18 @@ class TeamCreateImageCell: DefaultTableViewCell {
         topContainerView.layer.cornerRadius = 8
         topContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         lowerView.constrainHeight(constant: 45)
+        
+        NotificationCenter.default.rx.notification(Notification.Name("backImageNotification"), object: nil)
+            .subscribe(onNext: { [weak self] notification in
+                let image = notification.userInfo.value?["pickedBackImage"] as? UIImage
+                self?.teamImage.image = image
+            }).disposed(by: disposeBag)
+    }
+    
+    func bind(to viewModel: TeamCreateImageCellViewModel) {
+        viewModel.backImageSelection.drive(teamImage.rx.image).disposed(by: disposeBag)
+        viewModel.premireIsHidden.drive(premireTagImage.rx.isHidden).disposed(by: disposeBag)
+        viewModel.beginnerIsHidden.drive(beginerTag.rx.isHidden).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {

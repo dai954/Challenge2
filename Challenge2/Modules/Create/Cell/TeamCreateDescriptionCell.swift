@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import RxOptional
 
 protocol descriptionTextViewDelegate: NSObject {
     func descriptionTextViewDidChanged()
@@ -17,14 +20,13 @@ class TeamCreateDescriptionCell: TeamCreateDefaultCell, UITextViewDelegate {
     
     weak var delegate: descriptionTextViewDelegate?
     
-    var controller: TeamCreateViewController?
-    
     let textView: PlaceHolderTextView = {
-        let tView = PlaceHolderTextView(frame: .init(x: 0, y: 0, width: 0, height: 300))
+        let tView = PlaceHolderTextView()
         tView.isScrollEnabled = false
         tView.font = .systemFont(ofSize: 12)
         tView.backgroundColor = .clear
         tView.placeHolder = "例) みんなで仲良く励まし合いながら、それぞれのペースで目標達成を目指すチームです。"
+        tView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100).isActive = true
         return tView
     }()
     
@@ -38,8 +40,7 @@ class TeamCreateDescriptionCell: TeamCreateDefaultCell, UITextViewDelegate {
     
     let descriptionBackGroundView: UIView = {
         let view = UIView()
-//        view.backgroundColor = .white
-        view.backgroundColor = UIColor(red: 255/255, green: 0, blue: 0, alpha: 0.1)
+        view.backgroundColor = .white
         return view
     }()
     
@@ -54,6 +55,7 @@ class TeamCreateDescriptionCell: TeamCreateDefaultCell, UITextViewDelegate {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.isUserInteractionEnabled = false
+        separatorInset = .init(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
         
         textView.delegate = self
         titleLabel.text = "チームの説明文"
@@ -82,20 +84,55 @@ class TeamCreateDescriptionCell: TeamCreateDefaultCell, UITextViewDelegate {
         tagControllerBackGroundView.addSubview(tagTitleLabel)
         containerView.addSubview(overallStackView)
         
-        textView.heightAnchor.constraint(greaterThanOrEqualToConstant: 100).isActive = true
-        recommendTagCollectionViewController.view.constrainHeight(constant: 40)
-        vStackView.fillSuperview(padding: .init(top: 10, left: 20, bottom: 10, right: 20))
-        recommendTagCollectionViewController.view.fillSuperview(padding: .init(top: 20, left: 0, bottom: 10, right: 0))
-        tagTitleLabel.anchor(top: nil, leading: recommendTagCollectionViewController.view.leadingAnchor, bottom: recommendTagCollectionViewController.view.topAnchor, trailing: nil, padding: .init(top: 0, left: 20, bottom: 0, right: 0))
-        overallStackView.fillSuperview()
+        recommendTagCollectionViewController.view.constrainHeight(constant: 50)
         
+        vStackView.fillSuperview(padding: .init(top: 10, left: 20, bottom: 10, right: 20))
+        recommendTagCollectionViewController.view.fillSuperview(padding: .init(top: 20, left: 0, bottom: 0, right: 0))
+        tagTitleLabel.anchor(top: tagControllerBackGroundView.topAnchor, leading: recommendTagCollectionViewController.view.leadingAnchor, bottom: recommendTagCollectionViewController.view.topAnchor, trailing: nil, padding: .init(top: 0, left: 20, bottom: 0, right: 0))
+        overallStackView.fillSuperview()
     }
     
     func textViewDidChange(_ textView: UITextView) {
         self.delegate?.descriptionTextViewDidChanged()
     }
     
+    func bind(to viewModel: TeamCreateDescriptionCellViewModel) {
+        
+        viewModel.parentViewTappedTrigger.drive(onNext: { [weak self] in
+            print("parentViewTappedTrigger")
+            self?.textView.endEditing(false)
+        }).disposed(by: disposeBag)
+        
+        let input = TeamCreateDescriptionCellViewModel.Input(textEditingEvent: textView.rx.text.asDriver().filterNil())
+        let output = viewModel.transform(input: input)
+        
+        output.validatedTextField.drive(rightLabel.rx.textFieldValidationResult).disposed(by: disposeBag)
+        output.validatedTextField.drive(descriptionBackGroundView.rx.textFieldValidationResult).disposed(by: disposeBag)
+   
+        // bind to recommendTagCollectionViewController
+//        recommendTagCollectionViewController.collectionView.rx.modelSelected(RecommendedHashTag.self)
+//            .subscribe(onNext: { [weak self] recommendedHashTag in
+//                self?.textView.insertText(recommendedHashTag.text)
+//            }).disposed(by: disposeBag)
+        
+        recommendTagCollectionViewController.tagButtonTappedRelay.asDriver(onErrorJustReturn: "")
+            .drive(onNext: { [weak self] text in
+                self?.textView.insertText(text)
+            }).disposed(by: disposeBag)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension Reactive where Base: TeamCreateDescriptionCell {
+    
+    var textViewDidBeginEditing: ControlEvent<()> {
+        return base.textView.rx.didBeginEditing
+    }
+    
+    var textViewDidEndEditing: ControlEvent<()> {
+        return base.textView.rx.didEndEditing
     }
 }

@@ -19,6 +19,11 @@ class TeamCreateBeginnerCell: TeamCreateDefaultCell {
         titleLabel.anchor(top: containerView.topAnchor, leading: containerView.leadingAnchor, bottom: containerView.bottomAnchor, trailing: nil, padding: .init(top: 12, left: 20, bottom: 12, right: 20))
     }
     
+    func bind(to viewModel: TeamCreateBeginnerCellViewModel) {
+        viewModel.beginnerSwitchEnabled.drive(switchButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.beginnerTitleAlpha.drive(rx.alpha).disposed(by: disposeBag)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

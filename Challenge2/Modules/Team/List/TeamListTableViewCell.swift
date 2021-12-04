@@ -34,7 +34,7 @@ class TeamListTableViewCell: CustomTableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         print("TeamListTableViewCell init")
-        selectedBackgroudViewClear()
+        selectionStyle = .none
         
         addSubview(containerView)
         containerView.fillSuperview(padding: .init(top: 5, left: 10, bottom: 5, right: 10))
@@ -52,12 +52,6 @@ class TeamListTableViewCell: CustomTableViewCell {
         
     }
     
-    private func selectedBackgroudViewClear() {
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .clear
-        selectedBackgroundView = backgroundView
-    }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -10,13 +10,11 @@ import UIKit
 class TeamCreateChallengeTermCell: TeamCreateDefaultCell {
     static let cellId = "TeamCreateChallengeTermCellId"
     
-    let pickerKeyboardView = GeneralPickerKiyboardView(pickerKeyboardType: .normal)
-    
     override init(style: UITableViewCell.CellStyle = .value1, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(pickerKeyboardView)
+
         titleLabel.text = "チャレンジ期間"
-        rightLabel.text = "21日間"
+        rightLabel.text = "7日間"
         rightLabel.textColor = .lightGray
         
         rightContainerView.addSubview(rightLabel)
@@ -30,6 +28,10 @@ class TeamCreateChallengeTermCell: TeamCreateDefaultCell {
         rightLabel.anchor(top: nil, leading: nil, bottom: nil, trailing: pullDownImage.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 10))
         rightLabel.centerYInSuperview()
         
+    }
+    
+    func bind(to viewModel: TeamCreateChallengeTermCellViewModel) {
+        viewModel.textSelection.drive(rightLabel.rx.text).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {

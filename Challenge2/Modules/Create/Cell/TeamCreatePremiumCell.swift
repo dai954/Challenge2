@@ -31,6 +31,16 @@ class TeamCreatePremiumCell: TeamCreateDefaultCell {
         
         questionButton.anchor(top: nil, leading: titleLabel.trailingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 10, bottom: 0, right: 0))
         questionButton.centerYInSuperview()
+
+    }
+    
+    func bind(to viewModel: TeamCreatePremiumCellViewModel) {
+        viewModel.premiumSwitchIsEnabled.drive(switchButton.rx.isEnabled).disposed(by: disposeBag)
+        viewModel.premiumTitleAlpha.drive(rx.alpha).disposed(by: disposeBag)
+        
+        let input = TeamCreatePremiumCellViewModel.Input(questionButtonTapped: questionButton.rx.tap.asSignal())
+        viewModel.wireAction(input: input)
+        
     }
     
     required init?(coder: NSCoder) {

@@ -17,8 +17,6 @@ class ScreenshotCollectionViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        makeUI()
-        bindViewModel()
 
     }
     

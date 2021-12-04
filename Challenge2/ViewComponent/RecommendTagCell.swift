@@ -6,19 +6,18 @@
 //
 
 import UIKit
+import RxSwift
 
 class RecommendTagCell: UICollectionViewCell {
     
     static let cellId = "RecommendTagCellId"
     
-    let tagLabel: UILabel = {
-        let label = UILabel()
-        label.backgroundColor = .white
-        label.textColor = UIColor.primaryRed()
-        label.text = "#タグ"
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
+    var disposeBag = DisposeBag()
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
     
     let tagContanerView: UIView = {
         let view = UIView()
@@ -30,13 +29,36 @@ class RecommendTagCell: UICollectionViewCell {
         return view
     }()
     
+    let tagButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("#タグ", for: .normal)
+        button.setTitleColor(UIColor.primaryRed(), for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 14)
+        return button
+    }()
+
+    
+    @objc private func controlTapped() {
+        print("controlTapped")
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(tagContanerView)
-        tagContanerView.addSubview(tagLabel)
         
-        tagLabel.fillSuperview(padding: .init(top: 5, left: 5, bottom: 5, right: 5))
+        tagContanerView.addSubview(tagButton)
+        tagButton.fillSuperview(padding: .init(top: 0, left: 5, bottom: 0, right: 5))
+
         tagContanerView.fillSuperview()
+        
+        tagButton.rx.tap
+            .subscribe(onNext: {
+                print("tapButton tapped")
+            }).disposed(by: disposeBag)
+    }
+    
+    @objc func labelTapped() {
+        print("labelTapped")
     }
     
     required init?(coder: NSCoder) {

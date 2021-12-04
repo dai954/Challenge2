@@ -7,13 +7,13 @@
 
 import UIKit
 
-class TeamCreateOptionDefaultCell: TeamCreateDefaultCell, PickableCellType {
+class TeamCreateOptionDefaultCell: TeamCreateDefaultCell {
     
-    let pickerKeyboardView = GeneralPickerKiyboardView(pickerKeyboardType: .normal)
+//    let pickerKeyboardView = GeneralPickerKiyboardView(pickerKeyboardType: .normal)
     
     override init(style: UITableViewCell.CellStyle = .value1, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(pickerKeyboardView)
+//        addSubview(pickerKeyboardView)
         rightLabel.textColor = .lightGray
         
         

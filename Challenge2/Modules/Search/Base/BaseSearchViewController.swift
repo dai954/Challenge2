@@ -148,7 +148,6 @@
 //}
 
 
-
 import UIKit
 
 final class BaseSearchViewController: BaseScrollViewController {

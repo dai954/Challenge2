@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TeamCreateCategoryCell: TeamCreateDefaultCell {
     static let cellId = "TeamCreateCategoryCellId"
@@ -26,6 +28,12 @@ class TeamCreateCategoryCell: TeamCreateDefaultCell {
         
         rightLabel.anchor(top: nil, leading: nil, bottom: nil, trailing: pullDownImage.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 10))
         rightLabel.centerYInSuperview()
+        
+    }
+    
+    func bind(to viewModel: TeamCreateCategoryCellViewModel) {
+        
+        viewModel.categoryCellTapped.drive(rightLabel.rx.text).disposed(by: disposeBag)
         
     }
     

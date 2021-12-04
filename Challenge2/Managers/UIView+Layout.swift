@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    
+
     @discardableResult
     func anchor(top: NSLayoutYAxisAnchor?, leading: NSLayoutXAxisAnchor?, bottom: NSLayoutYAxisAnchor?, trailing: NSLayoutXAxisAnchor?, padding: UIEdgeInsets = .zero, size: CGSize = .zero) -> AnchoredConstraints {
         
@@ -40,7 +40,7 @@ extension UIView {
         }
         
         [anchoredConstraints.top, anchoredConstraints.leading, anchoredConstraints.bottom, anchoredConstraints.trailing, anchoredConstraints.width, anchoredConstraints.height].forEach{ $0?.isActive = true }
-        
+
         return anchoredConstraints
     }
     

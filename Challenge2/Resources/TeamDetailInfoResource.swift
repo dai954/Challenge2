@@ -83,13 +83,28 @@ enum AgeRestrict {
     }
 }
 
-enum challengeTerm {
-    case seven, twenty, ninety
+protocol PickerDataType {
+    var text: String {get}
+    var description: String{get}
+}
+
+enum ChallengeTerm: Int, PickerDataType, CaseIterable, CustomStringConvertible {
+    
+    case seven, twentyOne, ninety
+    
     var text: String {
         switch self {
-        case .seven: return "残り7日間"
-        case .twenty: return "残り20日間"
-        case .ninety: return "残り90日間"
+        case .seven: return "7日間"
+        case .twentyOne: return "21日間"
+        case .ninety: return "90日間"
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .seven: return "試しにはじめたい人にオススメです。\n7日間継続できれば、50%の人が\nその後も習慣化に成功すると言われています。"
+        case .twentyOne: return "きちんと習慣化したい人にオススメです。\n21日間継続できれば、70%の人が\nその後も習慣化に成功すると言われています。"
+        case .ninety: return "絶対に習慣化したい人におすすめです。\n90日間継続できれば、90%の人が\nその後も習慣化に成功すると言われています。"
         }
     }
 }
@@ -156,6 +171,48 @@ enum TeamWelcome {
         case .full: return  "満員"
         case .premire: return ""
         case .no: return ""
+        }
+    }
+}
+
+
+//Team Create Resource
+
+enum TeamLevelTag: CustomStringConvertible {
+    
+    case premire
+    case beginner
+    case normal
+    
+    var description: String {
+        switch self {
+        case .premire: return "プレミアユーザーのみ設定可能です。ONにするとプレミアムユーザーのみ参加可能なチームを作ることができます。初心者歓迎アイコンとの併用はできません。"
+        default: return ""
+        }
+    }
+    
+    var wireTitle: String {
+        switch self {
+        case .premire: return "プレミアム専用チーム"
+        default: return ""
+        }
+    }
+    
+}
+
+
+enum RecommendedHashTag: CaseIterable {
+    case diet, helth, everydayPost, mokumoku, maypace, enjoyConversation, training
+    
+    var text: String {
+        switch self {
+        case .diet: return "#ダイエット"
+        case .helth: return "#健康"
+        case .everydayPost: return "#毎日投稿"
+        case .mokumoku: return "#もくもくと"
+        case .maypace: return "#マイペース"
+        case .enjoyConversation: return "#楽しく会話"
+        case .training: return "#トレーニング"
         }
     }
 }

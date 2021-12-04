@@ -18,6 +18,12 @@ class CategorySelectionViewController: CategoryViewController {
     override func makeUI() {
         super.makeUI()
     }
+    
+    private let categoryCellTappedRelay = PublishRelay<String>()
+    
+    var categoryCellTappedObservable: Observable<String> {
+        return categoryCellTappedRelay.asObservable()
+    }
 
     override func bindViewModel() {
         super.bindViewModel()
@@ -27,7 +33,7 @@ class CategorySelectionViewController: CategoryViewController {
         let output = viewModel.transform(input: input)
 
         output.categorySelectedTitle.drive(onNext: { [weak self] title in
-            print(title)
+            self?.categoryCellTappedRelay.accept(title)
             self?.dismiss(animated: true, completion: nil)
         }).disposed(by: disposeBag)
     }
